@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'src/app/screens/Auth/Login/login_screen.dart';
+import 'src/app/screens/Auth/Forgot/forgot_screen.dart';
 import 'src/core/themes/appcolors.dart';
 import 'src/core/themes/themedata.dart';
 import 'src/core/utils/unfocusnode.dart';
@@ -20,11 +20,11 @@ class MyApp extends StatelessWidget {
     return GestureDetector(
       onTap: () {
         unFocusNode(context);
-      },
+      },  
       child: MaterialApp(
         debugShowCheckedModeBanner: false,
         theme: appTheme,
-        home:  LoginScreen(),
+        home: ForgotScreen(),
       ),
     );
   }
