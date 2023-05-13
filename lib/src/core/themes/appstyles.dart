@@ -274,6 +274,15 @@ abstract class AppStyles {
     fontStyle: FontStyle.normal,
   );
 
+    // text 32px
+  //regular
+  static TextStyle text30Px = GoogleFonts.openSans(
+    fontSize: 30.sp,
+    height: calculateHeight(43, 36),
+    fontStyle: FontStyle.normal,
+    letterSpacing: calculateSpacing(-0.02),
+  );
+
   // text 32px
   //regular
   static TextStyle text32Px = GoogleFonts.openSans(

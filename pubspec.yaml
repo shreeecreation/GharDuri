@@ -12,7 +12,7 @@ dependencies:
     sdk: flutter
     
   adaptive_sizer: ^0.0.4
-  
+
   #using the google fonts
   google_fonts: ^4.0.1
 
@@ -36,10 +36,12 @@ dev_dependencies:
 
 flutter:
   uses-material-design: true
-  # assets:
-  #   - 
-  #   - images/a_dot_ham.jpeg
-
+  assets:
+    - assets/images/
+    - .env.example
+    - .env.production
+    - .env.development
+    - .env
   # fonts:
   #   - family: Schyler
   #     fonts:
