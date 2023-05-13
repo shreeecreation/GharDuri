@@ -71,9 +71,9 @@ class LoginScreen extends StatelessWidget {
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                    child: Text("पासवर्ड बिर्सनुभयो? ", style: AppStyles.text18PxSemiBold))),
+                    child: Text("अगाडी बढ्नुहोस  ", style: AppStyles.text18PxSemiBold))),
             const SizedBox(height: 20),
-            const Text(""),
+            Text("पासवर्ड बिर्सनुभयो?", style: AppStyles.text16Px.textGrey),
           ]),
         ),
       ]),
