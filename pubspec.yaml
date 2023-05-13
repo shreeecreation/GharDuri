@@ -26,6 +26,9 @@ dependencies:
   #routing
   get: ^4.6.5
 
+  #otp input 
+  pinput: ^2.2.31
+
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
