@@ -29,6 +29,8 @@ dependencies:
   #otp input 
   pinput: ^2.2.31
 
+  
+
   cupertino_icons: ^1.0.2
 
 dev_dependencies:
@@ -45,6 +47,7 @@ flutter:
     - .env.production
     - .env.development
     - .env
+    - assets/Json Files/checkbox_question.json
   # fonts:
   #   - family: Schyler
   #     fonts:
