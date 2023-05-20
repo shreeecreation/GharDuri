@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/core/Routes/AuthRoutes/auth_routes.dart';
+import 'package:ghardhuri/src/core/Routes/QuestionRoutes/question_routes.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
@@ -66,13 +68,18 @@ class LoginScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 1.2,
                 child: ElevatedButton(
                     onPressed: () async {
-                      //TODO login functionality
+                      //TODO Forgot password functionality
+                      QuestionRoute.questionRoute();
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
                     child: Text("अगाडी बढ्नुहोस  ", style: AppStyles.text18PxSemiBold))),
             const SizedBox(height: 20),
-            Text("पासवर्ड बिर्सनुभयो?", style: AppStyles.text16Px.textGrey),
+            TextButton(
+                onPressed: () {
+                  AuthRoutes.forgotPasswordRoute();
+                },
+                child: Text("पासवर्ड बिर्सनुभयो?", style: AppStyles.text16Px.textGrey)),
           ]),
         ),
       ]),

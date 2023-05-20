@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class CheckBoxQuestions extends StatelessWidget {
-  const CheckBoxQuestions({super.key});
+class Questions extends StatelessWidget {
+  const Questions({super.key});
 
   @override
   Widget build(BuildContext context) {

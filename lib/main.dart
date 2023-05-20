@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'src/app/screens/Auth/Reset/reset_screen.dart';
+import 'package:get/get.dart';
+import 'src/app/screens/Splash/splash_screen.dart';
 import 'src/core/themes/appcolors.dart';
 import 'src/core/themes/themedata.dart';
 import 'src/core/utils/unfocusnode.dart';
@@ -21,10 +22,10 @@ class MyApp extends StatelessWidget {
       onTap: () {
         unFocusNode(context);
       },
-      child: MaterialApp(
+      child: GetMaterialApp(
         debugShowCheckedModeBanner: false,
         theme: appTheme,
-        home: ResetScreen(),
+        home: const SplashScreen(),
       ),
     );
   }

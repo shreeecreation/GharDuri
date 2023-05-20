@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/core/Routes/AuthRoutes/auth_routes.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
@@ -75,7 +76,8 @@ class ResetScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 1.2,
                 child: ElevatedButton(
                     onPressed: () async {
-                      //TODO Reset functionality
+                      //TODO chnage password
+                      AuthRoutes.changePasswordRoute();
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
