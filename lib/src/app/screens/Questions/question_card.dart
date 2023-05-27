@@ -1,83 +1,63 @@
 import 'package:flutter/material.dart';
 
-class QuestionCard extends StatelessWidget {
-  final int questionIndex;
-  final String question;
-  final List<String> options;
-  final int selectedOptionIndex;
-  final ValueChanged<int> onOptionSelected;
+import 'Questions Utils/question_checkbox.dart';
 
-  const QuestionCard({super.key, 
-    required this.questionIndex,
-    required this.question,
-    required this.options,
-    required this.selectedOptionIndex,
-    required this.onOptionSelected,
-  });
+class QuestionCard extends StatefulWidget {
+  // ignore: prefer_typing_uninitialized_variables
+  final question;
+
+  const QuestionCard({super.key, required this.question});
 
   @override
-  Widget build(BuildContext context) {
-    return Card(
-      elevation: 2,
-      shape: RoundedRectangleBorder(
-        borderRadius: BorderRadius.circular(10),
-        side: const BorderSide(color: Colors.grey),
-      ),
-      child: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              '${questionIndex + 1}. $question',
-              style: const TextStyle(
-                fontSize: 18,
-                fontWeight: FontWeight.bold,
-              ),
-            ),
-            const SizedBox(height: 10),
-            Column(
-              children: List.generate(
-                options.length,
-                (index) => OptionCheckBox(
-                  title: options[index],
-                  isChecked: selectedOptionIndex == index,
-                  onChanged: () {
-                    onOptionSelected(index);
-                  },
-                ),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
-  }
+  State<QuestionCard> createState() => _QuestionCardState();
 }
 
-class OptionCheckBox extends StatelessWidget {
-  final String title;
-  final bool isChecked;
-  final VoidCallback onChanged;
-
-  const OptionCheckBox({super.key, 
-    required this.title,
-    required this.isChecked,
-    required this.onChanged,
-  });
-
+class _QuestionCardState extends State<QuestionCard> {
+  var selectedOption = "";
   @override
   Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Checkbox(
-          value: isChecked,
-          onChanged: (value) {
-            onChanged();
-          },
+    return Padding(
+      padding: const EdgeInsets.all(8.0),
+      child: Card(
+        elevation: 2,
+        color: const Color(0xFFF1F1F1),
+        shape: RoundedRectangleBorder(
+          side: const BorderSide(color: Color(0xFFF1F1F1)),
+          borderRadius: BorderRadius.circular(10),
         ),
-        Text(title),
-      ],
+        child: Padding(
+          padding: const EdgeInsets.all(16.0),
+          child: Column(
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                widget.question.questionName,
+                style: const TextStyle(
+                  fontSize: 18,
+                  fontWeight: FontWeight.bold,
+                ),
+              ),
+              const SizedBox(height: 10),
+              Column(
+                children: widget.question.questionOption.map<Widget>((option) {
+                  final index = widget.question.questionOption.indexOf(option);
+
+                  return OptionCheckBox(
+                    title: option,
+                    isChecked: selectedOption == option,
+                    onChanged: () {
+                      setState(() {
+                        selectedOption = option;
+                        widget.question.answerIndex = index;
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
+            ],
+          ),
+        ),
+      ),
     );
   }
 }

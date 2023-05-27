@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/app/screens/Questions/question_card.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 import 'All Questions/questions_1.dart';
+import 'Questions Utils/question_checkbox.dart';
 
 class Questions extends StatefulWidget {
   const Questions({Key? key}) : super(key: key);
@@ -109,74 +111,11 @@ class _QuestionsState extends State<Questions> {
                           ],
                         )
                       ])))),
-          Padding(
-            padding: const EdgeInsets.all(8.0),
-            child: Card(
-              elevation: 2,
-              color: const Color(0xFFF1F1F1),
-              shape: RoundedRectangleBorder(
-                side: const BorderSide(color: Color(0xFFF1F1F1)),
-                borderRadius: BorderRadius.circular(10),
-              ),
-              child: Padding(
-                padding: const EdgeInsets.all(16.0),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    Text(
-                      question1.questionName,
-                      style: const TextStyle(
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold,
-                      ),
-                    ),
-                    const SizedBox(height: 10),
-                    Column(
-                      children: question1.questionOption.map((option) {
-                        return OptionCheckBox(
-                          title: option,
-                          isChecked: selectedOption == option,
-                          onChanged: () {
-                            setState(() {
-                              selectedOption = option;
-                            });
-                          },
-                        );
-                      }).toList(),
-                    ),
-                  ],
-                ),
-              ),
-            ),
-          ),
+          QuestionCard(question:question1),
         ],
       ),
     );
   }
-}
 
-class OptionCheckBox extends StatelessWidget {
-  final String title;
-  final bool isChecked;
-  final VoidCallback onChanged;
 
-  const OptionCheckBox({
-    Key? key,
-    required this.title,
-    required this.isChecked,
-    required this.onChanged,
-  }) : super(key: key);
-
-  @override
-  Widget build(BuildContext context) {
-    return Row(
-      children: [
-        Checkbox(
-          value: isChecked,
-          onChanged: (value) => onChanged(),
-        ),
-        Text(title),
-      ],
-    );
-  }
 }

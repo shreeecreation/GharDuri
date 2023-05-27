@@ -76,7 +76,6 @@ class ResetScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 1.2,
                 child: ElevatedButton(
                     onPressed: () async {
-                      //TODO chnage password
                       AuthRoutes.changePasswordRoute();
                     },
                     style: ElevatedButton.styleFrom(
