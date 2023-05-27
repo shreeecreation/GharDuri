@@ -17,49 +17,15 @@ class LoginScreen extends StatelessWidget {
         Positioned(
           left: 0,
           bottom: 0,
-          child: Container(
-            width: MediaQuery.of(context).size.width,
-            height: 40,
-            color: AppColors.primary,
-            child: const Text(''),
-          ),
+          child: Container(width: MediaQuery.of(context).size.width, height: 40, color: AppColors.primary, child: const Text('')  ),
         ),
         Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
             headerWidgetBesisahar(Colors.black),
             const SizedBox(height: 40),
-            SizedBox(
-              width: MediaQuery.of(context).size.width / 1.2,
-              child: TextFormField(
-                  controller: phoneNumber,
-                  validator: (val) {
-                    if (!ExtString.validatePhoneNumber(val!)) return "Enter a valid number";
-                    return null;
-                  },
-                  decoration: InputDecoration(
-                      hintText: 'मोबाइल नम्बर',
-                      hintStyle: AppStyles.text16Px.textGrey,
-                      filled: true,
-                      fillColor: Colors.white,
-                      border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.black, width: 2.0)))),
-            ),
+            mobileNumber(context),
             const SizedBox(height: 20),
-            SizedBox(
-                width: MediaQuery.of(context).size.width / 1.2,
-                child: TextFormField(
-                    controller: phoneNumber,
-                    validator: (val) {
-                      if (!ExtString.validatePassword(val!)) return "Enter a valid number";
-                      return null;
-                    },
-                    decoration: InputDecoration(
-                        hintText: 'पासवर्ड',
-                        hintStyle: AppStyles.text16Px.textGrey,
-                        filled: true,
-                        fillColor: Colors.white,
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.black, width: 2.0))))),
+            password(context),
             const SizedBox(height: 20),
             Text("लगइन हुनका लागि आफ्नो मोबाइल नम्बर र पस्स्वोड हाल्नुहोस", style: AppStyles.text16Px.textGrey),
             const SizedBox(height: 20),
@@ -69,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: () async {
                       //TODO Forgot password functionality
-                      QuestionRoute.questionRoute();
+                      QuestionRoute.draftRoute();
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
@@ -83,6 +49,41 @@ class LoginScreen extends StatelessWidget {
           ]),
         ),
       ]),
+    );
+  }
+
+  Widget password(BuildContext context) {
+    return SizedBox(
+        width: MediaQuery.of(context).size.width / 1.2,
+        child: TextFormField(
+            controller: phoneNumber,
+            validator: (val) {
+              if (!ExtString.validatePassword(val!)) return "Enter a valid number";
+              return null;
+            },
+            decoration: InputDecoration(
+                hintText: 'पासवर्ड',
+                hintStyle: AppStyles.text16Px.textGrey,
+                filled: true,
+                fillColor: Colors.white,
+                border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.black, width: 2.0)))));
+  }
+
+  Widget mobileNumber(BuildContext context) {
+    return SizedBox(
+      width: MediaQuery.of(context).size.width / 1.2,
+      child: TextFormField(
+          controller: phoneNumber,
+          validator: (val) {
+            if (!ExtString.validatePhoneNumber(val!)) return "Enter a valid number";
+            return null;
+          },
+          decoration: InputDecoration(
+              hintText: 'मोबाइल नम्बर',
+              hintStyle: AppStyles.text16Px.textGrey,
+              filled: true,
+              fillColor: Colors.white,
+              border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.black, width: 2.0)))),
     );
   }
 }

@@ -2,9 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/question_card.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
-
 import 'All Questions/questions_1.dart';
-import 'Questions Utils/question_checkbox.dart';
 
 class Questions extends StatefulWidget {
   const Questions({Key? key}) : super(key: key);
@@ -12,7 +10,6 @@ class Questions extends StatefulWidget {
   @override
   _QuestionsState createState() => _QuestionsState();
 }
-
 class _QuestionsState extends State<Questions> {
   String? selectedOption;
   Question1 question1 = Question1();
@@ -111,11 +108,9 @@ class _QuestionsState extends State<Questions> {
                           ],
                         )
                       ])))),
-          QuestionCard(question:question1),
+          QuestionCard(question: question1),
         ],
       ),
     );
   }
-
-
 }
