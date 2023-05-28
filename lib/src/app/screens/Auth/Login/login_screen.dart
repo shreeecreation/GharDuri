@@ -17,7 +17,7 @@ class LoginScreen extends StatelessWidget {
         Positioned(
           left: 0,
           bottom: 0,
-          child: Container(width: MediaQuery.of(context).size.width, height: 40, color: AppColors.primary, child: const Text('')  ),
+          child: Container(width: MediaQuery.of(context).size.width, height: 40, color: AppColors.primary, child: const Text('')),
         ),
         Center(
           child: Column(mainAxisAlignment: MainAxisAlignment.center, children: [
@@ -35,7 +35,7 @@ class LoginScreen extends StatelessWidget {
                 child: ElevatedButton(
                     onPressed: () async {
                       //TODO Forgot password functionality
-                      QuestionRoute.draftRoute();
+                      QuestionRoute.navigatorRoute();
                     },
                     style: ElevatedButton.styleFrom(
                         backgroundColor: AppColors.primary, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),

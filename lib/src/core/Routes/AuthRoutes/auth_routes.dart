@@ -21,3 +21,4 @@ class AuthRoutes {
     Get.to(ResetScreen());
   }
 }
+
