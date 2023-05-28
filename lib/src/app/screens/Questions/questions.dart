@@ -1,9 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/expanded_questions1.dart';
-import 'package:ghardhuri/src/app/screens/Questions/question_card.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
+import 'All Questions/ChekcBox Questions/Question2/question2_card.dart';
 import 'All Questions/ChekcBox Questions/questions_1.dart';
+import 'All Questions/Table Questions/Question2/question2cardtab.dart';
+import 'All Questions/Table Questions/table_questions1.dart';
+import 'All Questions/allquestions.dart';
+import 'Questions Card/Expanded Card/expanded_card.dart';
+import 'Questions Card/Table Cards/table_card.dart';
 
 class Questions extends StatefulWidget {
   const Questions({Key? key}) : super(key: key);
@@ -16,11 +21,13 @@ class QuestionsState extends State<Questions> {
   String? selectedOption;
   Question1 question1 = Question1();
   ExpQuestion1 expquestion1 = ExpQuestion1();
+  TableQuestion1 tablequestion1 = TableQuestion1();
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       body: SingleChildScrollView(
+        physics: const BouncingScrollPhysics(),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           crossAxisAlignment: CrossAxisAlignment.center,
@@ -112,8 +119,11 @@ class QuestionsState extends State<Questions> {
                             ],
                           )
                         ])))),
-            QuestionCard(question: question1),
-            ExpQuestionCard(question: expquestion1)
+            Question1Card(question: question1),
+            const Question2Card(),
+            TableQuestion2Card(question: AllQuestions.tabQuestion),
+            ExpQuestionCard(question: expquestion1),
+            TableQuestionCard(question: tablequestion1)
           ],
         ),
       ),
