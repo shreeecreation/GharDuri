@@ -1,5 +1,5 @@
 import 'ChekcBox Questions/questions_1.dart';
-import 'Table Questions/Question2/model.dart';
+import 'Table Questions/Question2Table/model.dart';
 
 class AllQuestions {
   static Question1 questino1 = Question1();

@@ -3,12 +3,19 @@ import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Q
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 import 'All Questions/ChekcBox Questions/Question2/question2_card.dart';
+import 'All Questions/ChekcBox Questions/Question4/question4.dart';
+import 'All Questions/ChekcBox Questions/Question5/question5.dart';
+import 'All Questions/ChekcBox Questions/Question6/question6.dart';
+import 'All Questions/ChekcBox Questions/Question7/question7.dart';
 import 'All Questions/ChekcBox Questions/questions_1.dart';
-import 'All Questions/Table Questions/Question2/question2cardtab.dart';
+import 'All Questions/Expanded Questions/Question10/question10.dart';
+import 'All Questions/Expanded Questions/Question11/question11.dart';
+import 'All Questions/Expanded Questions/Question12/question12.dart';
+import 'All Questions/Expanded Questions/Question8/question8.dart';
+import 'All Questions/Expanded Questions/Question9/question9.dart';
+import 'All Questions/Table Questions/Question2Table/question2cardtab.dart';
 import 'All Questions/Table Questions/table_questions1.dart';
 import 'All Questions/allquestions.dart';
-import 'Questions Card/Expanded Card/expanded_card.dart';
-import 'Questions Card/Table Cards/table_card.dart';
 
 class Questions extends StatefulWidget {
   const Questions({Key? key}) : super(key: key);
@@ -122,8 +129,15 @@ class QuestionsState extends State<Questions> {
             Question1Card(question: question1),
             const Question2Card(),
             TableQuestion2Card(question: AllQuestions.tabQuestion),
-            ExpQuestionCard(question: expquestion1),
-            TableQuestionCard(question: tablequestion1)
+            const Question4Card(),
+            const Question5Card(),
+            const Question6Card(),
+            const Question7Card(),
+            ExpQuestion8Card(),
+            ExpQuestion9Card(),
+            ExpQuestion10Card(),
+            ExpQuestion11Card(),
+            ExpQuestion12Card(),
           ],
         ),
       ),

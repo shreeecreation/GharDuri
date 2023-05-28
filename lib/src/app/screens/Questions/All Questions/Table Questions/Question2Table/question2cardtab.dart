@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/allquestions.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
+import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class Question2Table extends StatefulWidget {
   final question;
@@ -27,7 +28,6 @@ class Question2TableState extends State<Question2Table> {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
-          const SizedBox(height: 10),
           ListView.builder(
             shrinkWrap: true,
             physics: const NeverScrollableScrollPhysics(),
@@ -43,7 +43,6 @@ class Question2TableState extends State<Question2Table> {
                 onPressed: () {
                   setState(() {
                     _tableDataList.add(TableData(widget.question.questions));
-                    // Add a new table data entry
                   });
                 },
                 icon: const Icon(Icons.add_circle_rounded, color: AppColors.primary),
@@ -58,7 +57,6 @@ class Question2TableState extends State<Question2Table> {
   Widget _buildTable(TableData tableData) {
     return Column(
       children: [
-        const SizedBox(height: 10),
         Table(
           border: TableBorder.all(color: AppColors.primary, borderRadius: BorderRadius.circular(12)),
           children: [
@@ -71,10 +69,6 @@ class Question2TableState extends State<Question2Table> {
                       child: Column(
                         children: [
                           Text(widget.question.questions[index]),
-                          // TextField(
-                          //   controller: tableData.textEditingControllers[index],
-                          //   decoration: const InputDecoration(border: UnderlineInputBorder(), focusedBorder: UnderlineInputBorder(), hintText: ''),
-                          // ),
                         ],
                       ),
                     ),
@@ -148,16 +142,13 @@ class TableQuestion2CardState extends State<TableQuestion2Card> {
           child: Column(
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              // Text(
-              //   widget.question.questionName,
-              //   style: const TextStyle(
-              //     fontSize: 18,
-              //     fontWeight: FontWeight.bold,
-              //   ),
-              // ),
               const SizedBox(height: 10),
               Column(
                 children: [
+                  Text(
+                    widget.question.questionName,
+                    style: AppStyles.text18PxBold,
+                  ),
                   Question2Table(
                     question: AllQuestions.tabQuestion,
                   ),

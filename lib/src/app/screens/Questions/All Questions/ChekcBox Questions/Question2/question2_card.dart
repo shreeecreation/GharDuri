@@ -30,34 +30,24 @@ class _Question2CardState extends State<Question2Card> {
             children: [
               Row(
                 children: [
-                  Text(
-                    "2.1 जालत ",
-                    style: AppStyles.text18PxBold,
-                  ),
+                  Text("२.१ जाति ", style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
                   const SizedBox(
-                    width: 100,
+                    width: 120,
                     height: 15,
-                    child: TextField(
-                      decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder()),
-                    ),
+                    child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                 ],
               ),
               const SizedBox(height: 10),
               Row(
                 children: [
-                  Text(
-                    "2.2 धमा ",
-                    style: AppStyles.text18PxBold,
-                  ),
+                  Text("२.२ धर्म ", style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
                   const SizedBox(
-                    width: 100,
+                    width: 120,
                     height: 15,
-                    child: TextField(
-                      decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder()),
-                    ),
+                    child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                 ],
               ),
