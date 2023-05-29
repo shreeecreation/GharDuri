@@ -1,5 +1,10 @@
+import 'dart:math';
+
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question3/question3.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/expanded_questions1.dart';
+import 'package:ghardhuri/src/core/ProfileModel/profile_model.dart';
+import 'package:ghardhuri/src/core/Save%20as%20Draft/saveasdraft.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
@@ -52,9 +57,7 @@ import 'All Questions/Expanded Questions/Question47/question47.dart';
 import 'All Questions/Expanded Questions/Question48/question48.dart';
 import 'All Questions/Expanded Questions/Question8/question8.dart';
 import 'All Questions/Expanded Questions/Question9/question9.dart';
-import 'All Questions/Table Questions/Question2Table/question2cardtab.dart';
 import 'All Questions/Table Questions/table_questions1.dart';
-import 'All Questions/allquestions.dart';
 import 'domain/questions_domain.dart';
 
 class Questions extends StatefulWidget {
@@ -69,9 +72,146 @@ class QuestionsState extends State<Questions> {
   Question1 question1 = Question1();
   ExpQuestion1 expquestion1 = ExpQuestion1();
   TableQuestion1 tablequestion1 = TableQuestion1();
+  TextEditingController familyNo = TextEditingController();
+  final List<List<String>> listOfLists = [
+    ["सानो धिमिरे टोल", "धिमिरे टोल", "रतनपुर टोल", "पौडेल गाउँ टोल", "उदिपुर टोल", "खत्रिचौर टोल", "नयाँगाउँ टोल", "सारतेपोखरी"], //1
+    [
+      "चिसापानी टोल",
+      "तालफाँट टोल",
+      "टार बोहोराबेसी",
+      "मनकामना टोल",
+      "भकुण्डे टोल",
+      "शिवालय टोल",
+      "मगरगाउँ सिरान टोल",
+      "माझगाउँ नरुवल टोल",
+      "पिप्ले टोल"
+    ], //2
+    [
+      "काउलेपानी टोल",
+      "दरबार टोल",
+      "ज्योतिचौतारा टोल",
+      "रानिकुवा मुलपानी टोल",
+      "स्वामीचौतारा टोल",
+      "थुम्काडाँडा टोल",
+      "बसौलागाउँ टोल",
+      "झप्रिकमलटारी टोल",
+      "शान्ती टोल",
+      "मगरपात्ले टोल",
+      "मिलनटोल",
+      "दनाईगाउँ टोल"
+    ], //3
+    [
+      "पात्लेगरा टोल",
+      "चम्डिला टोल",
+      "टारी किरिन्चे टोल",
+      "डाँडा गाउँ टोल",
+      "गैरीगाउँ टोल",
+      "मिलन टोल",
+      "फोस्रे टोल",
+      "हिले टोल",
+      "पिर्सिङ टोल",
+      "झगरिया टोल"
+    ], //4
+    [
+      "ज्यारखाङ टोल",
+      "बाख्रेजगत टोल",
+      "काेच्मे टोल",
+      "स्यारे टोल",
+      "लब्सीबाेट टोल",
+      "पुरानाेगाउँ टोल",
+      "गैरीगाउँ टोल",
+      "डाडा गाउँ टोल",
+      "चितुवाखाेर टोल",
+      "बर्तु टोल",
+      "लाङ्दी फेदी टोल"
+    ], //5
+    [
+      'तल्लो मकैडाँडा टोल',
+      'उपल्लो मकैडाँडा टोल',
+      'चनौटे टोल',
+      'छापस्वाँरा टोल',
+      'राउत टोल',
+      'फाँटगाउँ टोल',
+      'भण्डारी गाउँ टोल',
+      'रादल गाउँ टोल',
+      'कुर्पिन टोल',
+      'पुमागाउँ टोल',
+      'कान्ले टोल',
+      'सेरा टोल',
+      'बेलाउती बिसौना टोल',
+      'गोतामे चोक टोल',
+      'कटर बोट टोल',
+      'खत्री गाउँ टोल',
+      'छ घर टोल',
+      'डि कोलमराङ टोल'
+    ], //6
+    ['सुयलथोक - चण्डीडाँडा २', 'सहजी', 'मयुम - वनथोक ४', 'सातबिसे', 'भलुवाटार', 'पुरानो बैंकचोक', 'मनाङ्गे चौतारा'], //7
+    ['ठुलोपधेरो', 'विनायक टोल', 'करपुरेश्वर टोल', 'नारायणस्थान टोल', 'प्रगती टोल'], //8
+    ['शितलपाटि टोल', 'पाखाथोक टोल', 'साम्दी टोल', 'बगालेस्वारा टोल', 'टाँडीबिसौनी टोल', 'शिवशक्ती टोल', 'कालिका टोल', 'बिम्दा टोल'], //9
+    [
+      'अक्कर लेते टोल',
+      'खासुर गाउँ टोल',
+      'खासुर तल्लो गाउँ टोल',
+      'खासुर बेसी टोल',
+      'कल्लेरी मकैस्वारा टोल',
+      'देउजनथोक टोल',
+      'पांग्रेक्यू देउराली टोल',
+      'साँधु डाडागाउँ टोल',
+      'साँधु म्रुोचे टोल',
+      'खाँचे टोल',
+      'गाउँभाचोक टोल',
+      'कुप्लीङ सिरुवारी टोल',
+      'रातामाता घडेरी थुम्का कुलमाध टोल',
+      'बेसीभाचोक डाँडागाउँ टोल',
+      'बेसीभाचोक गैह्रीगाउँ टोल',
+      'बेसीभाचोक भोटेफाँट टोल',
+      'राउतथोक भङ्गालेटोल',
+      'बाँझाखेत अक्कर टोल',
+      'इन्द्रेणी टोल',
+      'आँपचउर टोल',
+      'पासाचउर टोल',
+      'सालडाँडा थारचौर थानीमाई टोल',
+      'चितुवावन टोल'
+    ], //10
+    [
+      'बस्नेतगाउँ',
+      'कोल्डाँडा',
+      'स्याउत',
+      'भण्डारीगाउँ',
+      'तिलाहार',
+      'थापाडाँडा',
+      'वानियाँपधेरा',
+      'कार्किडाँडा गाउँ',
+      'बरवोट',
+      'बुढिकुवा',
+      'रामचोकबेसी',
+      'भकुण्डे',
+      'रिठ्ठेवगर',
+      'बजारखुट्टा',
+      'बगैंचा',
+      'रामचोक गाउँ'
+    ] //11
+  ];
+  final int selectedNumber = int.parse(ProfileModel.ward); // Specify the desired number here
+  String? selectedItem;
+  @override
+  void initState() {
+    super.initState();
+    int randomNumber = generateRandomNumber();
+    print('Random Number: $randomNumber');
+
+    familyNo.text = randomNumber.toString(); // Assign the initial value here
+  }
+
+  @override
+  void dispose() {
+    familyNo.dispose(); // Dispose the controller when not needed
+    super.dispose();
+  }
 
   @override
   Widget build(BuildContext context) {
+    List<String> dropdownItems = listOfLists[selectedNumber - 1];
     return Scaffold(
       floatingActionButton: Stack(
         children: [
@@ -92,7 +232,7 @@ class QuestionsState extends State<Questions> {
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
               onPressed: () {
-                // Handle save draft action
+                saveAsDraft();
               },
               child: const Text('Save Draft'),
             ),
@@ -145,52 +285,40 @@ class QuestionsState extends State<Questions> {
                           const SizedBox(height: 5),
                           Row(
                             children: [
-                              const Text("बस्तीको नाम   ", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                              const SizedBox(width: 5),
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 12.0),
-                                child: SizedBox(
-                                    height: 30,
-                                    width: MediaQuery.of(context).size.width / 2,
-                                    child: const TextField(
-                                      decoration: InputDecoration(
-                                        border: UnderlineInputBorder(
-                                          borderSide: BorderSide(color: Colors.black),
-                                        ),
-                                        focusedBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(color: Colors.black),
-                                        ),
-                                      ),
-                                    )),
+                              const Text("बस्तीको नाम", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                              const SizedBox(width: 15),
+                              Center(
+                                child: DropdownButton<String>(
+                                  value: selectedItem,
+                                  hint: const Text('टोल छान्नुहोस्'),
+                                  items: dropdownItems.map((String item) {
+                                    return DropdownMenuItem<String>(
+                                      value: item,
+                                      child: Text(item),
+                                    );
+                                  }).toList(),
+                                  onChanged: (String? newValue) {
+                                    setState(() {
+                                      selectedItem = newValue;
+                                    });
+                                  },
+                                ),
                               ),
                             ],
                           ),
                           const SizedBox(height: 5),
                           Row(
                             children: [
-                              const Text("पररर्वार क्र.सं    ", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-                              Padding(
-                                padding: const EdgeInsets.only(bottom: 12.0),
-                                child: SizedBox(
-                                    height: 30,
-                                    width: MediaQuery.of(context).size.width / 2,
-                                    child: const TextField(
-                                      decoration: InputDecoration(
-                                        border: UnderlineInputBorder(
-                                          borderSide: BorderSide(color: Colors.black),
-                                        ),
-                                        focusedBorder: UnderlineInputBorder(
-                                          borderSide: BorderSide(color: Colors.black),
-                                        ),
-                                      ),
-                                    )),
-                              ),
+                              const Text("परिवार क्र.स", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+                              const SizedBox(width: 15),
+                              SizedBox(width: 80, height: 20, child: Text(familyNo.text, style: AppStyles.text16Px)),
                             ],
-                          )
+                          ),
+                          const SizedBox(height: 5),
                         ])))),
             Question1Card(question: question1),
             const Question2Card(),
-            TableQuestion2Card(question: AllQuestions.tabQuestion),
+            Question3Card(),
             const Question4Card(),
             const Question5Card(),
             const Question6Card(),
@@ -244,4 +372,12 @@ class QuestionsState extends State<Questions> {
       ),
     );
   }
+}
+
+int generateRandomNumber() {
+  Random random = Random();
+  int min = 100000; // Minimum 6-digit number
+  int max = 999999; // Maximum 6-digit number
+
+  return min + random.nextInt(max - min);
 }

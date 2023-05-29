@@ -5,12 +5,14 @@ import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart
 
 class Question5 extends QuestionModel {
   int answerIndex = 0;
-
+  String secondQuestion = "५.२ अस्पातल मा पुग्ना लाग्ने समय";
   Question5(
-      {String questionName = '५. नजिकको स्वास्थ्य संस्थामा पुग्न लाग्ने समय ?',
+      {String questionName = ' नजिकको स्वास्थ्य संस्थामा पुग्न लाग्ने समय ?',
       List<String> questionOption = const [
-        "स्वास्थ चौकी पुर्नलाग्ने समय \n(१५ मिनेट - ३० मिनेट - १ घण्टा - १ घण्टाभण्डा बधि)",
-        "अस्पातल मा पुग्ना लाग्ने समय \n(१५ मिनेट - ३० मिनेट - १ घण्टा - १ घण्टाभण्डा बधि)"
+        " १५ मिनेट ",
+        " ३० मिनेट",
+        "१ घण्टा"
+            "१ घण्टाभण्डा बधि",
       ]})
       : super(questionName, questionOption);
 }
@@ -28,6 +30,7 @@ final Question5 question = Question5();
 
 class _Question5CardState extends State<Question5Card> {
   var selectedOption = "";
+  var selectedOption1 = "";
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -43,6 +46,7 @@ class _Question5CardState extends State<Question5Card> {
             children: [
               Text(question.questionName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
+              const Text("५.१ स्वास्थ चौकी पुर्नलाग्ने समय", style: TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
               Column(
                 children: question.questionOption.map<Widget>((option) {
                   final index = question.questionOption.indexOf(option);
@@ -52,8 +56,27 @@ class _Question5CardState extends State<Question5Card> {
                     isChecked: selectedOption == option,
                     onChanged: () {
                       setState(() {
-                        QuestionsDomain.setTime(index);
+                        QuestionsDomain.setTime1(index);
                         selectedOption = option;
+                        question.answerIndex = index;
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
+              const SizedBox(height: 10),
+              Text(question.questionName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              Column(
+                children: question.questionOption.map<Widget>((option) {
+                  final index = question.questionOption.indexOf(option);
+
+                  return OptionCheckBox(
+                    title: option,
+                    isChecked: selectedOption1 == option,
+                    onChanged: () {
+                      setState(() {
+                        QuestionsDomain.setTime2(index);
+                        selectedOption1 = option;
                         question.answerIndex = index;
                       });
                     },

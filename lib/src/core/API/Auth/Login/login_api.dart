@@ -1,6 +1,7 @@
 import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/core/API/AllAPIEndpoints/all_endpoints.dart';
+import 'package:ghardhuri/src/core/API/Auth/get_profile_api.dart';
 import 'package:ghardhuri/src/core/Routes/QuestionRoutes/question_routes.dart';
 import 'package:http/http.dart' as http;
 
@@ -21,6 +22,7 @@ class LoginAPI {
         WidgetsBinding.instance.addPostFrameCallback((_) {
           QuestionRoute.navigatorRoute();
 
+          GetProfile.getProfile();
           // LoginDialogs().showIncorrectPassword(context);
         });
         return response;

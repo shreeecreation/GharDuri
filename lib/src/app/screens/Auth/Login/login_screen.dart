@@ -36,18 +36,17 @@ class LoginScreen extends StatelessWidget {
                     width: MediaQuery.of(context).size.width / 1.2,
                     child: ElevatedButton(
                         onPressed: () async {
+                          // QuestionRoute.navigatorRoute();
                           if (formKey.currentState!.validate()) {
-                            if (formKey.currentState!.validate()) {
-                              var response = await LoginAPI.loginPoint(phoneNumberController.text, passwordController.text, context);
-                              // var data = response.body;
-                              // print(response.headers['set-cookie']);
-                              ManageLoginCookie.setCookie(response);
+                            var response = await LoginAPI.loginPoint(phoneNumberController.text, passwordController.text, context);
+                            // var data = response.body;
+                            // print(response.headers['set-cookie']);
+                            ManageLoginCookie.setCookie(response);
 
-                              // await GetUserInfo.getUserInfo();
+                            // await GetUserInfo.getUserInfo();
 
-                              phoneNumberController.text = "";
-                              passwordController.text = "";
-                            }
+                            phoneNumberController.text = "";
+                            passwordController.text = "";
                           }
                         },
                         style: ElevatedButton.styleFrom(

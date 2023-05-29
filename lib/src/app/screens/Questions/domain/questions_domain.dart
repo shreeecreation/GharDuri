@@ -1,15 +1,23 @@
 import 'dart:convert';
 
+import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question3/question3.dart';
+import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/Question15/question15.dart';
+import 'package:ghardhuri/src/core/API/Form%20API/form_api.dart';
 import 'package:ghardhuri/src/core/Answer%20Model/answer_model.dart';
 import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 
 class QuestionsDomain {
   static AnswerModel myData = AnswerModel();
+  static List<int> qusetion3_1List = [];
+  static List<int> qusetion3_2List = [];
+  static List<int> qusetion15Lists = [];
+
   static List<int> qusetion18List = [];
   static List<int> qusetion19List = [];
   static List<int> qusetion41List = [];
   static List<int> qusetion42List = [];
   static void questionsSubmit() {
+    sendBastiName();
     setJatiandsetDharma();
     setAnswer();
     //7
@@ -17,7 +25,6 @@ class QuestionsDomain {
     //10
     setAnswer10();
     //15
-    setAnswer15();
     //18
     setAnswer18();
     setAnswer19();
@@ -35,10 +42,50 @@ class QuestionsDomain {
     setAnswer33();
     setAnswer41();
     setAnswer42();
-
+    parseTextFields();
     Map<String, dynamic> jsonMap = myData.toJson();
     String jsonData = json.encode(jsonMap);
-    // FormAPI.formAPI(jsonData);
+    FormAPI.formAPI(jsonData);
+  }
+
+  static void parseTextFields() {
+    qusetion3_1List.clear();
+    qusetion3_2List.clear();
+
+    for (final controller in Question3Card.controllers) {
+      final text = controller.text;
+      print(text);
+
+      if (text.isNotEmpty) {
+        qusetion3_1List.add(int.parse(text));
+      }
+    }
+
+    for (final controller in Question3Card.controllers1) {
+      final text = controller.text;
+      print(text);
+      if (text.isNotEmpty) {
+        qusetion3_2List.add(int.parse(text));
+      }
+    }
+    setAnswer3_1();
+    setAnswer3_2();
+  }
+
+  static void parseTextFields15() {
+    qusetion15Lists.clear();
+
+    for (final controller in ExpQuestion15Card.controllers) {
+      final text = controller.text;
+      print(text);
+
+      if (text.isNotEmpty) {
+        qusetion15Lists.add(int.parse(text));
+        myData.question15 = qusetion15Lists;
+      }
+    }
+
+    setAnswer3_1();
   }
 
 //question1
@@ -62,8 +109,26 @@ class QuestionsDomain {
 
   //question5
 
-  static setTime(index) {
-    myData.question5 = index;
+  static setTime1(index) {
+    myData.question5_1 = index;
+  }
+
+  static setTime2(index) {
+    myData.question5_2 = index;
+  }
+
+  static sendBastiName() {
+    myData.bastiName = TextControllers.bastikoname.text;
+  }
+
+  //question18
+  static setAnswer3_1() {
+    myData.question3_1 = qusetion3_1List;
+  }
+
+  //question18
+  static setAnswer3_2() {
+    myData.question3_2 = qusetion3_2List;
   }
 
   //question6
@@ -119,10 +184,10 @@ class QuestionsDomain {
     myData.question14 = index;
   }
 
-  //question7
-  static setAnswer15() {
-    myData.question15 = int.parse(TextControllers.q71.text == "" ? "0" : TextControllers.q71.text);
-  }
+  // //question7
+  // static setAnswer15() {
+  //   myData.question15 = int.parse(TextControllers.q71.text == "" ? "0" : TextControllers.q71.text);
+  // }
 
   //question11
   static setAnswer16(index) {
@@ -239,68 +304,103 @@ class QuestionsDomain {
     myData.question33 = int.parse(TextControllers.q33.text == "" ? "0" : TextControllers.q33.text);
   }
 
-  
   static setAnswer34(index) {
     myData.question34 = index;
   }
-    static setAnswer35(index) {
+
+  static setAnswer35(index) {
     myData.question35 = index;
   }
 
-      static setAnswer36(index) {
+  static setAnswer36(index) {
     myData.question36 = index;
   }
-        static setAnswer37(index) {
+
+  static setAnswer37(index) {
     myData.question37 = index;
   }
-        static setAnswer38(index) {
+
+  static setAnswer38(index) {
     myData.question38_1 = index;
   }
 
-        static setAnswer39(index) {
+  static setAnswer39(index) {
     myData.question39 = index;
   }
 
-        static setAnswer40(index) {
+  static setAnswer40(index) {
     myData.question40 = index;
   }
-          static setAnswer41() {
+
+  static setAnswer41() {
     myData.question41 = qusetion41List;
   }
-           static setAnswer42() {
+
+  static setAnswer42() {
     myData.question42 = qusetion42List;
   }
 
-             static setAnswer431(index) {
+  static setAnswer431(index) {
     myData.question43_1 = index;
   }
-               static setAnswer432(index) {
+
+  static setAnswer432(index) {
     myData.question43_2 = index;
   }
-              static setAnswer44(index) {
+
+  static setAnswer44(index) {
     myData.question44 = index;
   }
-                static setAnswer45(index) {
+
+  static setAnswer45(index) {
     myData.question45 = index;
   }
 
-               static setAnswer461(index) {
-    myData.question46_1 = index;
+  static setAnswer461(index) {
+    if (index == "0") {
+      myData.question46_1 = "male";
+    } else {
+      myData.question46_1 = "female";
+    }
   }
-               static setAnswer462(index) {
-    myData.question46_2 = index;
+
+  static setAnswer462(index) {
+    if (index == "0") {
+      myData.question46_2 = "male";
+    } else {
+      myData.question46_2 = "female";
+    }
   }
-           static setAnswer47(index) {
+
+  static setAnswer463(index) {
+    if (index == "0") {
+      myData.question46_3 = "male";
+    } else {
+      myData.question46_3 = "female";
+    }
+  }
+
+  static setAnswer464(index) {
+    if (index == "0") {
+      myData.question46_4 = "male";
+    } else {
+      myData.question46_4 = "female";
+    }
+  }
+
+  static setAnswer47(index) {
     myData.question47 = index;
   }
-     static setAnswer48(index) {
+
+  static setAnswer48(index) {
     myData.question48 = index;
   }
-   static setAnswer49(index) {
+
+  static setAnswer49(index) {
     myData.question49 = index;
   }
 
-   static setAnswer50(index) {
+  static setAnswer50(index) {
     myData.question49 = index;
   }
 }

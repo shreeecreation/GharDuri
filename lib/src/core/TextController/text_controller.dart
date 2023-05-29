@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 class TextControllers {
+  static TextEditingController bastikoname = TextEditingController();
   static TextEditingController question1muliKoname = TextEditingController();
 
   //question2
@@ -9,12 +10,15 @@ class TextControllers {
 
 
   //question6
-    static TextEditingController q61 = TextEditingController();
+  static TextEditingController q31 = TextEditingController();
+  static TextEditingController q32 = TextEditingController();
+  //question6
+  static TextEditingController q61 = TextEditingController();
   static TextEditingController q62 = TextEditingController();
   static TextEditingController q63 = TextEditingController();
   static TextEditingController q64 = TextEditingController();
 
-  //question7 
+  //question7
   static TextEditingController q71 = TextEditingController();
 
   //question10
@@ -27,7 +31,7 @@ class TextControllers {
   static TextEditingController q221 = TextEditingController();
 
   //question24
-   static TextEditingController q241 = TextEditingController();
+  static TextEditingController q241 = TextEditingController();
   static TextEditingController q242 = TextEditingController();
   static TextEditingController q243 = TextEditingController();
 
@@ -35,35 +39,28 @@ class TextControllers {
   static TextEditingController q271 = TextEditingController();
 
   //question24
-   static TextEditingController q281 = TextEditingController();
+  static TextEditingController q281 = TextEditingController();
   static TextEditingController q282 = TextEditingController();
   static TextEditingController q283 = TextEditingController();
   static TextEditingController q284 = TextEditingController();
 
-
-    //question29
-   static TextEditingController q291 = TextEditingController();
+  //question29
+  static TextEditingController q291 = TextEditingController();
   static TextEditingController q292 = TextEditingController();
   static TextEditingController q293 = TextEditingController();
   static TextEditingController q294 = TextEditingController();
 
-  
-    //question29
-   static TextEditingController q2911 = TextEditingController();
+  //question29
+  static TextEditingController q2911 = TextEditingController();
   static TextEditingController q2921 = TextEditingController();
   static TextEditingController q2931 = TextEditingController();
   static TextEditingController q2941 = TextEditingController();
 
-
-  
-    //question30
-   static TextEditingController q301 = TextEditingController();
+  //question30
+  static TextEditingController q301 = TextEditingController();
   static TextEditingController q302 = TextEditingController();
   static TextEditingController q303 = TextEditingController();
   static TextEditingController q304 = TextEditingController();
 
   static TextEditingController q33 = TextEditingController();
-
-
-
 }

@@ -12,10 +12,8 @@ class Question46 extends QuestionModel {
   Question46(
       {String questionName = '४६. तपाईंको परिवारमा निम्न कार्यहरु प्रायः कसले गर्दछ ?',
       List<String> questionOption = const [
-        "घर व्यवहारसम्बन्धी विषयमा निर्णय",
-        "घरायसी काममा संलग्न",
-        "उद्योग व्यापारमा सहभागिता",
-        "स्वर बोलाइसम्बन्धी अपाङ्गता",
+        "महिला",
+        "पुरुष",
       ]})
       : super(questionName, questionOption);
 }
@@ -49,40 +47,98 @@ class _Question46CardState extends State<Question46Card> {
             children: [
               Text(question.questionName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
-              const Text("महिला", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text("घर व्यवहारसम्बन्धी विषयमा निर्णय", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
-              Column(
+              Row(
                   children: question.questionOption.map<Widget>((option) {
                 final index = question.questionOption.indexOf(option);
-                return OptionCheckBox(
-                  title: option,
-                  isChecked: selectedOption == option,
-                  onChanged: () {
-                    setState(() {
-                      QuestionsDomain.setAnswer461(index);
-                      selectedOption = option;
-                      question.answerIndex = index;
-                    });
-                  },
+                return Row(
+                  children: [
+                    OptionCheckBox(
+                      title: option,
+                      isChecked: selectedOption == option,
+                      onChanged: () {
+                        setState(() {
+                          QuestionsDomain.setAnswer461(index);
+                          selectedOption = option;
+                          question.answerIndex = index;
+                        });
+                      },
+                    ),
+                    const SizedBox(width: 50),
+                  ],
                 );
               }).toList()),
               const SizedBox(height: 10),
-              const Text("पुरुष", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const Text("घरायसी काममा संलग्न", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
-              Column(
+              Row(
                   children: question.questionOption.map<Widget>((option) {
                 final index = question.questionOption.indexOf(option);
-                return OptionCheckBox(
-                  title: option,
-                  isChecked: selectedOption1 == option,
-                  onChanged: () {
-                    setState(() {
-                      QuestionsDomain.setAnswer462(index);
+                return Row(
+                  children: [
+                    OptionCheckBox(
+                      title: option,
+                      isChecked: selectedOption1 == option,
+                      onChanged: () {
+                        setState(() {
+                          QuestionsDomain.setAnswer463(index);
 
-                      selectedOption1 = option;
-                      question.answerIndex = index;
-                    });
-                  },
+                          selectedOption1 = option;
+                          question.answerIndex = index;
+                        });
+                      },
+                    ),
+                    const SizedBox(width: 50),
+                  ],
+                );
+              }).toList()),
+              const SizedBox(height: 10),
+              const Text("उद्योग व्यापारमा सहभागिता", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 10),
+              Row(
+                  children: question.questionOption.map<Widget>((option) {
+                final index = question.questionOption.indexOf(option);
+                return Row(
+                  children: [
+                    OptionCheckBox(
+                      title: option,
+                      isChecked: selectedOption2 == option,
+                      onChanged: () {
+                        setState(() {
+                          QuestionsDomain.setAnswer464(index);
+
+                          selectedOption2 = option;
+                          question.answerIndex = index;
+                        });
+                      },
+                    ),
+                    const SizedBox(width: 50),
+                  ],
+                );
+              }).toList()),
+              const SizedBox(height: 10),
+              const Text("स्वर बोलाइसम्बन्धी अपाङ्गता", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
+              const SizedBox(height: 10),
+              Row(
+                  children: question.questionOption.map<Widget>((option) {
+                final index = question.questionOption.indexOf(option);
+                return Row(
+                  children: [
+                    OptionCheckBox(
+                      title: option,
+                      isChecked: selectedOption3 == option,
+                      onChanged: () {
+                        setState(() {
+                          QuestionsDomain.setAnswer462(index);
+
+                          selectedOption3 = option;
+                          question.answerIndex = index;
+                        });
+                      },
+                    ),
+                    const SizedBox(width: 50),
+                  ],
                 );
               }).toList()),
               const SizedBox(height: 10),
