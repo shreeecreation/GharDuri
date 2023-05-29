@@ -2,15 +2,23 @@ import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/expanded_questions1.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
+import 'All Questions/ChekcBox Questions/Question18/question18.dart';
+import 'All Questions/ChekcBox Questions/Question19/question19.dart';
 import 'All Questions/ChekcBox Questions/Question2/question2_card.dart';
 import 'All Questions/ChekcBox Questions/Question4/question4.dart';
 import 'All Questions/ChekcBox Questions/Question5/question5.dart';
 import 'All Questions/ChekcBox Questions/Question6/question6.dart';
 import 'All Questions/ChekcBox Questions/Question7/question7.dart';
+import 'All Questions/ChekcBox Questions/Question17/question17.dart';
 import 'All Questions/ChekcBox Questions/questions_1.dart';
 import 'All Questions/Expanded Questions/Question10/question10.dart';
 import 'All Questions/Expanded Questions/Question11/question11.dart';
 import 'All Questions/Expanded Questions/Question12/question12.dart';
+import 'All Questions/Expanded Questions/Question13/question13.dart';
+import 'All Questions/Expanded Questions/Question14/question14.dart';
+import 'All Questions/Expanded Questions/Question15/question15.dart';
+import 'All Questions/Expanded Questions/Question16/question16.dart';
+import 'All Questions/Expanded Questions/Question20/question20.dart';
 import 'All Questions/Expanded Questions/Question8/question8.dart';
 import 'All Questions/Expanded Questions/Question9/question9.dart';
 import 'All Questions/Table Questions/Question2Table/question2cardtab.dart';
@@ -132,12 +140,20 @@ class QuestionsState extends State<Questions> {
             const Question4Card(),
             const Question5Card(),
             const Question6Card(),
-            const Question7Card(),
-            ExpQuestion8Card(),
-            ExpQuestion9Card(),
-            ExpQuestion10Card(),
-            ExpQuestion11Card(),
-            ExpQuestion12Card(),
+            const Question7Card(),  // Check box typ questions
+            ExpQuestion8Card(),   //Expanded Questions
+            ExpQuestion9Card(),   //Expanded Questions
+            ExpQuestion10Card(),  //Expanded Questions
+            ExpQuestion11Card(),  // Expanded Questions
+            ExpQuestion12Card(),  // Expanded Questions
+            ExpQuestion13Card(),  // Expanded Questions
+            ExpQuestion14Card(), // Expanded Questions
+            ExpQuestion15Card(), // Expanded Questions
+            ExpQuestion16Card(), // Expanded Questions
+            const Question17Card(), // Check box type questions
+            const Question18Card(), // Check box type questions
+            const Question19Card(), // Check box type questions
+            ExpQuestion20Card(), // Expanded Questions
           ],
         ),
       ),
