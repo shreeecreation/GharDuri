@@ -1,5 +1,44 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
+class MultipleCheckboxWidget extends StatefulWidget {
+  final String option;
+  final bool isSelected;
+  final ValueSetter<bool> onChanged;
+
+  const MultipleCheckboxWidget({
+    required this.option,
+    required this.isSelected,
+    required this.onChanged,
+  });
+
+  @override
+  _MultipleCheckboxWidgetState createState() => _MultipleCheckboxWidgetState();
+}
+
+class _MultipleCheckboxWidgetState extends State<MultipleCheckboxWidget> {
+  bool isChecked = false;
+
+  @override
+  void initState() {
+    isChecked = widget.isSelected;
+    super.initState();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return CheckboxListTile(
+      title: Text(widget.option),
+      value: isChecked,
+      onChanged: (value) {
+        setState(() {
+          isChecked = value!;
+        });
+        widget.onChanged(value!);
+      },
+    );
+  }
+}
+
 
 class OptionCheckBox extends StatelessWidget {
   final String title;

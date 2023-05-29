@@ -12,6 +12,21 @@ import 'All Questions/ChekcBox Questions/Question27/question27.dart';
 import 'All Questions/ChekcBox Questions/Question28/quesion28.dart';
 import 'All Questions/ChekcBox Questions/Question29/question29.dart';
 import 'All Questions/ChekcBox Questions/Question30/question30.dart';
+import 'All Questions/ChekcBox Questions/Question31/question31.dart';
+import 'All Questions/ChekcBox Questions/Question33/question33.dart';
+import 'All Questions/ChekcBox Questions/Question34/question34.dart';
+import 'All Questions/ChekcBox Questions/Question35/question35.dart';
+import 'All Questions/ChekcBox Questions/Question37/question37.dart';
+import 'All Questions/ChekcBox Questions/Question39/question39.dart';
+import 'All Questions/ChekcBox Questions/Question40/question40.dart';
+import 'All Questions/ChekcBox Questions/Question42/question42.dart';
+import 'All Questions/ChekcBox Questions/Question41/question41.dart';
+import 'All Questions/ChekcBox Questions/Question43/question43.dart';
+import 'All Questions/ChekcBox Questions/Question44/question44.dart';
+import 'All Questions/ChekcBox Questions/Question45/question45.dart';
+import 'All Questions/ChekcBox Questions/Question46/question46.dart';
+import 'All Questions/ChekcBox Questions/Question49/question49.dart';
+import 'All Questions/ChekcBox Questions/Question50/question50.dart';
 import 'All Questions/Expanded Questions/Question25/question25.dart';
 import 'All Questions/ChekcBox Questions/Question4/question4.dart';
 import 'All Questions/ChekcBox Questions/Question5/question5.dart';
@@ -29,6 +44,11 @@ import 'All Questions/Expanded Questions/Question16/question16.dart';
 import 'All Questions/Expanded Questions/Question20/question20.dart';
 import 'All Questions/Expanded Questions/Question22/question22.dart';
 import 'All Questions/Expanded Questions/Question24/question24.dart';
+import 'All Questions/Expanded Questions/Question32/question32.dart';
+import 'All Questions/Expanded Questions/Question36/question36.dart';
+import 'All Questions/Expanded Questions/Question38/question38.dart';
+import 'All Questions/Expanded Questions/Question47/question47.dart';
+import 'All Questions/Expanded Questions/Question48/question48.dart';
 import 'All Questions/Expanded Questions/Question8/question8.dart';
 import 'All Questions/Expanded Questions/Question9/question9.dart';
 import 'All Questions/Table Questions/Question2Table/question2cardtab.dart';
@@ -51,6 +71,30 @@ class QuestionsState extends State<Questions> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      floatingActionButton: Stack(
+        children: [
+          Positioned(
+            bottom: 80, // Adjust the position as needed
+            right: 16, // Adjust the position as needed
+            child: FloatingActionButton(
+              onPressed: () {
+                // Handle save action
+              },
+              child: const Text('Save'),
+            ),
+          ),
+          Positioned(
+            bottom: 16, // Adjust the position as needed
+            right: 16, // Adjust the position as needed
+            child: FloatingActionButton(
+              onPressed: () {
+                // Handle save draft action
+              },
+              child: const Text('Save Draft'),
+            ),
+          ),
+        ],
+      ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -173,7 +217,28 @@ class QuestionsState extends State<Questions> {
             const Question27Card(),
             const Question28Card(),
             const Question29Card(),
-            const Question30Card()
+            const Question30Card(),
+            const Question31Card(),
+            ExpQuestion32Card(),
+            const Question33Card(),
+            const Question34Card(),
+            const Question35Card(),
+            ExpQuestion36Card(),
+            const Question37Card(),
+            ExpQuestion38Card(),
+            const Question39Card(),
+            const Question40Card(),
+            const Question41Card(),
+            const Question42Card(),
+            const Question43Card(),
+            const Question44Card(),
+            const Question45Card(),
+            const Question46Card(),
+            ExpQuestion47Card(),
+            ExpQuestion48Card(),
+            const Question49Card(),
+
+            const Question50Card(),
           ],
         ),
       ),
