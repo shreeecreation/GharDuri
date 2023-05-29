@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class ExpQuestion10 extends ExpandedQuestionModel {
@@ -95,10 +96,12 @@ class ExpQuestion10CardState extends State<ExpQuestion10Card> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(" संख्या", style: AppStyles.text16Px),
-                        const SizedBox(
+                        SizedBox(
                           width: 40,
                           height: 20,
-                          child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                          child: TextField(
+                              controller: TextControllers.q101,
+                              decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),
                       ],
                     ),
@@ -150,10 +153,12 @@ class ExpQuestion10CardState extends State<ExpQuestion10Card> {
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         Text(" संख्या", style: AppStyles.text16Px),
-                        const SizedBox(
+                        SizedBox(
                           width: 40,
                           height: 20,
-                          child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                          child: TextField(
+                              controller: TextControllers.q102,
+                              decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),
                       ],
                     ),

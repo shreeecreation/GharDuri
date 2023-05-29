@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 
 class Question28 extends QuestionModel {
   int answerIndex = 0;
@@ -41,59 +42,67 @@ class _Question28CardState extends State<Question28Card> {
             children: [
               Text(question.questionName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
-              const Column(children: [
+              Column(children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "क. आधारभुत तह पढ्नेको संख्या:",
                     ),
                     SizedBox(
                       width: 30,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q281,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "ख. कक्षा दशसम्म पढ्नेको संख्या:",
                     ),
                     SizedBox(
                       width: 30,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q282,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "ग. ‌कक्षा १२ सम्म पढ्नेको संख्या:",
                     ),
                     SizedBox(
                       width: 30,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q283,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "घ. कक्षा १२ भन्दामाथीको संख्या:",
                     ),
                     SizedBox(
                       width: 30,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q284,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),

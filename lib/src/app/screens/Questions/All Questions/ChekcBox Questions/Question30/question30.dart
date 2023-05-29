@@ -1,16 +1,17 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question30 extends QuestionModel {
   int answerIndex = 0;
   int answerIndex1 = 0;
   int answerIndex2 = 0;
   int answerIndex3 = 0;
-  String firstQuestion = "३०. घरबाट विद्यालय जान लाग्ने समय (कक्षा पाँचसम्म)";
-  String secondQuestion = "३०.१ घरबाट विद्यालय जान लाग्ने समय (आधारभुत तह)";
-  String thirdQuestion = "३०.२ घरबाट विद्यालय जान लाग्ने समय (कक्षा दशसम्म)";
-  String fourthQuestion = "३०.३ घरबाट विद्यालय जान लाग्ने समय (माध्यामिक तह)";
+  String firstQuestion = "३०.१ घरबाट विद्यालय जान लाग्ने समय (कक्षा पाँचसम्म)";
+  String secondQuestion = "३०.२ घरबाट विद्यालय जान लाग्ने समय (आधारभुत तह)";
+  String thirdQuestion = "३०.३ घरबाट विद्यालय जान लाग्ने समय (कक्षा दशसम्म)";
+  String fourthQuestion = "३०.४ घरबाट विद्यालय जान लाग्ने समय (माध्यामिक तह)";
 
   Question30(
       {String questionName = '२९. विद्यालयस्तरमा अध्ययन गरिरहेका बालबालिकाको विवरण',
@@ -55,6 +56,7 @@ class _Question30CardState extends State<Question30Card> {
                   isChecked: selectedOption == option,
                   onChanged: () {
                     setState(() {
+                      QuestionsDomain.setAnswer30_1(index);
                       selectedOption = option;
                       question.answerIndex = index;
                     });
@@ -71,6 +73,8 @@ class _Question30CardState extends State<Question30Card> {
                   isChecked: selectedOption1 == option,
                   onChanged: () {
                     setState(() {
+                      QuestionsDomain.setAnswer30_1(index);
+
                       selectedOption1 = option;
                       question.answerIndex = index;
                     });
@@ -87,6 +91,8 @@ class _Question30CardState extends State<Question30Card> {
                   isChecked: selectedOption2 == option,
                   onChanged: () {
                     setState(() {
+                      QuestionsDomain.setAnswer30_1(index);
+
                       selectedOption2 = option;
                       question.answerIndex = index;
                     });
@@ -103,6 +109,8 @@ class _Question30CardState extends State<Question30Card> {
                   isChecked: selectedOption3 == option,
                   onChanged: () {
                     setState(() {
+                      QuestionsDomain.setAnswer30_1(index);
+
                       selectedOption3 = option;
                       question.answerIndex = index;
                     });

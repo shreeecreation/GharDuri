@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class ExpQuestion20 extends ExpandedQuestionModel {
@@ -86,6 +87,7 @@ class ExpQuestion20CardState extends State<ExpQuestion20Card> {
                                 isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
                                 onChanged: () {
                                   setState(() {
+                                    QuestionsDomain.setAnswer20((widget.question).questionOption.indexOf(option));
                                     (widget.question).answerIndex = (widget.question).questionOption.indexOf(option);
                                   });
                                 },

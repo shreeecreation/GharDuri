@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Draft/draft_screen.dart';
+import 'package:ghardhuri/src/app/screens/Profile/profile.dart';
 import 'package:ghardhuri/src/app/screens/Questions/questions.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 
@@ -12,21 +13,14 @@ class HomeNavigator extends StatefulWidget {
 
 class _HomeNavigatorState extends State<HomeNavigator> {
   int _selectedIndex = 1;
-  static final List<Widget> _widgetOptions = <Widget>[
-    const Questions(),
-    const DraftScreen(),
-  ];
+  static final List<Widget> _widgetOptions = <Widget>[const Questions(), const DraftScreen(), const ProfileScreen()];
 
   void _onItemTapped(int index) {
     if (index == _selectedIndex) {
       return;
     }
     setState(() {
-      if (index == 2) {
-        _selectedIndex = _selectedIndex;
-      } else {
-        _selectedIndex = index;
-      }
+      _selectedIndex = index;
     });
   }
 
@@ -42,7 +36,8 @@ class _HomeNavigatorState extends State<HomeNavigator> {
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: const Color(0xFF828282),
           items: const <BottomNavigationBarItem>[
-            BottomNavigationBarItem(icon: Icon(Icons.notifications, size: 28), label: ""),
+            BottomNavigationBarItem(icon: Icon(Icons.format_align_center, size: 28), label: ""),
+            BottomNavigationBarItem(icon: Icon(Icons.home_filled, size: 28), label: ""),
             BottomNavigationBarItem(icon: Icon(Icons.home_filled, size: 28), label: ""),
           ],
           currentIndex: _selectedIndex,

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class Question2Card extends StatefulWidget {
@@ -32,10 +33,12 @@ class _Question2CardState extends State<Question2Card> {
                 children: [
                   Text("२.१ जाति ", style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
-                  const SizedBox(
+                  SizedBox(
                     width: 120,
                     height: 15,
-                    child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                    child: TextField(
+                        controller: TextControllers.jatiController,
+                        decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                 ],
               ),
@@ -44,10 +47,12 @@ class _Question2CardState extends State<Question2Card> {
                 children: [
                   Text("२.२ धर्म ", style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
-                  const SizedBox(
+                  SizedBox(
                     width: 120,
                     height: 15,
-                    child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                    child: TextField(
+                        controller: TextControllers.dharmaController,
+                        decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                 ],
               ),

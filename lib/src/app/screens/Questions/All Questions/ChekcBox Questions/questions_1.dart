@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 import 'model/questions_model.dart';
@@ -21,6 +23,8 @@ class Question1Card extends StatefulWidget {
   State<Question1Card> createState() => _Question1CardState();
 }
 
+TextEditingController mulikoName = TextEditingController();
+
 class _Question1CardState extends State<Question1Card> {
   var selectedOption = "";
   @override
@@ -39,15 +43,14 @@ class _Question1CardState extends State<Question1Card> {
               const SizedBox(height: 10),
               Row(
                 children: [
-                  Text(
-                    "१ परिवार मूलीको नाम ",
-                    style: AppStyles.text18PxBold,
-                  ),
-                  const SizedBox(
-                    width: 100,
+                  Text("१ परिवार मूलीको नाम ", style: AppStyles.text18PxBold),
+                  const SizedBox(width: 10),
+                  SizedBox(
+                    width: 150,
                     height: 20,
                     child: TextField(
-                      decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder()),
+                      controller: TextControllers.question1muliKoname,
+                      decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder()),
                     ),
                   ),
                 ],
@@ -64,6 +67,16 @@ class _Question1CardState extends State<Question1Card> {
                     isChecked: selectedOption == option,
                     onChanged: () {
                       setState(() {
+                        String gender;
+                        if (index == 0) {
+                          gender = "female";
+                        } else if (index == 1) {
+                          gender = "male";
+                        } else {
+                          gender = "third_Gender";
+                        }
+                        print(gender);
+                        QuestionsDomain.setGender(gender);
                         selectedOption = option;
                         widget.question.answerIndex = index;
                       });

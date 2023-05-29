@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class ExpQuestion32 extends ExpandedQuestionModel {
   int answerIndex = 0;
@@ -57,6 +58,7 @@ class ExpQuestion32CardState extends State<ExpQuestion32Card> {
                         isChecked: selectedOption == "गराउने गरेको छ",
                         onChanged: () {
                           setState(() {
+                            QuestionsDomain.setAnswer32(1);
                             selectedOption = "गराउने गरेको छ";
                             widget.question.answerIndex = 0;
                           });

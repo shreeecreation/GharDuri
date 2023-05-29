@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class ExpQuestion15 extends ExpandedQuestionModel {
@@ -83,10 +84,12 @@ class ExpQuestion15CardState extends State<ExpQuestion15Card> {
                       children: [
                         Text("उमेर ", style: AppStyles.text18PxBold),
                         const SizedBox(width: 5),
-                        const SizedBox(
+                        SizedBox(
                           width: 120,
                           height: 15,
-                          child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                          child: TextField(
+                            controller:TextControllers.q151,
+                            decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),
                       ],
                     ),

@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class Question31 extends QuestionModel {
@@ -51,10 +52,13 @@ class _Question31CardState extends State<Question31Card> {
                 children: [
                   Text("बालक संख्या ", style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
-                  const SizedBox(
+                   SizedBox(
                     width: 120,
                     height: 15,
-                    child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                    child: TextField(
+                      controller:TextControllers.q301,
+                      
+                      decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                 ],
               ),
@@ -62,12 +66,15 @@ class _Question31CardState extends State<Question31Card> {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text("विद्यालय छोड्नुको कारण", style: AppStyles.text18PxBold),
                 const SizedBox(height: 20),
-                const Row(
+                 Row(
                   children: [
                     SizedBox(
                       width: 200,
                       height: 40,
-                      child: TextField(decoration: InputDecoration()),
+                      child: TextField(
+                      controller:TextControllers.q302,
+                        
+                        decoration: InputDecoration()),
                     ),
                   ],
                 ),
@@ -77,10 +84,13 @@ class _Question31CardState extends State<Question31Card> {
                 children: [
                   Text("बालिका संख्या ", style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
-                  const SizedBox(
+                   SizedBox(
                     width: 120,
                     height: 15,
-                    child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                    child: TextField(
+                      controller:TextControllers.q303,
+                      
+                      decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                 ],
               ),
@@ -88,12 +98,16 @@ class _Question31CardState extends State<Question31Card> {
               Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
                 Text("विद्यालय छोड्नुको कारण", style: AppStyles.text18PxBold),
                 const SizedBox(height: 20),
-                const Row(
+                Row(
                   children: [
                     SizedBox(
                       width: 200,
                       height: 40,
-                      child: TextField(decoration: InputDecoration()),
+                      child: TextField(
+                        
+                      controller:TextControllers.q304,
+                        
+                        decoration: InputDecoration()),
                     ),
                   ],
                 ),

@@ -1,18 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question23 extends QuestionModel {
   int answerIndex = 0;
 
   Question23(
       {String questionName = '२३. तपाईंलाई बाल अधिकारको बारेमा जानकारी छ ',
-      List<String> questionOption = const [
-        "छ",
-        "छैन",
-        "केही कुरा सुनेको छु",
-        "कुनै पनि घटना नघटेको"
-      ]})
+      List<String> questionOption = const ["छ", "छैन", "केही कुरा सुनेको छु", "कुनै पनि घटना नघटेको"]})
       : super(questionName, questionOption);
 }
 
@@ -54,6 +50,7 @@ class _Question23CardState extends State<Question23Card> {
                       isChecked: selectedOption == option,
                       onChanged: () {
                         setState(() {
+                          QuestionsDomain.setAnswer23(index);
                           selectedOption = option;
                           question.answerIndex = index;
                         });

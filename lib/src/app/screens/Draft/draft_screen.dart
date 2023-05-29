@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/expanded_questions1.dart';
-import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
@@ -45,15 +43,10 @@ class DraftScreen extends StatelessWidget {
         const SizedBox(width: 10)
       ]),
       const SizedBox(height: 10),
-      const Divider(color: AppColors.primary, thickness: 1.5),
-      const SizedBox(height: 10),
-      dateAndFilter(),
-      const SizedBox(height: 10),
       Container(
-          decoration: BoxDecoration(
-            boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), offset: const Offset(0, 2), blurRadius: 2)],
-          ),
+          decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), offset: const Offset(0, 2), blurRadius: 2)]),
           child: const Divider(color: AppColors.primary, thickness: 1.5)),
+      const SizedBox(height: 10),
       const SizedBox(height: 5),
       Row(
         children: [

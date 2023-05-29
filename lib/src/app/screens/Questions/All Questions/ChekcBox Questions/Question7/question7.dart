@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 
 class Question7 extends QuestionModel {
   int answerIndex = 0;
@@ -40,16 +42,18 @@ class _Question7CardState extends State<Question7Card> {
               Text(question.questionName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
               Column(children: [
-                const Row(
+                Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "क)  कति पटक गर्भवती परिक्षण गरेको ",
                     ),
                     SizedBox(
                       width: 30,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q71,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),
@@ -69,6 +73,7 @@ class _Question7CardState extends State<Question7Card> {
                       isChecked: selectedOption == option,
                       onChanged: () {
                         setState(() {
+                          QuestionsDomain.setAnswer2(index);
                           selectedOption = option;
                           question.answerIndex = index;
                         });

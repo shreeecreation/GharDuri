@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 
 class Question6 extends QuestionModel {
   int answerIndex = 0;
@@ -41,59 +42,67 @@ class _Question6CardState extends State<Question6Card> {
             children: [
               Text(question.questionName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
-              const Column(children: [
+              Column(children: [
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "६.क)  जन्मेको जीवित शिशुको जन्म सङ्ख्या",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q61,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "६.ख)  जन्मेको १ घण्टाभित्र दुध खुवाएको संख्या",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q62,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
+                    const Text(
                       "६.ग)  ६ महिनासम्म आमाको दुधमात्र खुवाएको संख्या",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q63,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),
-                SizedBox(height: 10),
+                const SizedBox(height: 10),
                 Row(
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
-                    Text(
-                      "७.ग  )  २ वर्षसम्म आमाको दुध खुवाएको संख्या",
+                    const Text(
+                      "६.घ)  २ वर्षसम्म आमाको दुध खुवाएको संख्या",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
-                      child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                      child: TextField(
+                          controller: TextControllers.q64,
+                          decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
                   ],
                 ),

@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question19 extends QuestionModel {
   int answerIndex = 0;
@@ -31,7 +32,7 @@ class Question19Card extends StatefulWidget {
 final Question19 question = Question19();
 
 class _Question19CardState extends State<Question19Card> {
-  var selectedOption = "";
+  var selectedOptions = [];
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -47,24 +48,28 @@ class _Question19CardState extends State<Question19Card> {
             children: [
               Text(question.questionName, style: const TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
               const SizedBox(height: 10),
-              Column(children: [
-                const SizedBox(height: 10),
-                Column(
-                  children: question.questionOption.map<Widget>((option) {
-                    final index = question.questionOption.indexOf(option);
-                    return OptionCheckBox(
-                      title: option,
-                      isChecked: selectedOption == option,
-                      onChanged: () {
-                        setState(() {
-                          selectedOption = option;
-                          question.answerIndex = index;
-                        });
-                      },
-                    );
-                  }).toList(),
-                ),
-              ]),
+              Column(
+                children: question.questionOption.map<Widget>((option) {
+                  final index = question.questionOption.indexOf(option);
+                  return MultipleCheckboxWidget(
+                    option: option,
+                    isSelected: selectedOptions.contains(option),
+                    onChanged: (isChecked) {
+                      setState(() {
+                        if (isChecked) {
+                          selectedOptions.add(option);
+                          if (!QuestionsDomain.qusetion19List.contains(option)) {
+                            QuestionsDomain.qusetion19List.add(index);
+                          }
+                        } else {
+                          selectedOptions.remove(option);
+                          QuestionsDomain.qusetion19List.remove(index);
+                        }
+                      });
+                    },
+                  );
+                }).toList(),
+              ),
             ],
           ),
         ),

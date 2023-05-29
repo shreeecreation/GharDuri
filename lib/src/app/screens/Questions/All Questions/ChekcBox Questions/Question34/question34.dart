@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question34 extends QuestionModel {
   int answerIndex = 0;
@@ -9,11 +10,11 @@ class Question34 extends QuestionModel {
       {String questionName =
           '३४. तपाईका घरका १८ वर्षभन्दा कम उमेरका कतिजना बालबालिका देहायको निकायमा प्रतिनिधि वा सदस्य रहेका छन् ? यदी छन भने कुन मा?',
       List<String> questionOption = const [
-        "क. स्थानिय तह/योजना तर्जुमा वा कार्यान्वयन समिति",
-        "ख. वडा नागरिक मञ्च",
-        "ग. विद्यालय/स्वास्थ्य संस्था व्यवस्थापन समिति",
-        "घ. बाल संरक्षण समिति",
-        "ङ. बाल समुह वा बाल क्लब,\n बालमैत्री स्थानिय शासन समिति वा बाल संजाल"
+        "स्थानिय तह/योजना तर्जुमा वा कार्यान्वयन समिति",
+        "वडा नागरिक मञ्च",
+        "विद्यालय/स्वास्थ्य संस्था व्यवस्थापन समिति",
+        "बाल संरक्षण समिति",
+        "बाल समुह वा बाल क्लब,\n बालमैत्री स्थानिय शासन समिति वा बाल संजाल"
       ]})
       : super(questionName, questionOption);
 }
@@ -56,6 +57,7 @@ class _Question34CardState extends State<Question34Card> {
                       isChecked: selectedOption == option,
                       onChanged: () {
                         setState(() {
+                          QuestionsDomain.setAnswer34(index);
                           selectedOption = option;
                           question.answerIndex = index;
                         });

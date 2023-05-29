@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class ExpQuestion11 extends ExpandedQuestionModel {
   int answerIndex = 0;
@@ -69,6 +70,7 @@ class ExpQuestion11CardState extends State<ExpQuestion11Card> {
                         isChecked: selectedOption == "छ",
                         onChanged: () {
                           setState(() {
+                            QuestionsDomain.setAnswer11(1);
                             selectedOption = "छ";
                             widget.question.answerIndex = 0;
                           });
@@ -88,7 +90,6 @@ class ExpQuestion11CardState extends State<ExpQuestion11Card> {
                     ],
                   ),
                   const SizedBox(height: 11),
-          
                 ],
               ),
             ),

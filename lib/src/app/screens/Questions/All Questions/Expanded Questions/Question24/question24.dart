@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class ExpQuestion24 extends ExpandedQuestionModel {
@@ -79,51 +80,56 @@ class ExpQuestion24CardState extends State<ExpQuestion24Card> {
                   const SizedBox(height: 15),
                   if (selectedOption == "छ") Text("यदि छ भने ?", style: AppStyles.text18PxBold),
                   if (selectedOption == "छ")
-                    const Column(
+                    Column(
                       children: [
-                        SizedBox(height:10),
+                        const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               "धुम्रपान गर्नेको संख्या:",
                             ),
                             SizedBox(
                               width: 30,
                               height: 20,
-                              child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                              child: TextField(
+                                  controller: TextControllers.q241,
+                                  decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               "मद्यपान गर्नेको संख्या:",
                             ),
                             SizedBox(
                               width: 30,
                               height: 20,
-                              child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                              child: TextField(
+                                  controller: TextControllers.q242,
+                                  decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                             ),
                           ],
                         ),
-                        SizedBox(height: 10),
+                        const SizedBox(height: 10),
                         Row(
                           mainAxisAlignment: MainAxisAlignment.spaceBetween,
                           children: [
-                            Text(
+                            const Text(
                               "नसालु पदार्थ गर्नेको संख्या:",
                             ),
                             SizedBox(
                               width: 30,
                               height: 20,
-                              child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                              child: TextField(
+                                  controller: TextControllers.q243,
+                                  decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                             ),
                           ],
                         ),
-                       
                       ],
                     ),
                 ],

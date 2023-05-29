@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class Question33Card extends StatefulWidget {
@@ -33,10 +34,12 @@ class _Question33CardState extends State<Question33Card> {
                   Text(" ३३. तपाईंको परिवारका बालबालिकाहरु बाल क्लव÷संगठन आदिमा आबद्धता रहेका छन् ? छन भने क्लबको नाम उल्लेख गर्नुहोस।",
                       style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
-                  const SizedBox(
+                  SizedBox(
                     width: 120,
                     height: 15,
-                    child: TextField(decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                    child: TextField(
+                        controller: TextControllers.q33,
+                        decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                 ],
               ),

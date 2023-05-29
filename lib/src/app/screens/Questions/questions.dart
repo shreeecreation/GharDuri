@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/expanded_questions1.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
+import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 import 'All Questions/ChekcBox Questions/Question18/question18.dart';
 import 'All Questions/ChekcBox Questions/Question19/question19.dart';
@@ -54,6 +55,7 @@ import 'All Questions/Expanded Questions/Question9/question9.dart';
 import 'All Questions/Table Questions/Question2Table/question2cardtab.dart';
 import 'All Questions/Table Questions/table_questions1.dart';
 import 'All Questions/allquestions.dart';
+import 'domain/questions_domain.dart';
 
 class Questions extends StatefulWidget {
   const Questions({Key? key}) : super(key: key);
@@ -74,11 +76,12 @@ class QuestionsState extends State<Questions> {
       floatingActionButton: Stack(
         children: [
           Positioned(
-            bottom: 80, // Adjust the position as needed
+            bottom: 60, // Adjust the position as needed
             right: 16, // Adjust the position as needed
-            child: FloatingActionButton(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
               onPressed: () {
-                // Handle save action
+                QuestionsDomain.questionsSubmit();
               },
               child: const Text('Save'),
             ),
@@ -86,7 +89,8 @@ class QuestionsState extends State<Questions> {
           Positioned(
             bottom: 16, // Adjust the position as needed
             right: 16, // Adjust the position as needed
-            child: FloatingActionButton(
+            child: ElevatedButton(
+              style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
               onPressed: () {
                 // Handle save draft action
               },
@@ -138,10 +142,6 @@ class QuestionsState extends State<Questions> {
                     child: Padding(
                         padding: const EdgeInsets.all(16.0),
                         child: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                          const Text(
-                            "र्वडा नं. ",
-                            style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold),
-                          ),
                           const SizedBox(height: 5),
                           Row(
                             children: [

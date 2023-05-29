@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question4 extends QuestionModel {
   int answerIndex = 0;
@@ -27,7 +28,7 @@ class _Question4CardState extends State<Question4Card> {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(horizontal:8.0),
+      padding: const EdgeInsets.symmetric(horizontal: 8.0),
       child: Card(
         elevation: 2,
         color: const Color(0xFFF1F1F1),
@@ -48,6 +49,7 @@ class _Question4CardState extends State<Question4Card> {
                     isChecked: selectedOption == option,
                     onChanged: () {
                       setState(() {
+                        QuestionsDomain.setPlace(index);
                         selectedOption = option;
                         question.answerIndex = index;
                       });
