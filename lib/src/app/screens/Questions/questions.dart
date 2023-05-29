@@ -5,6 +5,14 @@ import 'package:ghardhuri/src/core/themes/appstyles.dart';
 import 'All Questions/ChekcBox Questions/Question18/question18.dart';
 import 'All Questions/ChekcBox Questions/Question19/question19.dart';
 import 'All Questions/ChekcBox Questions/Question2/question2_card.dart';
+import 'All Questions/ChekcBox Questions/Question21/question21.dart';
+import 'All Questions/ChekcBox Questions/Question23/question23.dart';
+import 'All Questions/ChekcBox Questions/Question26/question26.dart';
+import 'All Questions/ChekcBox Questions/Question27/question27.dart';
+import 'All Questions/ChekcBox Questions/Question28/quesion28.dart';
+import 'All Questions/ChekcBox Questions/Question29/question29.dart';
+import 'All Questions/ChekcBox Questions/Question30/question30.dart';
+import 'All Questions/Expanded Questions/Question25/question25.dart';
 import 'All Questions/ChekcBox Questions/Question4/question4.dart';
 import 'All Questions/ChekcBox Questions/Question5/question5.dart';
 import 'All Questions/ChekcBox Questions/Question6/question6.dart';
@@ -19,6 +27,8 @@ import 'All Questions/Expanded Questions/Question14/question14.dart';
 import 'All Questions/Expanded Questions/Question15/question15.dart';
 import 'All Questions/Expanded Questions/Question16/question16.dart';
 import 'All Questions/Expanded Questions/Question20/question20.dart';
+import 'All Questions/Expanded Questions/Question22/question22.dart';
+import 'All Questions/Expanded Questions/Question24/question24.dart';
 import 'All Questions/Expanded Questions/Question8/question8.dart';
 import 'All Questions/Expanded Questions/Question9/question9.dart';
 import 'All Questions/Table Questions/Question2Table/question2cardtab.dart';
@@ -140,13 +150,13 @@ class QuestionsState extends State<Questions> {
             const Question4Card(),
             const Question5Card(),
             const Question6Card(),
-            const Question7Card(),  // Check box typ questions
-            ExpQuestion8Card(),   //Expanded Questions
-            ExpQuestion9Card(),   //Expanded Questions
-            ExpQuestion10Card(),  //Expanded Questions
-            ExpQuestion11Card(),  // Expanded Questions
-            ExpQuestion12Card(),  // Expanded Questions
-            ExpQuestion13Card(),  // Expanded Questions
+            const Question7Card(), // Check box typ questions
+            ExpQuestion8Card(), //Expanded Questions
+            ExpQuestion9Card(), //Expanded Questions
+            ExpQuestion10Card(), //Expanded Questions
+            ExpQuestion11Card(), // Expanded Questions
+            ExpQuestion12Card(), // Expanded Questions
+            ExpQuestion13Card(), // Expanded Questions
             ExpQuestion14Card(), // Expanded Questions
             ExpQuestion15Card(), // Expanded Questions
             ExpQuestion16Card(), // Expanded Questions
@@ -154,6 +164,16 @@ class QuestionsState extends State<Questions> {
             const Question18Card(), // Check box type questions
             const Question19Card(), // Check box type questions
             ExpQuestion20Card(), // Expanded Questions
+            const Question21Card(), // Check box type questions
+            ExpQuestion22Card(), // Expanded Questions
+            const Question23Card(), // Check box type questions
+            ExpQuestion24Card(), // Expanded questions
+            ExpQuestion25Card(), // Check box type questions
+            const Question26Card(), // Check box type questions
+            const Question27Card(),
+            const Question28Card(),
+            const Question29Card(),
+            const Question30Card()
           ],
         ),
       ),
