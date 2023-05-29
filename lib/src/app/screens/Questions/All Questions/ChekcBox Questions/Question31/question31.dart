@@ -52,45 +52,12 @@ class _Question31CardState extends State<Question31Card> {
                 children: [
                   Text("बालक संख्या ", style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
-                   SizedBox(
+                  SizedBox(
                     width: 120,
                     height: 15,
                     child: TextField(
-                      controller:TextControllers.q301,
-                      
-                      decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
-                  ),
-                ],
-              ),
-              const SizedBox(height: 10),
-              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-                Text("विद्यालय छोड्नुको कारण", style: AppStyles.text18PxBold),
-                const SizedBox(height: 20),
-                 Row(
-                  children: [
-                    SizedBox(
-                      width: 200,
-                      height: 40,
-                      child: TextField(
-                      controller:TextControllers.q302,
-                        
-                        decoration: InputDecoration()),
-                    ),
-                  ],
-                ),
-              ]),
-              const SizedBox(height: 10),
-              Row(
-                children: [
-                  Text("बालिका संख्या ", style: AppStyles.text18PxBold),
-                  const SizedBox(width: 5),
-                   SizedBox(
-                    width: 120,
-                    height: 15,
-                    child: TextField(
-                      controller:TextControllers.q303,
-                      
-                      decoration: InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                        controller: TextControllers.q301,
+                        decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                 ],
               ),
@@ -103,11 +70,35 @@ class _Question31CardState extends State<Question31Card> {
                     SizedBox(
                       width: 200,
                       height: 40,
-                      child: TextField(
-                        
-                      controller:TextControllers.q304,
-                        
-                        decoration: InputDecoration()),
+                      child: TextField(controller: TextControllers.q302, decoration: const InputDecoration()),
+                    ),
+                  ],
+                ),
+              ]),
+              const SizedBox(height: 10),
+              Row(
+                children: [
+                  Text("बालिका संख्या ", style: AppStyles.text18PxBold),
+                  const SizedBox(width: 5),
+                  SizedBox(
+                    width: 120,
+                    height: 15,
+                    child: TextField(
+                        controller: TextControllers.q303,
+                        decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                  ),
+                ],
+              ),
+              const SizedBox(height: 10),
+              Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
+                Text("विद्यालय छोड्नुको कारण", style: AppStyles.text18PxBold),
+                const SizedBox(height: 20),
+                Row(
+                  children: [
+                    SizedBox(
+                      width: 200,
+                      height: 40,
+                      child: TextField(controller: TextControllers.q304, decoration: const InputDecoration()),
                     ),
                   ],
                 ),

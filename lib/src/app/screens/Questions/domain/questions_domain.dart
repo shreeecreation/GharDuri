@@ -28,6 +28,7 @@ class QuestionsDomain {
     //18
     setAnswer18();
     setAnswer19();
+    addSuchiKarta();
 
     //22
     setAnswer22();
@@ -46,6 +47,10 @@ class QuestionsDomain {
     Map<String, dynamic> jsonMap = myData.toJson();
     String jsonData = json.encode(jsonMap);
     FormAPI.formAPI(jsonData);
+  }
+
+  static void bastikoname(name) {
+    myData.bastiName = name;
   }
 
   static void parseTextFields() {
@@ -402,5 +407,9 @@ class QuestionsDomain {
 
   static setAnswer50(index) {
     myData.question49 = index;
+  }
+
+  static void addSuchiKarta() {
+    myData.suchiKarta = TextControllers.suchiKarta.text;
   }
 }

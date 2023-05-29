@@ -89,6 +89,7 @@ class AnswerModel {
   int? question48;
   int? question49;
   int? question50;
+  String? suchiKarta;
 
   AnswerModel({
     this.bastiName,
@@ -173,6 +174,7 @@ class AnswerModel {
     this.question48,
     this.question49,
     this.question50,
+    this.suchiKarta
   });
 
   factory AnswerModel.fromJson(Map<String, dynamic> json) {
@@ -259,6 +261,7 @@ class AnswerModel {
       question48: json['question48'],
       question49: json['question49'],
       question50: json['question50'],
+      suchiKarta: json['suchiKarta'],
     );
   }
 
@@ -346,6 +349,7 @@ class AnswerModel {
       'question48': question48,
       'question49': question49,
       'question50': question50,
+    'suchiKarta':suchiKarta
     };
   }
 }

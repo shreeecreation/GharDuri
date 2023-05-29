@@ -19,13 +19,24 @@ class GetProfile {
       );
       var code = response.statusCode;
       if (code >= 200 && code < 300) {
+        print(response.body);
         // Convert the response JSON string into a Map
         Map<String, dynamic> jsonData = jsonDecode(response.body);
 
         // Extract the "ward" value
         int ward = jsonData['data']['ward'];
-
+        String fullName = jsonData['data']['profile']['fullName'];
+        String role = jsonData['data']['role'];
+        String phoneNumber = jsonData['data']['number'];
+        String documentCount = jsonData['data']['documentCount'];
+        String picture = jsonData['data']['profile']['image'];
+        ProfileModel.fullName = fullName;
+        ProfileModel.role = role;
+        ProfileModel.phoneNumber = phoneNumber;
+        ProfileModel.documentCount = documentCount;
+        ProfileModel.picture = picture;
         ProfileModel.ward = ward.toString();
+        print(ProfileModel.ward);
         WidgetsBinding.instance.addPostFrameCallback((_) {
           QuestionRoute.navigatorRoute();
 

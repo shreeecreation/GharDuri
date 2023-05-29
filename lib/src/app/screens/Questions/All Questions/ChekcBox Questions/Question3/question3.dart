@@ -17,7 +17,7 @@ class Question3 extends QuestionModel {
 }
 
 class Question3Card extends StatefulWidget {
-  Question3Card({Key? key}) : super(key: key);
+  const Question3Card({Key? key}) : super(key: key);
 
   static List<Widget> textFields = []; // List to store the text fields
   static List<Widget> textFields1 = []; // List to store the text fields
@@ -30,10 +30,13 @@ class Question3Card extends StatefulWidget {
 final Question3 question = Question3();
 
 class _Question3CardState extends State<Question3Card> {
-
   @override
   void initState() {
     super.initState();
+    Question3Card.textFields.clear();
+    Question3Card.textFields1.clear();
+    Question3Card.controllers.clear();
+    Question3Card.controllers1.clear();
     addTextFieldpurush();
     addTextFieldmahila();
   }
@@ -86,17 +89,6 @@ class _Question3CardState extends State<Question3Card> {
     setState(() {
       Question3Card.textFields1.add(textField);
     });
-  }
-
-  @override
-  void dispose() {
-    for (final controller in Question3Card.controllers) {
-      controller.dispose();
-    }
-    for (final controller in Question3Card.controllers1) {
-      controller.dispose();
-    }
-    super.dispose();
   }
 
   @override

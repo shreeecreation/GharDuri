@@ -3,8 +3,9 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question3/question3.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/expanded_questions1.dart';
+import 'package:ghardhuri/src/core/Dialog%20Boxes/auth/logindialog.dart';
 import 'package:ghardhuri/src/core/ProfileModel/profile_model.dart';
-import 'package:ghardhuri/src/core/Save%20as%20Draft/saveasdraft.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
@@ -58,6 +59,7 @@ import 'All Questions/Expanded Questions/Question48/question48.dart';
 import 'All Questions/Expanded Questions/Question8/question8.dart';
 import 'All Questions/Expanded Questions/Question9/question9.dart';
 import 'All Questions/Table Questions/table_questions1.dart';
+import 'All Questions/familyNo.dart';
 import 'domain/questions_domain.dart';
 
 class Questions extends StatefulWidget {
@@ -72,7 +74,6 @@ class QuestionsState extends State<Questions> {
   Question1 question1 = Question1();
   ExpQuestion1 expquestion1 = ExpQuestion1();
   TableQuestion1 tablequestion1 = TableQuestion1();
-  TextEditingController familyNo = TextEditingController();
   final List<List<String>> listOfLists = [
     ["सानो धिमिरे टोल", "धिमिरे टोल", "रतनपुर टोल", "पौडेल गाउँ टोल", "उदिपुर टोल", "खत्रिचौर टोल", "नयाँगाउँ टोल", "सारतेपोखरी"], //1
     [
@@ -192,21 +193,13 @@ class QuestionsState extends State<Questions> {
       'रामचोक गाउँ'
     ] //11
   ];
-  final int selectedNumber = int.parse(ProfileModel.ward); // Specify the desired number here
   String? selectedItem;
+  final int selectedNumber = int.parse(ProfileModel.ward); // Specify the desired number here
   @override
   void initState() {
     super.initState();
     int randomNumber = generateRandomNumber();
-    print('Random Number: $randomNumber');
-
-    familyNo.text = randomNumber.toString(); // Assign the initial value here
-  }
-
-  @override
-  void dispose() {
-    familyNo.dispose(); // Dispose the controller when not needed
-    super.dispose();
+    FamilyNumber.familyNumber = randomNumber.toString();
   }
 
   @override
@@ -216,25 +209,14 @@ class QuestionsState extends State<Questions> {
       floatingActionButton: Stack(
         children: [
           Positioned(
-            bottom: 60, // Adjust the position as needed
+            bottom: 30, // Adjust the position as needed
             right: 16, // Adjust the position as needed
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
               onPressed: () {
-                QuestionsDomain.questionsSubmit();
+                LoginDialog.saveForm(context);
               },
               child: const Text('Save'),
-            ),
-          ),
-          Positioned(
-            bottom: 16, // Adjust the position as needed
-            right: 16, // Adjust the position as needed
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
-              onPressed: () {
-                saveAsDraft();
-              },
-              child: const Text('Save Draft'),
             ),
           ),
         ],
@@ -299,6 +281,7 @@ class QuestionsState extends State<Questions> {
                                   }).toList(),
                                   onChanged: (String? newValue) {
                                     setState(() {
+                                      QuestionsDomain.bastikoname(selectedItem);
                                       selectedItem = newValue;
                                     });
                                   },
@@ -311,14 +294,14 @@ class QuestionsState extends State<Questions> {
                             children: [
                               const Text("परिवार क्र.स", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
                               const SizedBox(width: 15),
-                              SizedBox(width: 80, height: 20, child: Text(familyNo.text, style: AppStyles.text16Px)),
+                              SizedBox(width: 80, height: 20, child: Text(FamilyNumber.familyNumber.toString(), style: AppStyles.text16Px)),
                             ],
                           ),
                           const SizedBox(height: 5),
                         ])))),
             Question1Card(question: question1),
             const Question2Card(),
-            Question3Card(),
+            const Question3Card(),
             const Question4Card(),
             const Question5Card(),
             const Question6Card(),
@@ -367,6 +350,24 @@ class QuestionsState extends State<Questions> {
             const Question49Card(),
 
             const Question50Card(),
+            const SizedBox(height: 20),
+            Padding(
+              padding: const EdgeInsets.all(8.0),
+              child: Column(
+                children: [
+                  Text("सुची कर्ताको नाम", style: AppStyles.text18PxBold),
+                  const SizedBox(height: 10),
+                  SizedBox(
+                    width: 150,
+                    height: 35,
+                    child: TextField(
+                        controller: TextControllers.suchiKarta,
+                        decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

@@ -8,7 +8,6 @@ class TextControllers {
   static TextEditingController jatiController = TextEditingController();
   static TextEditingController dharmaController = TextEditingController();
 
-
   //question6
   static TextEditingController q31 = TextEditingController();
   static TextEditingController q32 = TextEditingController();
@@ -63,4 +62,50 @@ class TextControllers {
   static TextEditingController q304 = TextEditingController();
 
   static TextEditingController q33 = TextEditingController();
+
+  static TextEditingController suchiKarta = TextEditingController();
+
+
+  static void clearAll() {
+    bastikoname.text = "";
+    question1muliKoname.text = "";
+    jatiController.text = "";
+    dharmaController.text = "";
+    q31.text = "";
+    q32.text = "";
+     q61.text ="";
+ q62.text = "";
+   q63.text = "";
+   q64.text = "";
+   q71.text = "";
+   q101.text = "";
+q102.text  = "";
+q151.text = "";
+q221.text = "";
+q241.text = "";
+q242.text = "";
+q243.text = "";
+q271.text = "";
+q281.text = "";
+q282.text = "";
+q283.text = "";
+q284.text ="";
+q291.text = "";
+q292.text = "";
+q293.text = "";
+q294.text ="";
+
+q2911.text = "";
+q2921.text = "";
+q2931.text = "";
+q2941.text ="";
+
+q301.text = "";
+q302.text = "";
+q303.text = "";
+q304.text ="";
+
+q33.text = "";
+suchiKarta.text = "";
+  }
 }

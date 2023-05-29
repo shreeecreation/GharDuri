@@ -62,6 +62,7 @@ class _Question41CardState extends State<Question41Card> {
                       setState(() {
                       if (isChecked) {
                           selectedOptions.add(option);
+                          // ignore: iterable_contains_unrelated_type
                           if (!QuestionsDomain.qusetion41List.contains(option)) {
                             QuestionsDomain.qusetion41List.add(index);
                           }

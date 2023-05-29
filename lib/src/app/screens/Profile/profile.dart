@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:get/get.dart';
-import 'package:ghardhuri/src/app/screens/Auth/Login/login_screen.dart';
-import 'package:ghardhuri/src/core/API/ManageCookie/managelogincookie.dart';
+import 'package:ghardhuri/src/core/Dialog%20Boxes/auth/logindialog.dart';
+import 'package:ghardhuri/src/core/ProfileModel/profile_model.dart';
+import 'package:ghardhuri/src/core/env/envmodels.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class ProfileScreen extends StatelessWidget {
@@ -22,8 +22,9 @@ class ProfileScreen extends StatelessWidget {
               ],
             ),
             const SizedBox(height: 20),
-            Text("     Profile Settings", style: AppStyles.text18PxBold),
+            Text("     Profile Description", style: AppStyles.text18PxBold),
             const SizedBox(height: 10),
+            userProfile(context),
             logOut(context),
           ]),
         ));
@@ -37,11 +38,10 @@ class ProfileScreen extends StatelessWidget {
         child: ListTile(
           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
           tileColor: Colors.white,
-          title: const Text("Log Out"),
-          trailing: const Icon(Icons.keyboard_arrow_right_outlined, size: 30),
+          title:  Text("Log Out",style:AppStyles.text14PxSemiBold),
+          trailing: const Icon(Icons.login, size: 30),
           onTap: () {
-            ManageLoginCookie.deleteCookie();
-            Get.offAll(LoginScreen());
+            LoginDialog.logoutDialog(context);
             // logoutDialog(context);
           },
         ),
@@ -62,42 +62,47 @@ class ProfileScreen extends StatelessWidget {
           child: Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              // SizedBox(
-              //   height: 90,
-              //   width: 90,
-              //   child: Container(
-              //     decoration: const BoxDecoration(
-              //       shape: BoxShape.circle,
-              //     ),
-              //     child: ClipOval(
-              //       child: Profile.picture != null || Profile.picture != ""
-              //           ? Image.network(
-              //               "${Environment.apiUrl}/public/images/${Profile.picture}",
-              //               fit: BoxFit.fill,
-              //             )
-              //           : Image.asset("assets/images/logo2.png"),
-              //     ),
-              //   ),
-              // ),
+              SizedBox(
+                height: 90,
+                width: 90,
+                child: Container(
+                  decoration: const BoxDecoration(
+                    shape: BoxShape.circle,
+                  ),
+                  child: ClipOval(
+                    // ignore: unnecessary_null_comparison
+                    child: ProfileModel.picture != null || ProfileModel.picture != ""
+                        ? Image.network(
+                            "${Environment.apiUrl}/public/images/${ProfileModel.picture}",
+                            fit: BoxFit.fill,
+                          )
+                        : Image.asset("assets/images/logo.png"),
+                  ),
+                ),
+              ),
               const SizedBox(width: 30),
               Column(
                 mainAxisAlignment: MainAxisAlignment.center,
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  Text(" sds", style: AppStyles.text20PxSemiBold),
+                  Text(ProfileModel.fullName, style: AppStyles.text20PxSemiBold),
                   const SizedBox(height: 5),
                   Row(
                     mainAxisAlignment: MainAxisAlignment.end,
                     children: [
-                      const Icon(Icons.location_on_outlined),
-                      Text("dasdasd", style: AppStyles.text14Px),
+                      Text("फोन नम्बर: ${ProfileModel.phoneNumber}", style: AppStyles.text14PxSemiBold),
                     ],
                   ),
                   const SizedBox(height: 5),
                   Row(
                     children: [
-                      const Icon(Icons.phone_outlined),
-                      Text("sdasd", style: AppStyles.text14Px),
+                      Text("भूमिका: ${ProfileModel.role}", style: AppStyles.text14PxSemiBold),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    children: [
+                      Text("जम्मा सुची बुझाइको : ${ProfileModel.ward}", style: AppStyles.text14Px),
                     ],
                   ),
                 ],

@@ -59,7 +59,6 @@ class ForgotScreen extends StatelessWidget {
                 width: MediaQuery.of(context).size.width / 1.2,
                 child: ElevatedButton(
                     onPressed: () async {
-                      //TODO Send Otp functionality
                       AuthRoutes.otpVerificationRoute();
                     },
                     style: ElevatedButton.styleFrom(
