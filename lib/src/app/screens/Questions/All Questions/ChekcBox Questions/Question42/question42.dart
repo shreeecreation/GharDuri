@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question42 extends QuestionModel {
   int answerIndex = 0;
@@ -51,10 +52,14 @@ class _Question42CardState extends State<Question42Card> {
                     isSelected: selectedOptions.contains(option),
                     onChanged: (isChecked) {
                       setState(() {
-                        if (isChecked) {
+     if (isChecked) {
                           selectedOptions.add(option);
+                          if (!QuestionsDomain.qusetion42List.contains(option)) {
+                            QuestionsDomain.qusetion42List.add(index);
+                          }
                         } else {
                           selectedOptions.remove(option);
+                          QuestionsDomain.qusetion42List.remove(index);
                         }
                       });
                     },

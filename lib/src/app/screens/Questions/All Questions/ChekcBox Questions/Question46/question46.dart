@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question46 extends QuestionModel {
   int answerIndex = 0;
@@ -58,6 +59,7 @@ class _Question46CardState extends State<Question46Card> {
                   isChecked: selectedOption == option,
                   onChanged: () {
                     setState(() {
+                      QuestionsDomain.setAnswer461(index);
                       selectedOption = option;
                       question.answerIndex = index;
                     });
@@ -75,6 +77,8 @@ class _Question46CardState extends State<Question46Card> {
                   isChecked: selectedOption1 == option,
                   onChanged: () {
                     setState(() {
+                      QuestionsDomain.setAnswer462(index);
+
                       selectedOption1 = option;
                       question.answerIndex = index;
                     });

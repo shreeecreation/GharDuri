@@ -63,12 +63,14 @@ class AnswerModel {
    int? question32;
    int? question33;
    int? question34;
-   
+
    int? question35;
    int? question36;
+
    int? question37;
+
    int? question38_1;
-   List<int>? question38_2;
+   
    int? question39;
    int? question40;
    List<int>? question41;
@@ -151,7 +153,7 @@ class AnswerModel {
     this.question36,
     this.question37,
     this.question38_1,
-    this.question38_2,
+    
     this.question39,
     this.question40,
     this.question41,
@@ -236,7 +238,6 @@ class AnswerModel {
       question36: json['question36'],
       question37: json['question37'],
       question38_1: json['question38_1'],
-      question38_2: json['question38_2'],
       question39: json['question39'],
       question40: json['question40'],
       question41: json['question41'],
@@ -322,7 +323,6 @@ class AnswerModel {
       'question36': question36,
       'question37': question37,
       'question38_1': question38_1,
-      'question38_2': question38_2,
       'question39': question39,
       'question40': question40,
       'question41': question41,

@@ -1,19 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question40 extends QuestionModel {
   int answerIndex = 0;
 
   Question40(
       {String questionName = '४०. तपाईंको घरमा खाना पकाउन प्रयोग हुने प्रमुख इन्धन कुन हो ?',
-      List<String> questionOption = const [
-        "दाउरा",
-        "गोवरग्याँस",
-        "एल.पि. ग्याँस",
-        "विद्युत",
-        "अन्य"
-      ]})
+      List<String> questionOption = const ["दाउरा", "गोवरग्याँस", "एल.पि. ग्याँस", "विद्युत", "अन्य"]})
       : super(questionName, questionOption);
 }
 
@@ -55,6 +50,7 @@ class _Question40CardState extends State<Question40Card> {
                       isChecked: selectedOption == option,
                       onChanged: () {
                         setState(() {
+                          QuestionsDomain.setAnswer40(index);
                           selectedOption = option;
                           question.answerIndex = index;
                         });

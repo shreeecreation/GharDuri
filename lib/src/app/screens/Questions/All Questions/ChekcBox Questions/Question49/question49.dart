@@ -1,20 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question49 extends QuestionModel {
   int answerIndex = 0;
 
   Question49(
       {String questionName = '४९. तपाइको बालबालिका पढ्ने विद्यालय कुन प्रकोपको जोखिममा रहेको छ?',
-      List<String> questionOption = const [
-        "बाढी",
-        "पहिरो",
-        "भुकम्प",
-        "आगलागी",
-        "सम्झाउने",
-        "अन्य"
-      ]})
+      List<String> questionOption = const ["बाढी", "पहिरो", "भुकम्प", "आगलागी", "सम्झाउने", "अन्य"]})
       : super(questionName, questionOption);
 }
 
@@ -56,6 +50,7 @@ class _Question49CardState extends State<Question49Card> {
                       isChecked: selectedOption == option,
                       onChanged: () {
                         setState(() {
+                          QuestionsDomain.setAnswer49(index);
                           selectedOption = option;
                           question.answerIndex = index;
                         });

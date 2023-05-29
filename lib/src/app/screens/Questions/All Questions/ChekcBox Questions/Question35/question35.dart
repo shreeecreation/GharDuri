@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
 class Question35 extends QuestionModel {
   int answerIndex = 0;
@@ -8,15 +9,15 @@ class Question35 extends QuestionModel {
   Question35(
       {String questionName = '३५. तपाईको परिवारका कुनै सदस्य स्थानीय कुनै संघसंस्था वा समूहमा आवद्ध हुनुहुन्छ ?',
       List<String> questionOption = const [
-        "क. सामुदायिक संस्था",
-        "ख. कृषक समूह",
-        "ग. सामुदायिक वन उपभोक्ता समूह",
-        "घ. सहकारी संस्था",
-        "ङ. नागरिक सचेतना केन्द्र",
-        "च. परम्परागत समूह",
-        "छ. अन्य (नागरिक मञ्च, विभिन्न समिति...)",
-        "ज. प्यारालिगल कमिटि",
-        " झ. कुनैमा पनि नरहेको"
+        "सामुदायिक संस्था",
+        "कृषक समूह",
+        "सामुदायिक वन उपभोक्ता समूह",
+        "सहकारी संस्था",
+        "नागरिक सचेतना केन्द्र",
+        "परम्परागत समूह",
+        "अन्य (नागरिक मञ्च, विभिन्न समिति...)",
+        "प्यारालिगल कमिटि",
+        "कुनैमा पनि नरहेको"
       ]})
       : super(questionName, questionOption);
 }
@@ -59,6 +60,7 @@ class _Question35CardState extends State<Question35Card> {
                       isChecked: selectedOption == option,
                       onChanged: () {
                         setState(() {
+                          QuestionsDomain.setAnswer35(index);
                           selectedOption = option;
                           question.answerIndex = index;
                         });

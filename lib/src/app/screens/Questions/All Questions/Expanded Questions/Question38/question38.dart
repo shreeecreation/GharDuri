@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class ExpQuestion38 extends ExpandedQuestionModel {
@@ -61,30 +62,30 @@ class ExpQuestion38CardState extends State<ExpQuestion38Card> {
               Column(
                 children: [
                   OptionCheckBox(
-                    title: "क. अन्यत्र स्थानमा",
-                    isChecked: selectedOption == "क. अन्यत्र स्थानमा",
+                    title: "अन्यत्र स्थानमा",
+                    isChecked: selectedOption == "अन्यत्र स्थानमा",
                     onChanged: () {
                       setState(() {
-                        selectedOption = "क. अन्यत्र स्थानमा";
+                        selectedOption = "अन्यत्र स्थानमा";
                         widget.question.answerIndex = 0;
                       });
                     },
                   ),
                   const SizedBox(width: 30),
                   OptionCheckBox(
-                    title: "ख. यसै स्थानमा अन्यत्र स्थानबाट \nआएको भए यहाँ किन आउनु भएको ?",
+                    title: "यसै स्थानमा अन्यत्र स्थानबाट \nआएको भए यहाँ किन आउनु भएको ?",
                     isChecked: selectedOption == "ख. यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?",
                     onChanged: () {
                       setState(() {
-                        selectedOption = "ख. यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?";
+                        selectedOption = "यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?";
                         widget.question.answerIndex = 1;
                       });
                     },
                   ),
                 ],
               ),
-              if (selectedOption == "ख. यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?") Text("हो भने", style: AppStyles.text18PxBold),
-              if (selectedOption == "ख. यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?")
+              if (selectedOption == "यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?") Text("हो भने", style: AppStyles.text18PxBold),
+              if (selectedOption == "यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?")
                 Column(
                   children: (widget.question.questionOption)
                       .map((option) => OptionCheckBox(
@@ -92,6 +93,7 @@ class ExpQuestion38CardState extends State<ExpQuestion38Card> {
                             isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
                             onChanged: () {
                               setState(() {
+                                QuestionsDomain.setAnswer38((widget.question).questionOption.indexOf(option));
                                 (widget.question).answerIndex = (widget.question).questionOption.indexOf(option);
                               });
                             },

@@ -7,6 +7,8 @@ class QuestionsDomain {
   static AnswerModel myData = AnswerModel();
   static List<int> qusetion18List = [];
   static List<int> qusetion19List = [];
+  static List<int> qusetion41List = [];
+  static List<int> qusetion42List = [];
   static void questionsSubmit() {
     setJatiandsetDharma();
     setAnswer();
@@ -31,6 +33,8 @@ class QuestionsDomain {
     setAnswer29();
     setAnswer31();
     setAnswer33();
+    setAnswer41();
+    setAnswer42();
 
     Map<String, dynamic> jsonMap = myData.toJson();
     String jsonData = json.encode(jsonMap);
@@ -238,5 +242,65 @@ class QuestionsDomain {
   
   static setAnswer34(index) {
     myData.question34 = index;
+  }
+    static setAnswer35(index) {
+    myData.question35 = index;
+  }
+
+      static setAnswer36(index) {
+    myData.question36 = index;
+  }
+        static setAnswer37(index) {
+    myData.question37 = index;
+  }
+        static setAnswer38(index) {
+    myData.question38_1 = index;
+  }
+
+        static setAnswer39(index) {
+    myData.question39 = index;
+  }
+
+        static setAnswer40(index) {
+    myData.question40 = index;
+  }
+          static setAnswer41() {
+    myData.question41 = qusetion41List;
+  }
+           static setAnswer42() {
+    myData.question42 = qusetion42List;
+  }
+
+             static setAnswer431(index) {
+    myData.question43_1 = index;
+  }
+               static setAnswer432(index) {
+    myData.question43_2 = index;
+  }
+              static setAnswer44(index) {
+    myData.question44 = index;
+  }
+                static setAnswer45(index) {
+    myData.question45 = index;
+  }
+
+               static setAnswer461(index) {
+    myData.question46_1 = index;
+  }
+               static setAnswer462(index) {
+    myData.question46_2 = index;
+  }
+           static setAnswer47(index) {
+    myData.question47 = index;
+  }
+     static setAnswer48(index) {
+    myData.question48 = index;
+  }
+   static setAnswer49(index) {
+    myData.question49 = index;
+  }
+
+   static setAnswer50(index) {
+    myData.question49 = index;
   }
 }
