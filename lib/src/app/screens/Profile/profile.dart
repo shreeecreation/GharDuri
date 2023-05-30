@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/core/API/Auth/get_profile_api.dart';
 import 'package:ghardhuri/src/core/Dialog%20Boxes/auth/logindialog.dart';
 import 'package:ghardhuri/src/core/ProfileModel/profile_model.dart';
 import 'package:ghardhuri/src/core/env/envmodels.dart';
@@ -38,7 +39,7 @@ class ProfileScreen extends StatelessWidget {
         child: ListTile(
           shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(12))),
           tileColor: Colors.white,
-          title:  Text("Log Out",style:AppStyles.text14PxSemiBold),
+          title: Text("Log Out", style: AppStyles.text14PxSemiBold),
           trailing: const Icon(Icons.login, size: 30),
           onTap: () {
             LoginDialog.logoutDialog(context);
@@ -59,56 +60,62 @@ class ProfileScreen extends StatelessWidget {
               borderRadius: BorderRadius.all(
             Radius.circular(12),
           )),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.center,
-            children: [
-              SizedBox(
-                height: 90,
-                width: 90,
-                child: Container(
-                  decoration: const BoxDecoration(
-                    shape: BoxShape.circle,
-                  ),
-                  child: ClipOval(
-                    // ignore: unnecessary_null_comparison
-                    child: ProfileModel.picture != null || ProfileModel.picture != ""
+          child: FutureBuilder(
+              future: GetProfile.getProfile(),
+              builder: (BuildContext context, AsyncSnapshot<ProfileModel?> snapshot) {
+                if (snapshot.hasData) {
+                  return Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      SizedBox(
+                        height: 90,
+                        width: 90,
+                        child: Container(
+                          decoration: const BoxDecoration(
+                            shape: BoxShape.circle,
+                          ),
+                          child:ClipOval(
+                    child: snapshot.data!.picture != null || snapshot.data!.picture != ""
                         ? Image.network(
-                            "${Environment.apiUrl}/public/images/${ProfileModel.picture}",
+                            "${Environment.apiUrl}/public/images/${snapshot.data!.picture}",
                             fit: BoxFit.fill,
                           )
                         : Image.asset("assets/images/logo.png"),
                   ),
                 ),
               ),
-              const SizedBox(width: 30),
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(ProfileModel.fullName, style: AppStyles.text20PxSemiBold),
-                  const SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.end,
-                    children: [
-                      Text("फोन नम्बर: ${ProfileModel.phoneNumber}", style: AppStyles.text14PxSemiBold),
+                      const SizedBox(width: 30),
+                      Column(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children: [
+                          Text(snapshot.data!.fullName, style: AppStyles.text20PxSemiBold),
+                          const SizedBox(height: 5),
+                          Row(
+                            mainAxisAlignment: MainAxisAlignment.end,
+                            children: [
+                              Text("फोन नम्बर: ${snapshot.data!.phoneNumber}", style: AppStyles.text14PxSemiBold),
+                            ],
+                          ),
+                          const SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Text("भूमिका: ${snapshot.data!.role}", style: AppStyles.text14PxSemiBold),
+                            ],
+                          ),
+                          const SizedBox(height: 5),
+                          Row(
+                            children: [
+                              Text("जम्मा सुची बुझाइको : ${snapshot.data!.ward}", style: AppStyles.text14Px),
+                            ],
+                          ),
+                        ],
+                      ),
                     ],
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    children: [
-                      Text("भूमिका: ${ProfileModel.role}", style: AppStyles.text14PxSemiBold),
-                    ],
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    children: [
-                      Text("जम्मा सुची बुझाइको : ${ProfileModel.ward}", style: AppStyles.text14Px),
-                    ],
-                  ),
-                ],
-              ),
-            ],
-          ),
+                  );
+                }
+                return const CircularProgressIndicator();
+              }),
         ));
   }
 }

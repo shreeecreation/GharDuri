@@ -1,7 +1,9 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.example.gharduri">
+      <uses-permission android:name="android.permission.INTERNET"/> <!-- Add this -->
+
     <application
-        android:label="gharduri"
+        android:label="Gadak"
         android:name="${applicationName}"
         android:icon="@mipmap/ic_launcher">
         <activity

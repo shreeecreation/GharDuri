@@ -4,7 +4,6 @@ import 'package:ghardhuri/src/app/screens/Auth/Login/login_screen.dart';
 import 'package:ghardhuri/src/app/screens/Bottom%20Navigator/home_navigator.dart';
 import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 import 'package:ghardhuri/src/core/API/ManageCookie/managelogincookie.dart';
-import 'package:ghardhuri/src/core/ProfileModel/profile_model.dart';
 import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
@@ -85,12 +84,6 @@ class LoginDialog {
                             ManageLoginCookie.deleteCookie();
                             TextControllers.clearAll();
                             Get.offAll(LoginScreen());
-                            ProfileModel.ward = "";
-                            ProfileModel.fullName = "";
-                            ProfileModel.role = "";
-                            ProfileModel.phoneNumber = "";
-                            ProfileModel.documentCount = "";
-                            ProfileModel.picture = "";
                           },
                           style: ElevatedButton.styleFrom(
                               elevation: 0,

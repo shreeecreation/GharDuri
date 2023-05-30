@@ -1,15 +1,10 @@
-
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/core/API/Auth/Login/login_api.dart';
-import 'package:ghardhuri/src/core/API/Auth/get_profile_api.dart';
-import 'package:ghardhuri/src/core/API/ManageCookie/managelogincookie.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 import 'package:ghardhuri/src/core/utils/header_widget.dart';
 import 'package:ghardhuri/src/core/utils/validators/validators.dart';
-
-import 'check_login.dart';
 
 class LoginScreen extends StatelessWidget {
   LoginScreen({super.key});
@@ -61,6 +56,7 @@ class LoginScreen extends StatelessWidget {
     return SizedBox(
         width: MediaQuery.of(context).size.width / 1.2,
         child: TextFormField(
+            obscureText: true,
             controller: passwordController,
             validator: (val) {
               if (!ExtString.validatePassword(val!)) return "Enter a valid password";
@@ -90,21 +86,5 @@ class LoginScreen extends StatelessWidget {
               fillColor: Colors.white,
               border: OutlineInputBorder(borderRadius: BorderRadius.circular(10), borderSide: const BorderSide(color: Colors.black, width: 2.0)))),
     );
-  }
-}
-
-void loginFunction(formKey, phoneNo, password, context, checkLogin) async {
-  if (formKey.currentState!.validate()) {
-    var response = await LoginAPI.loginPoint(phoneNo.text, password.text, context);
-    var data = response?.body;
-    if (data != null) {
-      ManageLoginCookie.setCookie(response);
-      CheckLogin.isLogin = true;
-
-      await GetProfile.getProfile();
-
-      phoneNo.text = "";
-      password.text = "";
-    }
   }
 }

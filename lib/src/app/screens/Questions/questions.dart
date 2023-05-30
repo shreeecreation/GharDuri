@@ -3,8 +3,8 @@ import 'dart:math';
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question3/question3.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/expanded_questions1.dart';
+import 'package:ghardhuri/src/core/API/Auth/setward.dart';
 import 'package:ghardhuri/src/core/Dialog%20Boxes/auth/logindialog.dart';
-import 'package:ghardhuri/src/core/ProfileModel/profile_model.dart';
 import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
@@ -194,7 +194,7 @@ class QuestionsState extends State<Questions> {
     ] //11
   ];
   String? selectedItem;
-  final int selectedNumber = int.parse(ProfileModel.ward); // Specify the desired number here
+  final int selectedNumber = int.parse(WardNo.wardno) ; // Specify the desired number here
   @override
   void initState() {
     super.initState();
