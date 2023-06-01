@@ -42,7 +42,7 @@ class ExpQuestionCardState extends State<ExpQuestionCard> {
                   OptionCheckBox(
                     title: "छ",
                     isChecked: selectedOption == "छ",
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
                         selectedOption = "छ";
                         widget.question.answerIndex = 0;
@@ -53,7 +53,7 @@ class ExpQuestionCardState extends State<ExpQuestionCard> {
                   OptionCheckBox(
                     title: "छैन",
                     isChecked: selectedOption == "छैन",
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
                         selectedOption = "छैन";
                         widget.question.answerIndex = 1;
@@ -68,7 +68,7 @@ class ExpQuestionCardState extends State<ExpQuestionCard> {
                       .map((option) => OptionCheckBox(
                             title: option,
                             isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
-                            onChanged: () {
+                            onChanged: (isChecked) {
                               setState(() {
                                 (widget.question).answerIndex = (widget.question).questionOption.indexOf(option);
                               });

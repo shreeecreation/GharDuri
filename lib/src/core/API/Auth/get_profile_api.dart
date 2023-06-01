@@ -30,7 +30,7 @@ class GetProfile {
         String phoneNumber = jsonData['data']['number'];
         int documentCount = jsonData['data']['documentCount'];
         String picture = jsonData['data']['profile']['image'];
-
+        print(response.body);
         await Future.delayed(Duration.zero); // Add a delay before continuing execution
 
         model.fullName = fullName;

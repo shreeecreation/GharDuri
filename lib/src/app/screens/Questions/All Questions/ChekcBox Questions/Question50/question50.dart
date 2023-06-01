@@ -7,8 +7,8 @@ class Question50 extends QuestionModel {
   int answerIndex = 0;
 
   Question50(
-      {String questionName = '५०. विद्यालय जाँदा आउँदा बालबालिकालाई के को जोखिम रहेको छ?',
-      List<String> questionOption = const ["बाढी", "पहिरो", "वन्यजन्तु", "भिरबाट लढ्ने", "अन्य"]})
+      {String questionName = '५०. विद्यालय जाँदा आउँदा बालबालिकालाई के को जोखिम रहेको छ ?',
+      List<String> questionOption = const ["बाढी", "पहिरो", "वन्यजन्तु", "भिरबाट लढ्ने", "सवारी साधनको जोखिम" "अन्य"]})
       : super(questionName, questionOption);
 }
 
@@ -48,7 +48,7 @@ class _Question50CardState extends State<Question50Card> {
                     return OptionCheckBox(
                       title: option,
                       isChecked: selectedOption == option,
-                      onChanged: () {
+                      onChanged: (isChecked) {
                         setState(() {
                           QuestionsDomain.setAnswer50(index);
                           selectedOption = option;

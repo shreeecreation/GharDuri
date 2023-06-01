@@ -45,7 +45,7 @@ class _QuestionCardState extends State<QuestionCard> {
                   return OptionCheckBox(
                     title: option,
                     isChecked: selectedOption == option,
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
                         selectedOption = option;
                         widget.question.answerIndex = index;

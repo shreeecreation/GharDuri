@@ -14,7 +14,7 @@ class ExpQuestion38 extends ExpandedQuestionModel {
         "सहरी सुविधाको लागि",
         "द्वन्दका कारण",
         "खेतीपाती गर्न",
-        " व्यापार व्यवसाय गर्न",
+        "व्यापार व्यवसाय गर्न",
         "बैवाहिक सम्बन्ध भएर",
         "रोजगारीका लागि",
         "प्राकृतिक विपत्तिबाट",
@@ -62,36 +62,37 @@ class ExpQuestion38CardState extends State<ExpQuestion38Card> {
               Column(
                 children: [
                   OptionCheckBox(
-                    title: "अन्यत्र स्थानमा",
-                    isChecked: selectedOption == "अन्यत्र स्थानमा",
-                    onChanged: () {
+                    title: "अन्य स्थानमा",
+                    isChecked: selectedOption == "अन्य स्थानमा",
+                    onChanged: (isChecked) {
                       setState(() {
-                        selectedOption = "अन्यत्र स्थानमा";
+                        selectedOption = "अन्य स्थानमा";
                         widget.question.answerIndex = 0;
                       });
                     },
                   ),
                   const SizedBox(width: 30),
                   OptionCheckBox(
-                    title: "यसै स्थानमा अन्यत्र स्थानबाट \nआएको भए यहाँ किन आउनु भएको ?",
-                    isChecked: selectedOption == "ख. यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?",
-                    onChanged: () {
+                    title: "यसै स्थानमा",
+                    isChecked: selectedOption == "यसै स्थानमा",
+                    onChanged: (isChecked) {
                       setState(() {
-                        selectedOption = "यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?";
+                        selectedOption = "यसै स्थानमा";
+                        QuestionsDomain.setAnswer38(null);
                         widget.question.answerIndex = 1;
                       });
                     },
                   ),
                 ],
               ),
-              if (selectedOption == "यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?") Text("हो भने", style: AppStyles.text18PxBold),
-              if (selectedOption == "यसै स्थानमा अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?")
+              if (selectedOption == "अन्य स्थानमा") Text("अन्य स्थानमा हो भने", style: AppStyles.text18PxBold),
+              if (selectedOption == "अन्य स्थानमा")
                 Column(
                   children: (widget.question.questionOption)
                       .map((option) => OptionCheckBox(
                             title: option,
                             isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
-                            onChanged: () {
+                            onChanged: (isChecked) {
                               setState(() {
                                 QuestionsDomain.setAnswer38((widget.question).questionOption.indexOf(option));
                                 (widget.question).answerIndex = (widget.question).questionOption.indexOf(option);

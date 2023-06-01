@@ -13,10 +13,8 @@ class Question35 extends QuestionModel {
         "कृषक समूह",
         "सामुदायिक वन उपभोक्ता समूह",
         "सहकारी संस्था",
-        "नागरिक सचेतना केन्द्र",
         "परम्परागत समूह",
         "अन्य (नागरिक मञ्च, विभिन्न समिति...)",
-        "प्यारालिगल कमिटि",
         "कुनैमा पनि नरहेको"
       ]})
       : super(questionName, questionOption);
@@ -34,7 +32,8 @@ class Question35Card extends StatefulWidget {
 final Question35 question = Question35();
 
 class _Question35CardState extends State<Question35Card> {
-  var selectedOption = "";
+  List<String> selectedOptions = [];
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -55,14 +54,21 @@ class _Question35CardState extends State<Question35Card> {
                 Column(
                   children: question.questionOption.map<Widget>((option) {
                     final index = question.questionOption.indexOf(option);
-                    return OptionCheckBox(
-                      title: option,
-                      isChecked: selectedOption == option,
-                      onChanged: () {
+                    return MultipleCheckboxWidget(
+                      option: option,
+                      isSelected: selectedOptions.contains(option),
+                      onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer35(index);
-                          selectedOption = option;
-                          question.answerIndex = index;
+                          if (isChecked) {
+                            selectedOptions.add(option);
+                            // ignore: iterable_contains_unrelated_type
+                            if (!QuestionsDomain.qusetion35List.contains(option)) {
+                              QuestionsDomain.qusetion35List.add(index);
+                            }
+                          } else {
+                            selectedOptions.remove(option);
+                            QuestionsDomain.qusetion35List.remove(index);
+                          }
                         });
                       },
                     );

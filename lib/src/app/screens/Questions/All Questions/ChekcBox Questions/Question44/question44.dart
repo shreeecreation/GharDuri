@@ -7,8 +7,8 @@ class Question44 extends QuestionModel {
   int answerIndex = 0;
 
   Question44(
-      {String questionName = '४४. तपाईंको परिवारका सदस्यहरु कुन कुन पेशा (रोजगारी) मा संलग्न हुनुहुन्छ ?',
-      List<String> questionOption = const ["कृषि", "व्यापार", "जागिर", "ज्याला मजदुरी", "उद्योग", "बैदेशिक रोजगार"]})
+      {String questionName = '४४. तपाईंको परिवारलाई आफ्नो उत्पादन÷आम्दानीले वर्षमा कति महिना खान पुग्छ ?',
+      List<String> questionOption = const ["३ महिनाभन्दा कम खान पुग्ने", "३ – ६ महिना खान पुग्ने", "६ – ९ महिना खान पुग्ने", "९ – १२ महिना खान पुग्ने", "वचत हुने"]})
       : super(questionName, questionOption);
 }
 
@@ -48,7 +48,7 @@ class _Question44CardState extends State<Question44Card> {
                     return OptionCheckBox(
                       title: option,
                       isChecked: selectedOption == option,
-                      onChanged: () {
+                      onChanged: (isChecked) {
                         setState(() {
                           QuestionsDomain.setAnswer44(index);
                           selectedOption = option;

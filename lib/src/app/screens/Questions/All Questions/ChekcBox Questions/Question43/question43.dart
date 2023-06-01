@@ -62,7 +62,7 @@ class _Question43CardState extends State<Question43Card> {
                 return OptionCheckBox(
                   title: option,
                   isChecked: selectedOption == option,
-                  onChanged: () {
+                  onChanged: (isChecked) {
                     setState(() {
                       QuestionsDomain.setAnswer431(index);
                       selectedOption = option;
@@ -80,7 +80,7 @@ class _Question43CardState extends State<Question43Card> {
                 return OptionCheckBox(
                   title: option,
                   isChecked: selectedOption1 == option,
-                  onChanged: () {
+                  onChanged: (isChecked) {
                     setState(() {
                       QuestionsDomain.setAnswer432(index);
 

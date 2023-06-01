@@ -8,7 +8,7 @@ class Question42 extends QuestionModel {
 
   Question42(
       {String questionName = '४२. तपाईंको परिवारका सदस्यहरु कुन कुन पेशा (रोजगारी) मा संलग्न हुनुहुन्छ ?',
-      List<String> questionOption = const ["कृषि", "व्यापार", "जागिर", "मोबाइल", "ज्याला मजदुरी", "उद्योग", "बैदेशिक रोजगार"]})
+      List<String> questionOption = const ["कृषि", "व्यापार", "जागिर", "ज्याला मजदुरी", "उद्योग", "बैदेशिक रोजगार"]})
       : super(questionName, questionOption);
 }
 

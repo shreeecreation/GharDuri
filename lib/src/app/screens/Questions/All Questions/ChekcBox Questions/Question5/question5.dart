@@ -7,12 +7,12 @@ class Question5 extends QuestionModel {
   int answerIndex = 0;
   String secondQuestion = "५.२ अस्पातल मा पुग्ना लाग्ने समय";
   Question5(
-      {String questionName = ' नजिकको स्वास्थ्य संस्थामा पुग्न लाग्ने समय ?',
+      {String questionName = '५. नजिकको स्वास्थ्य संस्थामा पुग्न लाग्ने समय ?',
       List<String> questionOption = const [
         " १५ मिनेट ",
         " ३० मिनेट",
-        "१ घण्टा"
-            "१ घण्टाभण्डा बधि",
+        "१ घण्टा",
+        "१ घण्टाभन्दा बढी",
       ]})
       : super(questionName, questionOption);
 }
@@ -54,18 +54,23 @@ class _Question5CardState extends State<Question5Card> {
                   return OptionCheckBox(
                     title: option,
                     isChecked: selectedOption == option,
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
-                        QuestionsDomain.setTime1(index);
-                        selectedOption = option;
-                        question.answerIndex = index;
+                        if (!isChecked) {
+                          QuestionsDomain.setTime1(index);
+                          selectedOption = option;
+                          question.answerIndex = index;
+                        } else {
+                          selectedOption = "";
+                          QuestionsDomain.setTime1(null);
+                        }
                       });
                     },
                   );
                 }).toList(),
               ),
               const SizedBox(height: 10),
-              Text(question.questionName, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
+              Text(question.secondQuestion, style: const TextStyle(fontSize: 14, fontWeight: FontWeight.bold)),
               Column(
                 children: question.questionOption.map<Widget>((option) {
                   final index = question.questionOption.indexOf(option);
@@ -73,11 +78,16 @@ class _Question5CardState extends State<Question5Card> {
                   return OptionCheckBox(
                     title: option,
                     isChecked: selectedOption1 == option,
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
-                        QuestionsDomain.setTime2(index);
-                        selectedOption1 = option;
-                        question.answerIndex = index;
+                        if (!isChecked) {
+                          QuestionsDomain.setTime2(index);
+                          selectedOption1 = option;
+                          question.answerIndex = index;
+                        } else {
+                          selectedOption1 = "";
+                          QuestionsDomain.setTime2(null);
+                        }
                       });
                     },
                   );

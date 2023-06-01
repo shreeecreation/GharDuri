@@ -55,11 +55,16 @@ class _Question37CardState extends State<Question37Card> {
                     return OptionCheckBox(
                       title: option,
                       isChecked: selectedOption == option,
-                      onChanged: () {
+                      onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer37(index);
-                          selectedOption = option;
-                          question.answerIndex = index;
+                          if (!isChecked) {
+                            QuestionsDomain.setAnswer37(index);
+                            selectedOption = option;
+                            question.answerIndex = index;
+                          } else {
+                            QuestionsDomain.setAnswer37(null);
+                            selectedOption = "";
+                          }
                         });
                       },
                     );

@@ -11,7 +11,6 @@ class Question34 extends QuestionModel {
           '३४. तपाईका घरका १८ वर्षभन्दा कम उमेरका कतिजना बालबालिका देहायको निकायमा प्रतिनिधि वा सदस्य रहेका छन् ? यदी छन भने कुन मा?',
       List<String> questionOption = const [
         "स्थानिय तह/योजना तर्जुमा वा कार्यान्वयन समिति",
-        "वडा नागरिक मञ्च",
         "विद्यालय/स्वास्थ्य संस्था व्यवस्थापन समिति",
         "बाल संरक्षण समिति",
         "बाल समुह वा बाल क्लब,\n बालमैत्री स्थानिय शासन समिति वा बाल संजाल"
@@ -55,11 +54,17 @@ class _Question34CardState extends State<Question34Card> {
                     return OptionCheckBox(
                       title: option,
                       isChecked: selectedOption == option,
-                      onChanged: () {
+                      onChanged: (isChecked) {
                         setState(() {
+                          if(!isChecked){
+
                           QuestionsDomain.setAnswer34(index);
                           selectedOption = option;
                           question.answerIndex = index;
+                          }else{
+                            QuestionsDomain.setAnswer34(null);
+                          selectedOption = "";
+                          }
                         });
                       },
                     );

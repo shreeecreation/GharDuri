@@ -36,7 +36,7 @@ class _Question27CardState extends State<Question27Card> {
                   const SizedBox(width: 5),
                   SizedBox(
                     width: 120,
-                    height: 15,
+                    height: 35,
                     child: TextField(
                         controller: TextControllers.q271,
                         decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),

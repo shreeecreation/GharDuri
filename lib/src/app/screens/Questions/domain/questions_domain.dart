@@ -16,9 +16,12 @@ class QuestionsDomain {
   static List<int> qusetion19List = [];
   static List<int> qusetion41List = [];
   static List<int> qusetion42List = [];
+  static List<int> qusetion35List = [];
+
+  static List<int> qusetion45List = [];
+
   static void questionsSubmit() {
     sendBastiName();
-    setJatiandsetDharma();
     setAnswer();
     //7
     setAnswer1();
@@ -59,7 +62,6 @@ class QuestionsDomain {
 
     for (final controller in Question3Card.controllers) {
       final text = controller.text;
-      print(text);
 
       if (text.isNotEmpty) {
         qusetion3_1List.add(int.parse(text));
@@ -68,7 +70,6 @@ class QuestionsDomain {
 
     for (final controller in Question3Card.controllers1) {
       final text = controller.text;
-      print(text);
       if (text.isNotEmpty) {
         qusetion3_2List.add(int.parse(text));
       }
@@ -82,7 +83,6 @@ class QuestionsDomain {
 
     for (final controller in ExpQuestion15Card.controllers) {
       final text = controller.text;
-      print(text);
 
       if (text.isNotEmpty) {
         qusetion15Lists.add(int.parse(text));
@@ -100,10 +100,12 @@ class QuestionsDomain {
     return gender;
   }
 
-//question2
-  static setJatiandsetDharma() {
-    myData.question2_1 = TextControllers.jatiController.text;
-    myData.question2_2 = TextControllers.dharmaController.text;
+  static setJati(index) {
+    myData.question2_1 = index;
+  }
+
+  static setDharma(index) {
+    myData.question2_2 = index;
   }
 
 //question4
@@ -314,7 +316,7 @@ class QuestionsDomain {
   }
 
   static setAnswer35(index) {
-    myData.question35 = index;
+    myData.question35 = qusetion35List;
   }
 
   static setAnswer36(index) {
@@ -358,7 +360,7 @@ class QuestionsDomain {
   }
 
   static setAnswer45(index) {
-    myData.question45 = index;
+    myData.question45 = qusetion45List;
   }
 
   static setAnswer461(index) {

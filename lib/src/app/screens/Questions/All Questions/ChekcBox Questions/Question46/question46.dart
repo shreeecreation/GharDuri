@@ -11,10 +11,7 @@ class Question46 extends QuestionModel {
 
   Question46(
       {String questionName = '४६. तपाईंको परिवारमा निम्न कार्यहरु प्रायः कसले गर्दछ ?',
-      List<String> questionOption = const [
-        "महिला",
-        "पुरुष",
-      ]})
+      List<String> questionOption = const ["महिला", "पुरुष", "दुवै"]})
       : super(questionName, questionOption);
 }
 
@@ -57,7 +54,7 @@ class _Question46CardState extends State<Question46Card> {
                     OptionCheckBox(
                       title: option,
                       isChecked: selectedOption == option,
-                      onChanged: () {
+                      onChanged: (isChecked) {
                         setState(() {
                           QuestionsDomain.setAnswer461(index);
                           selectedOption = option;
@@ -65,7 +62,7 @@ class _Question46CardState extends State<Question46Card> {
                         });
                       },
                     ),
-                    const SizedBox(width: 50),
+                    const SizedBox(width: 20),
                   ],
                 );
               }).toList()),
@@ -80,7 +77,7 @@ class _Question46CardState extends State<Question46Card> {
                     OptionCheckBox(
                       title: option,
                       isChecked: selectedOption1 == option,
-                      onChanged: () {
+                      onChanged: (isChecked) {
                         setState(() {
                           QuestionsDomain.setAnswer463(index);
 
@@ -89,7 +86,7 @@ class _Question46CardState extends State<Question46Card> {
                         });
                       },
                     ),
-                    const SizedBox(width: 50),
+                    const SizedBox(width: 20),
                   ],
                 );
               }).toList()),
@@ -104,7 +101,7 @@ class _Question46CardState extends State<Question46Card> {
                     OptionCheckBox(
                       title: option,
                       isChecked: selectedOption2 == option,
-                      onChanged: () {
+                      onChanged: (isChecked) {
                         setState(() {
                           QuestionsDomain.setAnswer464(index);
 
@@ -113,31 +110,7 @@ class _Question46CardState extends State<Question46Card> {
                         });
                       },
                     ),
-                    const SizedBox(width: 50),
-                  ],
-                );
-              }).toList()),
-              const SizedBox(height: 10),
-              const Text("स्वर बोलाइसम्बन्धी अपाङ्गता", style: TextStyle(fontSize: 18, fontWeight: FontWeight.bold)),
-              const SizedBox(height: 10),
-              Row(
-                  children: question.questionOption.map<Widget>((option) {
-                final index = question.questionOption.indexOf(option);
-                return Row(
-                  children: [
-                    OptionCheckBox(
-                      title: option,
-                      isChecked: selectedOption3 == option,
-                      onChanged: () {
-                        setState(() {
-                          QuestionsDomain.setAnswer462(index);
-
-                          selectedOption3 = option;
-                          question.answerIndex = index;
-                        });
-                      },
-                    ),
-                    const SizedBox(width: 50),
+                    const SizedBox(width: 20),
                   ],
                 );
               }).toList()),

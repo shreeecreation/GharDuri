@@ -9,7 +9,7 @@ class ExpQuestion48 extends ExpandedQuestionModel {
   int answeranswerIndex = 0;
 
   ExpQuestion48(
-      {String questionName = "४८. विगत ३ वर्ष भित्रमा तपाईंको परिवारमा कति मानिसहरु प्रकोपवाट प्रभावित भएका छन् कि छैनन?",
+      {String questionName = "४८. विगत ३ वर्ष भित्रमा तपाईंको परिवारका मानिसहरु प्रकोपवाट प्रभावित भएका छन् कि छैनन ?",
       List<String> questionOption = const [
         "बाढी ",
         "पहिरो",
@@ -69,7 +69,7 @@ class ExpQuestion48CardState extends State<ExpQuestion48Card> {
                       OptionCheckBox(
                         title: "छ",
                         isChecked: selectedOption == "छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छ";
                             widget.question.answerIndex = 0;
@@ -80,7 +80,7 @@ class ExpQuestion48CardState extends State<ExpQuestion48Card> {
                       OptionCheckBox(
                         title: "छैन",
                         isChecked: selectedOption == "छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छैन";
                             widget.question.answerIndex = 1;
@@ -97,7 +97,7 @@ class ExpQuestion48CardState extends State<ExpQuestion48Card> {
                           .map((option) => OptionCheckBox(
                                 title: option,
                                 isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
-                                onChanged: () {
+                                onChanged: (isChecked) {
                                   setState(() {
                                     QuestionsDomain.setAnswer47((widget.question).questionOption.indexOf(option));
 

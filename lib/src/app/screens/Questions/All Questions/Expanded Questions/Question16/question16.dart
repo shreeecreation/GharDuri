@@ -9,7 +9,7 @@ class ExpQuestion16 extends ExpandedQuestionModel {
   int answeranswerIndex = 0;
 
   ExpQuestion16(
-      {String questionName = "१६. तपाईको परिवारका १८ वर्षसम्मका बालबालिका अरुको घरमा काम गर्न बसेका छन ?",
+      {String questionName = "१६. तपाइको परिवारका १८ वर्षसम्मका बालबालिका बालश्रममा परेका छन ?",
       List<String> questionOption = const [
         "बालभरिया",
         "घरेलु बालश्रम अर्काको घरमा काम गर्ने ",
@@ -64,7 +64,7 @@ class ExpQuestion16CardState extends State<ExpQuestion16Card> {
                       OptionCheckBox(
                         title: "छ",
                         isChecked: selectedOption == "छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छ";
                             widget.question.answerIndex = 0;
@@ -75,9 +75,10 @@ class ExpQuestion16CardState extends State<ExpQuestion16Card> {
                       OptionCheckBox(
                         title: "छैन",
                         isChecked: selectedOption == "छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छैन";
+                            QuestionsDomain.setAnswer16(null);
                             widget.question.answerIndex = 1;
                           });
                         },
@@ -92,7 +93,7 @@ class ExpQuestion16CardState extends State<ExpQuestion16Card> {
                           .map((option) => OptionCheckBox(
                                 title: option,
                                 isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
-                                onChanged: () {
+                                onChanged: (isChecked) {
                                   setState(() {
                                     QuestionsDomain.setAnswer16((widget.question).questionOption.indexOf(option));
                                     (widget.question).answerIndex = (widget.question).questionOption.indexOf(option);

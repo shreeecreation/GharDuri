@@ -6,7 +6,7 @@ class Question6 extends QuestionModel {
   int answerIndex = 0;
 
   Question6(
-      {String questionName = '६. बितेको २ बर्षा भित्र जन्मेका बालबालिका को विवरन ?',
+      {String questionName = '६.वितेको २ बर्षभित्र जन्मेका बालबालिकाको विवरण ?',
       List<String> questionOption = const [
         "स्वास्थ चौकी पुर्नलाग्ने समय \n(१५ मिनेट - ३० मिनेट - १ घण्टा - १ घण्टाभण्डा बधि)",
         "अस्पातल मा पुग्ना लाग्ने समय \n(१५ मिनेट - ३० मिनेट - १ घण्टा - १ घण्टाभण्डा बधि)"
@@ -47,7 +47,7 @@ class _Question6CardState extends State<Question6Card> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      "६.क)  जन्मेको जीवित शिशुको जन्म सङ्ख्या",
+                      "जन्मेको जीवित शिशुको जम्मा संख्या:",
                     ),
                     SizedBox(
                       width: 50,
@@ -63,7 +63,7 @@ class _Question6CardState extends State<Question6Card> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      "६.ख)  जन्मेको १ घण्टाभित्र दुध खुवाएको संख्या",
+                      "६ ख) जन्मेको १ घण्टाभित्र दुध खुवाएको संख्या:",
                     ),
                     SizedBox(
                       width: 50,
@@ -79,7 +79,7 @@ class _Question6CardState extends State<Question6Card> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      "६.ग)  ६ महिनासम्म आमाको दुधमात्र खुवाएको संख्या",
+                      "६ ग) महिनासम्म आमाको दुधमात्र खुवाएको संख्या:",
                     ),
                     SizedBox(
                       width: 50,
@@ -95,7 +95,7 @@ class _Question6CardState extends State<Question6Card> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      "६.घ)  २ वर्षसम्म आमाको दुध खुवाएको संख्या",
+                      "६ घ) २ वर्षसम्म आमाको दुध खुवाएको संख्या:",
                     ),
                     SizedBox(
                       width: 50,

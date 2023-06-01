@@ -74,16 +74,16 @@ class ProfileScreen extends StatelessWidget {
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                           ),
-                          child:ClipOval(
-                    child: snapshot.data!.picture != null || snapshot.data!.picture != ""
-                        ? Image.network(
-                            "${Environment.apiUrl}/public/images/${snapshot.data!.picture}",
-                            fit: BoxFit.fill,
-                          )
-                        : Image.asset("assets/images/logo.png"),
-                  ),
-                ),
-              ),
+                                  child:ClipOval(
+                            child: snapshot.data!.picture != null || snapshot.data!.picture != ""
+                                ? Image.network(
+                                    "${Environment.apiUrl}/public/images/${snapshot.data!.picture}",
+                                    fit: BoxFit.fill,
+                                  )
+                                : Image.asset("assets/images/logo.png"),
+                          ),
+                        ),
+                      ),
                       const SizedBox(width: 30),
                       Column(
                         mainAxisAlignment: MainAxisAlignment.center,

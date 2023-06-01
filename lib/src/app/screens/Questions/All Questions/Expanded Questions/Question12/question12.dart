@@ -8,8 +8,7 @@ class ExpQuestion12 extends ExpandedQuestionModel {
   int answeranswerIndex = 0;
 
   ExpQuestion12(
-      {String questionName =
-          "१२. ५ बर्ष मुनिका बालबालिकाले पोषिलो खाना (दिनको कम्तिमा ३ पटक दुघ, लिटो, भात, फलफुल र सागसव्जी) खान पाउँछन दुई बालबालिका चिन्ह भएको आयोडिनयुक्त नुन प्रयोग गर्ने गर्नुभएको छ ?",
+      {String questionName = "१२. ५ बर्ष मुनिका बालबालिकाले पोषिलो खाना (दिनको कम्तिमा ३ पटक दुघ, लिटो, भात, फलफुल र सागसव्जी) खान पाउँछन् ?",
       List<String> questionOption = const ["क्यान्सर", "मधुमेह(चिनिरोग) ", "मुटु", "मृगौला", "अन्य"]})
       : super(questionName, questionOption);
 }
@@ -57,9 +56,9 @@ class ExpQuestion12CardState extends State<ExpQuestion12Card> {
                       OptionCheckBox(
                         title: "छ",
                         isChecked: selectedOption == "छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
-                            QuestionsDomain.setAnswer11(1);
+                            QuestionsDomain.setAnswer12(1);
                             selectedOption = "छ";
                             widget.question.answerIndex = 0;
                           });
@@ -69,10 +68,11 @@ class ExpQuestion12CardState extends State<ExpQuestion12Card> {
                       OptionCheckBox(
                         title: "छैन",
                         isChecked: selectedOption == "छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छैन";
                             widget.question.answerIndex = 1;
+                            QuestionsDomain.setAnswer12(1);
                           });
                         },
                       ),

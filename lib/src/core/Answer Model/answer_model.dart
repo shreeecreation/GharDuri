@@ -2,8 +2,8 @@ class AnswerModel {
   String? bastiName;
   String? question1_1;
   String? question1_2;
-  String? question2_1;
-  String? question2_2;
+  int? question2_1;
+  int? question2_2;
   List<int>? question3_1;
   List<int>? question3_2;
   int? question4;
@@ -66,7 +66,7 @@ class AnswerModel {
   int? question33;
   int? question34;
 
-  int? question35;
+  List<int>? question35;
   int? question36;
 
   int? question37;
@@ -80,7 +80,7 @@ class AnswerModel {
   int? question43_1;
   int? question43_2;
   int? question44;
-  int? question45;
+  List<int>? question45;
   String? question46_1;
   String? question46_2;
   String? question46_3;
@@ -91,91 +91,90 @@ class AnswerModel {
   int? question50;
   String? suchiKarta;
 
-  AnswerModel({
-    this.bastiName,
-    this.question1_1,
-    this.question1_2,
-    this.question2_1,
-    this.question2_2,
-    this.question3_1,
-    this.question3_2,
-    this.question4,
-    this.question5_1,
-    this.question5_2,
-    this.question6_1,
-    this.question6_2,
-    this.question6_3,
-    this.question6_4,
-    this.question7_1,
-    this.question7_2,
-    this.question8,
-    this.question9,
-    this.question10_1,
-    this.question10_2,
-    this.question11,
-    this.question12,
-    this.question13,
-    this.question14,
-    this.question15,
-    this.question16,
-    this.question17,
-    this.question18,
-    this.question19,
-    this.question20,
-    this.question21,
-    this.question22,
-    this.question23,
-    this.question24_1,
-    this.question24_2,
-    this.question24_3,
-    this.question25,
-    this.question26,
-    this.question27,
-    this.question28_1,
-    this.question28_2,
-    this.question28_3,
-    this.question28_4,
-    this.question29_1,
-    this.question29_2,
-    this.question29_3,
-    this.question29_4,
-    this.qustion29_1_1,
-    this.qustion29_1_2,
-    this.qustion29_1_3,
-    this.qustion29_1_4,
-    this.question30_1,
-    this.question30_2,
-    this.question30_3,
-    this.question30_4,
-    this.question31_1,
-    this.question31_2,
-    this.question31_3,
-    this.question31_4,
-    this.question32,
-    this.question33,
-    this.question34,
-    this.question35,
-    this.question36,
-    this.question37,
-    this.question38_1,
-    this.question39,
-    this.question40,
-    this.question41,
-    this.question42,
-    this.question43_1,
-    this.question43_2,
-    this.question44,
-    this.question45,
-    this.question46_1,
-    this.question46_2,
-    this.question46_3,
-    this.question46_4,
-    this.question47,
-    this.question48,
-    this.question49,
-    this.question50,
-    this.suchiKarta
-  });
+  AnswerModel(
+      {this.bastiName,
+      this.question1_1,
+      this.question1_2,
+      this.question2_1,
+      this.question2_2,
+      this.question3_1,
+      this.question3_2,
+      this.question4,
+      this.question5_1,
+      this.question5_2,
+      this.question6_1,
+      this.question6_2,
+      this.question6_3,
+      this.question6_4,
+      this.question7_1,
+      this.question7_2,
+      this.question8,
+      this.question9,
+      this.question10_1,
+      this.question10_2,
+      this.question11,
+      this.question12,
+      this.question13,
+      this.question14,
+      this.question15,
+      this.question16,
+      this.question17,
+      this.question18,
+      this.question19,
+      this.question20,
+      this.question21,
+      this.question22,
+      this.question23,
+      this.question24_1,
+      this.question24_2,
+      this.question24_3,
+      this.question25,
+      this.question26,
+      this.question27,
+      this.question28_1,
+      this.question28_2,
+      this.question28_3,
+      this.question28_4,
+      this.question29_1,
+      this.question29_2,
+      this.question29_3,
+      this.question29_4,
+      this.qustion29_1_1,
+      this.qustion29_1_2,
+      this.qustion29_1_3,
+      this.qustion29_1_4,
+      this.question30_1,
+      this.question30_2,
+      this.question30_3,
+      this.question30_4,
+      this.question31_1,
+      this.question31_2,
+      this.question31_3,
+      this.question31_4,
+      this.question32,
+      this.question33,
+      this.question34,
+      this.question35,
+      this.question36,
+      this.question37,
+      this.question38_1,
+      this.question39,
+      this.question40,
+      this.question41,
+      this.question42,
+      this.question43_1,
+      this.question43_2,
+      this.question44,
+      this.question45,
+      this.question46_1,
+      this.question46_2,
+      this.question46_3,
+      this.question46_4,
+      this.question47,
+      this.question48,
+      this.question49,
+      this.question50,
+      this.suchiKarta});
 
   factory AnswerModel.fromJson(Map<String, dynamic> json) {
     return AnswerModel(
@@ -349,7 +348,7 @@ class AnswerModel {
       'question48': question48,
       'question49': question49,
       'question50': question50,
-    'suchiKarta':suchiKarta
+      'suchiKarta': suchiKarta
     };
   }
 }

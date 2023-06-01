@@ -56,7 +56,7 @@ class ExpQuestion32CardState extends State<ExpQuestion32Card> {
                       OptionCheckBox(
                         title: "गराउने गरेको छ",
                         isChecked: selectedOption == "गराउने गरेको छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             QuestionsDomain.setAnswer32(1);
                             selectedOption = "गराउने गरेको छ";
@@ -68,8 +68,10 @@ class ExpQuestion32CardState extends State<ExpQuestion32Card> {
                       OptionCheckBox(
                         title: "गराउने गरेको छैन",
                         isChecked: selectedOption == "गराउने गरेको छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
+                            QuestionsDomain.setAnswer32(null);
+
                             selectedOption = "गराउने गरेको छैन";
                             widget.question.answerIndex = 1;
                           });

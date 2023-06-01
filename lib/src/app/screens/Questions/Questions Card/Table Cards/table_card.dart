@@ -106,7 +106,7 @@ class Question10TableState extends State<Question10Table> {
                         return OptionCheckBox(
                           title: option,
                           isChecked: tableData.selectedOption == option,
-                          onChanged: () {
+                          onChanged: (isChecked) {
                             setState(() {
                               tableData.selectedOption = option;
                               tableData.answerIndex = index;
@@ -173,7 +173,7 @@ class TableQuestionCardState extends State<TableQuestionCard> {
                   OptionCheckBox(
                     title: "छ",
                     isChecked: selectedOption == "छ",
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
                         selectedOption = "छ";
                         widget.question.answerIndex = 0;
@@ -184,7 +184,7 @@ class TableQuestionCardState extends State<TableQuestionCard> {
                   OptionCheckBox(
                     title: "छैन",
                     isChecked: selectedOption == "छैन",
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
                         selectedOption = "छैन";
                         widget.question.answerIndex = 1;

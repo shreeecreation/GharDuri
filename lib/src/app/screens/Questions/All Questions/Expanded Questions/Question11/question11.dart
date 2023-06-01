@@ -68,7 +68,7 @@ class ExpQuestion11CardState extends State<ExpQuestion11Card> {
                       OptionCheckBox(
                         title: "छ",
                         isChecked: selectedOption == "छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             QuestionsDomain.setAnswer11(1);
                             selectedOption = "छ";
@@ -80,8 +80,10 @@ class ExpQuestion11CardState extends State<ExpQuestion11Card> {
                       OptionCheckBox(
                         title: "छैन",
                         isChecked: selectedOption == "छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
+                            QuestionsDomain.setAnswer11(null);
+
                             selectedOption = "छैन";
                             widget.question.answerIndex = 1;
                           });

@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/model/questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
 import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
+import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class Question45 extends QuestionModel {
   int answerIndex = 0;
@@ -35,7 +36,9 @@ class Question45Card extends StatefulWidget {
 final Question45 question = Question45();
 
 class _Question45CardState extends State<Question45Card> {
+  List<String> selectedOptions = [];
   var selectedOption = "";
+
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -54,21 +57,55 @@ class _Question45CardState extends State<Question45Card> {
               Column(children: [
                 const SizedBox(height: 10),
                 Column(
-                  children: question.questionOption.map<Widget>((option) {
-                    final index = question.questionOption.indexOf(option);
-                    return OptionCheckBox(
-                      title: option,
-                      isChecked: selectedOption == option,
-                      onChanged: () {
+                  children: [
+                    OptionCheckBox(
+                      title: "छ",
+                      isChecked: selectedOption == "छ",
+                      onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer45(index);
-                          selectedOption = option;
-                          question.answerIndex = index;
+                          selectedOption = "छ";
+                          question.answerIndex = 0;
                         });
                       },
-                    );
-                  }).toList(),
+                    ),
+                    const SizedBox(width: 30),
+                    OptionCheckBox(
+                      title: "छैन",
+                      isChecked: selectedOption == "छैन",
+                      onChanged: (isChecked) {
+                        setState(() {
+                          selectedOption = "छैन";
+                          question.answerIndex = 1;
+                        });
+                      },
+                    ),
+                  ],
                 ),
+                if (selectedOption == "छ") Text("यदि छ भने", style: AppStyles.text18PxBold),
+                if (selectedOption == "छ")
+                  Column(
+                    children: question.questionOption.map<Widget>((option) {
+                      final index = question.questionOption.indexOf(option);
+                      return MultipleCheckboxWidget(
+                        option: option,
+                        isSelected: selectedOptions.contains(option),
+                        onChanged: (isChecked) {
+                          setState(() {
+                            if (isChecked) {
+                              selectedOptions.add(option);
+                              // ignore: iterable_contains_unrelated_type
+                              if (!QuestionsDomain.qusetion45List.contains(option)) {
+                                QuestionsDomain.qusetion45List.add(index);
+                              }
+                            } else {
+                              selectedOptions.remove(option);
+                              QuestionsDomain.qusetion45List.remove(index);
+                            }
+                          });
+                        },
+                      );
+                    }).toList(),
+                  ),
               ]),
             ],
           ),

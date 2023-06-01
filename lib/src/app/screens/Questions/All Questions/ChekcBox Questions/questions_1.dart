@@ -27,6 +27,7 @@ TextEditingController mulikoName = TextEditingController();
 
 class _Question1CardState extends State<Question1Card> {
   var selectedOption = "";
+  late int selectedOptionIndex;
   @override
   Widget build(BuildContext context) {
     return Padding(
@@ -65,20 +66,26 @@ class _Question1CardState extends State<Question1Card> {
                   return OptionCheckBox(
                     title: option,
                     isChecked: selectedOption == option,
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
-                        String gender;
-                        if (index == 0) {
-                          gender = "female";
-                        } else if (index == 1) {
-                          gender = "male";
+                        if (!isChecked) {
+                          String gender;
+                          if (index == 0) {
+                            gender = "female";
+                          } else if (index == 1) {
+                            gender = "male";
+                          } else {
+                            gender = "third_Gender";
+                          }
+                          print(gender);
+                          QuestionsDomain.setGender(gender);
+                          selectedOption = option;
+                          widget.question.answerIndex = index;
                         } else {
-                          gender = "third_Gender";
+                          QuestionsDomain.setGender("");
+                          selectedOption = "";
+                          widget.question.answerIndex = -1;
                         }
-                        print(gender);
-                        QuestionsDomain.setGender(gender);
-                        selectedOption = option;
-                        widget.question.answerIndex = index;
                       });
                     },
                   );

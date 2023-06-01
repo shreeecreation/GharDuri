@@ -7,8 +7,7 @@ class Question23 extends QuestionModel {
   int answerIndex = 0;
 
   Question23(
-      {String questionName = '२३. तपाईंलाई बाल अधिकारको बारेमा जानकारी छ ',
-      List<String> questionOption = const ["छ", "छैन", "केही कुरा सुनेको छु", "कुनै पनि घटना नघटेको"]})
+      {String questionName = '२३. तपाईंलाई बाल अधिकारको बारेमा जानकारी छ ', List<String> questionOption = const ["छ", "छैन", "केही कुरा सुनेको छु"]})
       : super(questionName, questionOption);
 }
 
@@ -48,11 +47,16 @@ class _Question23CardState extends State<Question23Card> {
                     return OptionCheckBox(
                       title: option,
                       isChecked: selectedOption == option,
-                      onChanged: () {
+                      onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer23(index);
-                          selectedOption = option;
-                          question.answerIndex = index;
+                          if (!isChecked) {
+                            QuestionsDomain.setAnswer23(index);
+                            selectedOption = option;
+                            question.answerIndex = index;
+                          } else {
+                            QuestionsDomain.setAnswer23(index);
+                            selectedOption = "";
+                          }
                         });
                       },
                     );

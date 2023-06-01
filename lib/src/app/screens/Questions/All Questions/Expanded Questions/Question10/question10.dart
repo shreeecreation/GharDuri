@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
@@ -9,7 +10,7 @@ class ExpQuestion10 extends ExpandedQuestionModel {
   int answeranswerIndex = 0;
 
   ExpQuestion10(
-      {String questionName = "१०. बितेको १ बर्षभित्र तपाईंको परिवार्मा ५ बर्षमुनिको  कुनै बाल्बालिकको मृत्यु भयको छ ? (रोग्)",
+      {String questionName = "१०. बितेको १ वर्षभित्र तपाईको परिवारमा ५ वर्ष मुनिका कुनै बालबालिकाको रोगको कारण मृत्यु भएको छ?",
       List<String> questionOption = const ["क्यान्सर", "मधुमेह(चिनिरोग) ", "मुटु", "मृगौला", "अन्य"]})
       : super(questionName, questionOption);
 }
@@ -19,7 +20,7 @@ class ExpQuestion10second extends ExpandedQuestionModel {
   int answeranswerIndex = 0;
 
   ExpQuestion10second(
-      {String questionName = "१०.१ बितेको १ बर्षभित्र तपाईंको परिवार्मा ५ बर्षमुनिको  कुनै बाल्बालिकको मृत्यु भयको छ ? (दुर्घटना)",
+      {String questionName = "१०.१ बितेको १ वर्षभित्र तपाईको परिवारमा ५ वर्ष मुनिका कुनै बालबालिकाको दुर्घटनाको कारण मृत्यु भएको छ ?",
       List<String> questionOption = const ["क्यान्सर", "मधुमेह(चिनिरोग) ", "मुटु", "मृगौला", "अन्य"]})
       : super(questionName, questionOption);
 }
@@ -69,7 +70,7 @@ class ExpQuestion10CardState extends State<ExpQuestion10Card> {
                       OptionCheckBox(
                         title: "छ",
                         isChecked: selectedOption == "छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छ";
                             widget.question.answerIndex = 0;
@@ -80,7 +81,7 @@ class ExpQuestion10CardState extends State<ExpQuestion10Card> {
                       OptionCheckBox(
                         title: "छैन",
                         isChecked: selectedOption == "छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छैन";
                             widget.question.answerIndex = 1;
@@ -126,7 +127,7 @@ class ExpQuestion10CardState extends State<ExpQuestion10Card> {
                       OptionCheckBox(
                         title: "छ",
                         isChecked: selectedOption1 == "छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption1 = "छ";
                             widget.question1.answerIndex = 0;
@@ -137,7 +138,7 @@ class ExpQuestion10CardState extends State<ExpQuestion10Card> {
                       OptionCheckBox(
                         title: "छैन",
                         isChecked: selectedOption1 == "छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption1 = "छैन";
                             widget.question1.answerIndex = 1;

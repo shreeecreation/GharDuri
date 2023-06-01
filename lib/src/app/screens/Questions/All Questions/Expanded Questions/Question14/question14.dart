@@ -8,8 +8,7 @@ class ExpQuestion14 extends ExpandedQuestionModel {
   int answeranswerIndex = 0;
 
   ExpQuestion14(
-      {String questionName = "१४. आफ्नो बच्चाको जन्मदर्ता गराउनु भएको छ कि छै ?",
-      List<String> questionOption = const ["क्यान्सर", "मधुमेह(चिनिरोग) ", "मुटु", "मृगौला", "अन्य"]})
+      {String questionName = "१४. आफ्नो बच्चाको जन्मदर्ता गराउनु भएको छ कि छैन ?", List<String> questionOption = const ["गराएको", "गराएको"]})
       : super(questionName, questionOption);
 }
 
@@ -56,9 +55,10 @@ class ExpQuestion14CardState extends State<ExpQuestion14Card> {
                       OptionCheckBox(
                         title: "छ",
                         isChecked: selectedOption == "छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             QuestionsDomain.setAnswer14(1);
+
                             selectedOption = "छ";
                             widget.question.answerIndex = 0;
                           });
@@ -68,9 +68,11 @@ class ExpQuestion14CardState extends State<ExpQuestion14Card> {
                       OptionCheckBox(
                         title: "छैन",
                         isChecked: selectedOption == "छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छैन";
+                            QuestionsDomain.setAnswer14(null);
+
                             widget.question.answerIndex = 1;
                           });
                         },

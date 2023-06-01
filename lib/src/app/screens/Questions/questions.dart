@@ -194,7 +194,7 @@ class QuestionsState extends State<Questions> {
     ] //11
   ];
   String? selectedItem;
-  final int selectedNumber = int.parse(WardNo.wardno) ; // Specify the desired number here
+  final int selectedNumber = int.parse(WardNo.wardno); // Specify the desired number here
   @override
   void initState() {
     super.initState();
@@ -243,14 +243,13 @@ class QuestionsState extends State<Questions> {
               ),
             ),
             Container(height: 20),
-            Text("अनसुूची १ \nघरधरुी सर्वेक्षण फारमको नमनुा \n(दफा १० (३) ख सँग सम्बन्धधत) ",
+            Text("अनसुूची १ \nघरधुरी सर्वेक्षण फारमको नमुना \n(दफा १० (३) ख सँग सम्बन्धित)",
                 textAlign: TextAlign.center, style: AppStyles.text20PxBold),
             Container(height: 20),
             Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 16.0),
                 child: Text(
-                    "पररर्वार र  व्यन्िको गणना गदाा अक्सर बसोर्वास गरेको ठाँउबाट \nगनपाुदाछ । उत्तर लेख्दा न्चधह लगाउने ठाउँमा उपयिु संकेतमा गोलो न्चधह “इ“ लगाउनुपदाछ । लेख्नुपनेभएमा स्पष्ट अक्षर र्वा अंकमा लेख्नु पदाछ । कोडहरु लेख्नुपनेठाउँमा स्पष्ट अंक र्वा अक्षरमा लेख्नपुदाछ",
-                    // textAlign: TextAlign.,
+                    "परिवार र व्यक्तिको गणना गर्दा अक्सर बसोवास गरेको ठाँउबाट गर्नुपर्दछ । उत्तर लेख्दा चिन्ह लगाउने ठाउँमा उपयुक्त संकेतमा गोलो चिन्ह '0' लगाउनु पर्दछ । लेख्नु पर्ने भएमा स्पष्ट अक्षर वा अंकमा लेख्नु पर्दछ । कोडहरु लेख्नु पर्ने ठाउँमा स्पष्ट अंक वा अक्षरमा लेख्नुपर्दछ ।",
                     style: AppStyles.text16Px)),
             Padding(
                 padding: const EdgeInsets.all(8.0),

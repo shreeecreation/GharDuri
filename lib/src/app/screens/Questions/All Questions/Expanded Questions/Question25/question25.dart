@@ -2,14 +2,13 @@ import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/model/expanded_questions_model.dart';
 import 'package:ghardhuri/src/app/screens/Questions/Questions%20Utils/question_checkbox.dart';
 import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
-import 'package:ghardhuri/src/core/themes/appstyles.dart';
 
 class ExpQuestion25 extends ExpandedQuestionModel {
   int answerIndex = 0;
   int answeranswerIndex = 0;
 
   ExpQuestion25(
-      {String questionName = "२५. बालबालिका बस्ने, पढ्ने कोठा अलग्गै छ ?",
+      {String questionName = "२५. तपाईको परिवारमा बाल विकास केन्द्र वा पूर्व प्रा.वि. तहमा जाने ३ देखि ५ वर्षसम्मका बालबालिका संख्या कति छ ?",
       List<String> questionOption = const ["अ) धम्रुपान गनेको संख्या:", "मधुमेह(चिनिरोग) ", "मुटु", "मृगौला", "अन्य"]})
       : super(questionName, questionOption);
 }
@@ -57,7 +56,7 @@ class ExpQuestion25CardState extends State<ExpQuestion25Card> {
                       OptionCheckBox(
                         title: "छ",
                         isChecked: selectedOption == "छ",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
                             QuestionsDomain.setAnswer25(1);
                             selectedOption = "छ";
@@ -69,8 +68,10 @@ class ExpQuestion25CardState extends State<ExpQuestion25Card> {
                       OptionCheckBox(
                         title: "छैन",
                         isChecked: selectedOption == "छैन",
-                        onChanged: () {
+                        onChanged: (isChecked) {
                           setState(() {
+                            QuestionsDomain.setAnswer25(null);
+
                             selectedOption = "छैन";
                             widget.question.answerIndex = 1;
                           });

@@ -54,11 +54,16 @@ class _Question30CardState extends State<Question30Card> {
                 return OptionCheckBox(
                   title: option,
                   isChecked: selectedOption == option,
-                  onChanged: () {
+                  onChanged: (isChecked) {
                     setState(() {
-                      QuestionsDomain.setAnswer30_1(index);
-                      selectedOption = option;
-                      question.answerIndex = index;
+                      if (!isChecked) {
+                        QuestionsDomain.setAnswer30_1(index);
+                        selectedOption = option;
+                        question.answerIndex = index;
+                      } else {
+                        QuestionsDomain.setAnswer30_1(null);
+                        selectedOption = "";
+                      }
                     });
                   },
                 );
@@ -71,12 +76,17 @@ class _Question30CardState extends State<Question30Card> {
                 return OptionCheckBox(
                   title: option,
                   isChecked: selectedOption1 == option,
-                  onChanged: () {
+                  onChanged: (isChecked) {
                     setState(() {
-                      QuestionsDomain.setAnswer30_1(index);
+                      if (!isChecked) {
+                        QuestionsDomain.setAnswer30_1(index);
 
-                      selectedOption1 = option;
-                      question.answerIndex = index;
+                        selectedOption1 = option;
+                        question.answerIndex = index;
+                      } else {
+                        QuestionsDomain.setAnswer30_2(null);
+                        selectedOption1 = "";
+                      }
                     });
                   },
                 );
@@ -89,12 +99,16 @@ class _Question30CardState extends State<Question30Card> {
                 return OptionCheckBox(
                   title: option,
                   isChecked: selectedOption2 == option,
-                  onChanged: () {
+                  onChanged: (isChecked) {
                     setState(() {
-                      QuestionsDomain.setAnswer30_1(index);
-
-                      selectedOption2 = option;
-                      question.answerIndex = index;
+                      if (!isChecked) {
+                        QuestionsDomain.setAnswer30_1(index);
+                        selectedOption2 = option;
+                        question.answerIndex = index;
+                      } else {
+                        QuestionsDomain.setAnswer30_3(null);
+                        selectedOption2 = "";
+                      }
                     });
                   },
                 );
@@ -107,12 +121,17 @@ class _Question30CardState extends State<Question30Card> {
                 return OptionCheckBox(
                   title: option,
                   isChecked: selectedOption3 == option,
-                  onChanged: () {
+                  onChanged: (isChecked) {
                     setState(() {
-                      QuestionsDomain.setAnswer30_1(index);
+                      if (!isChecked) {
+                        QuestionsDomain.setAnswer30_1(index);
 
-                      selectedOption3 = option;
-                      question.answerIndex = index;
+                        selectedOption3 = option;
+                        question.answerIndex = index;
+                      } else {
+                        QuestionsDomain.setAnswer30_4(null);
+                        selectedOption3 = "";
+                      }
                     });
                   },
                 );

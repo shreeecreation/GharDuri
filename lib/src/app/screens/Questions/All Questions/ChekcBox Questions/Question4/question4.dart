@@ -47,11 +47,16 @@ class _Question4CardState extends State<Question4Card> {
                   return OptionCheckBox(
                     title: option,
                     isChecked: selectedOption == option,
-                    onChanged: () {
+                    onChanged: (isChecked) {
                       setState(() {
-                        QuestionsDomain.setPlace(index);
-                        selectedOption = option;
-                        question.answerIndex = index;
+                        if (!isChecked) {
+                          QuestionsDomain.setPlace(index);
+                          selectedOption = option;
+                          question.answerIndex = index;
+                        } else {
+                          selectedOption = "";
+                          QuestionsDomain.setPlace(null);
+                        }
                       });
                     },
                   );
