@@ -206,21 +206,6 @@ class QuestionsState extends State<Questions> {
   Widget build(BuildContext context) {
     List<String> dropdownItems = listOfLists[selectedNumber - 1];
     return Scaffold(
-      floatingActionButton: Stack(
-        children: [
-          Positioned(
-            bottom: 30, // Adjust the position as needed
-            right: 16, // Adjust the position as needed
-            child: ElevatedButton(
-              style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
-              onPressed: () {
-                LoginDialog.saveForm(context);
-              },
-              child: const Text('Save'),
-            ),
-          ),
-        ],
-      ),
       body: SingleChildScrollView(
         physics: const BouncingScrollPhysics(),
         child: Column(
@@ -354,7 +339,7 @@ class QuestionsState extends State<Questions> {
               padding: const EdgeInsets.all(8.0),
               child: Column(
                 children: [
-                  Text("सुची कर्ताको नाम", style: AppStyles.text18PxBold),
+                  Text("सुचनाकर्ताको नाम", style: AppStyles.text18PxBold),
                   const SizedBox(height: 10),
                   SizedBox(
                     width: 150,
@@ -362,6 +347,14 @@ class QuestionsState extends State<Questions> {
                     child: TextField(
                         controller: TextControllers.suchiKarta,
                         decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
+                  ),
+                  const SizedBox(height: 30),
+                  ElevatedButton(
+                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
+                    onPressed: () {
+                      LoginDialog.saveForm(context);
+                    },
+                    child: const Text('Save'),
                   ),
                 ],
               ),

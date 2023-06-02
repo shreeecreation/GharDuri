@@ -8,7 +8,13 @@ class Question44 extends QuestionModel {
 
   Question44(
       {String questionName = '४४. तपाईंको परिवारलाई आफ्नो उत्पादन÷आम्दानीले वर्षमा कति महिना खान पुग्छ ?',
-      List<String> questionOption = const ["३ महिनाभन्दा कम खान पुग्ने", "३ – ६ महिना खान पुग्ने", "६ – ९ महिना खान पुग्ने", "९ – १२ महिना खान पुग्ने", "वचत हुने"]})
+      List<String> questionOption = const [
+        "३ महिनाभन्दा कम खान पुग्ने",
+        "३ – ६ महिना खान पुग्ने",
+        "६ – ९ महिना खान पुग्ने",
+        "९ – १२ महिना खान पुग्ने",
+        "वचत हुने"
+      ]})
       : super(questionName, questionOption);
 }
 
@@ -50,9 +56,14 @@ class _Question44CardState extends State<Question44Card> {
                       isChecked: selectedOption == option,
                       onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer44(index);
-                          selectedOption = option;
-                          question.answerIndex = index;
+                          if (!isChecked) {
+                            QuestionsDomain.setAnswer44(index);
+                            selectedOption = option;
+                            question.answerIndex = index;
+                          } else {
+                            QuestionsDomain.setAnswer44(null);
+                            selectedOption = "";
+                          }
                         });
                       },
                     );

@@ -71,6 +71,7 @@ class ExpQuestion47CardState extends State<ExpQuestion47Card> {
                         isChecked: selectedOption == "छैन",
                         onChanged: (isChecked) {
                           setState(() {
+                            QuestionsDomain.setAnswer47(null);
                             selectedOption = "छैन";
                             widget.question.answerIndex = 1;
                           });

@@ -5,7 +5,6 @@ import 'package:ghardhuri/src/core/API/AllAPIEndpoints/all_endpoints.dart';
 import 'package:ghardhuri/src/core/API/Auth/setward.dart';
 import 'package:ghardhuri/src/core/API/ManageCookie/managecookie.dart';
 import 'package:ghardhuri/src/core/ProfileModel/profile_model.dart';
-import 'package:ghardhuri/src/core/Routes/QuestionRoutes/question_routes.dart';
 import 'package:http/http.dart' as http;
 
 class GetProfile {
@@ -43,7 +42,7 @@ class GetProfile {
 
         WidgetsBinding.instance.addPostFrameCallback((_) {
           print(picture);
-          QuestionRoute.navigatorRoute();
+          // QuestionRoute.navigatorRoute();
         });
 
         return model;

@@ -5,9 +5,9 @@ import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart
 
 class Question5 extends QuestionModel {
   int answerIndex = 0;
-  String secondQuestion = "५.२ अस्पातल मा पुग्ना लाग्ने समय";
+  String secondQuestion = "५.२ अस्पातल मा पुग्नलाग्ने समय";
   Question5(
-      {String questionName = '५. नजिकको स्वास्थ्य संस्थामा पुग्न लाग्ने समय ?',
+      {String questionName = '५. नजिकको स्वास्थ्य संस्थामा पुग्नलाग्ने समय ?',
       List<String> questionOption = const [
         " १५ मिनेट ",
         " ३० मिनेट",

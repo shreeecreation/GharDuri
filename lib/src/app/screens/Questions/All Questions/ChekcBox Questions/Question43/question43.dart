@@ -9,7 +9,6 @@ class Question43 extends QuestionModel {
   int answerIndex2 = 0;
   int answerIndex3 = 0;
 
-
   Question43(
       {String questionName =
           ' ४३. तपाईको परिवारमा १८ वर्षभन्दा कम उमेरका शारीरिक तथा मानसिक हिसाबले अपांगता भएका सदस्यहरु भएमा तलको विवरण दिनुहोस् ।',
@@ -64,9 +63,14 @@ class _Question43CardState extends State<Question43Card> {
                   isChecked: selectedOption == option,
                   onChanged: (isChecked) {
                     setState(() {
-                      QuestionsDomain.setAnswer431(index);
-                      selectedOption = option;
-                      question.answerIndex = index;
+                      if (!isChecked) {
+                        QuestionsDomain.setAnswer431(index);
+                        selectedOption = option;
+                        question.answerIndex = index;
+                      } else {
+                        QuestionsDomain.setAnswer431(null);
+                        selectedOption = "";
+                      }
                     });
                   },
                 );
@@ -82,10 +86,15 @@ class _Question43CardState extends State<Question43Card> {
                   isChecked: selectedOption1 == option,
                   onChanged: (isChecked) {
                     setState(() {
-                      QuestionsDomain.setAnswer432(index);
+                      if (!isChecked) {
+                        QuestionsDomain.setAnswer432(index);
 
-                      selectedOption1 = option;
-                      question.answerIndex = index;
+                        selectedOption1 = option;
+                        question.answerIndex = index;
+                      } else {
+                        QuestionsDomain.setAnswer432(null);
+                        selectedOption1 = "";
+                      }
                     });
                   },
                 );

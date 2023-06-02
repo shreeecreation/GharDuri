@@ -9,7 +9,7 @@ import 'model/questions_model.dart';
 class Question1 extends QuestionModel {
   int answerIndex = 0;
 
-  Question1({String questionName = '१.१ परिवार मूलीको लिङ्ग', List<String> questionOption = const ["महिला", "परुुष ", "तेस्रो ललङ्गी"]})
+  Question1({String questionName = '१.१ परिवार मूलीको लिङ्ग', List<String> questionOption = const ["महिला", "परुुष ", "तेश्रो लिङ्गी"]})
       : super(questionName, questionOption);
 }
 

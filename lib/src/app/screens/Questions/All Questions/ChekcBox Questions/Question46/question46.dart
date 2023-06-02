@@ -56,9 +56,14 @@ class _Question46CardState extends State<Question46Card> {
                       isChecked: selectedOption == option,
                       onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer461(index);
-                          selectedOption = option;
-                          question.answerIndex = index;
+                          if (!isChecked) {
+                            QuestionsDomain.setAnswer461(index);
+                            selectedOption = option;
+                            question.answerIndex = index;
+                          } else {
+                            QuestionsDomain.setAnswer461(null);
+                            selectedOption = "";
+                          }
                         });
                       },
                     ),
@@ -79,10 +84,16 @@ class _Question46CardState extends State<Question46Card> {
                       isChecked: selectedOption1 == option,
                       onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer463(index);
+                          if (!isChecked) {
+                            QuestionsDomain.setAnswer462(index);
 
-                          selectedOption1 = option;
-                          question.answerIndex = index;
+                            selectedOption1 = option;
+                            question.answerIndex = index;
+                          } else {
+                            QuestionsDomain.setAnswer462(null);
+
+                            selectedOption1 = "";
+                          }
                         });
                       },
                     ),
@@ -103,10 +114,16 @@ class _Question46CardState extends State<Question46Card> {
                       isChecked: selectedOption2 == option,
                       onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer464(index);
+                          if (!isChecked) {
+                            QuestionsDomain.setAnswer463(index);
 
-                          selectedOption2 = option;
-                          question.answerIndex = index;
+                            selectedOption2 = option;
+                            question.answerIndex = index;
+                          } else {
+                            QuestionsDomain.setAnswer463(null);
+
+                            selectedOption2 = "";
+                          }
                         });
                       },
                     ),

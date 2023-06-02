@@ -74,7 +74,7 @@ class ProfileScreen extends StatelessWidget {
                           decoration: const BoxDecoration(
                             shape: BoxShape.circle,
                           ),
-                                  child:ClipOval(
+                          child: ClipOval(
                             child: snapshot.data!.picture != null || snapshot.data!.picture != ""
                                 ? Image.network(
                                     "${Environment.apiUrl}/public/images/${snapshot.data!.picture}",
@@ -114,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   );
                 }
-                return const CircularProgressIndicator();
+                return const Text("");
               }),
         ));
   }

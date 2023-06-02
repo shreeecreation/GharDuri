@@ -8,7 +8,7 @@ class Question7 extends QuestionModel {
   int answerIndex = 0;
 
   Question7(
-      {String questionName = '७. बितेको १ वर्षभित्रको तपाइको परिवार मा रहेका गर्भवती महिलाको स्वास्थ्य अवस्था बारे जानकरी',
+      {String questionName = '७. बितेको १ वर्षभित्रको तपाइको परिवार मा रहेका गर्भवती महिलाको स्वास्थ्य अवस्था बारे जानकारी',
       List<String> questionOption = const ["स्वास्थ्य संस्थामा", "घरमा स्वास्थ्य कर्मीको सहयोगमा", "घरमा स्वास्थ्य कर्मीको सहयोगबिना", "अन्य"]})
       : super(questionName, questionOption);
 }

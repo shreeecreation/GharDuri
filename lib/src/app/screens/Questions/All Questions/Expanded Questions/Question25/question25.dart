@@ -8,7 +8,7 @@ class ExpQuestion25 extends ExpandedQuestionModel {
   int answeranswerIndex = 0;
 
   ExpQuestion25(
-      {String questionName = "२५. तपाईको परिवारमा बाल विकास केन्द्र वा पूर्व प्रा.वि. तहमा जाने ३ देखि ५ वर्षसम्मका बालबालिका संख्या कति छ ?",
+      {String questionName = "२५.  बालबालिका बस्ने, पढ्ने कोठा अलग्गै छ ",
       List<String> questionOption = const ["अ) धम्रुपान गनेको संख्या:", "मधुमेह(चिनिरोग) ", "मुटु", "मृगौला", "अन्य"]})
       : super(questionName, questionOption);
 }

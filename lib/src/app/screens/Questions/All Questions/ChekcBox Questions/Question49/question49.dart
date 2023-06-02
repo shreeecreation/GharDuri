@@ -50,9 +50,14 @@ class _Question49CardState extends State<Question49Card> {
                       isChecked: selectedOption == option,
                       onChanged: (isChecked) {
                         setState(() {
-                          QuestionsDomain.setAnswer49(index);
-                          selectedOption = option;
-                          question.answerIndex = index;
+                          if (!isChecked) {
+                            QuestionsDomain.setAnswer49(index);
+                            selectedOption = option;
+                            question.answerIndex = index;
+                          } else {
+                            QuestionsDomain.setAnswer49(null);
+                            selectedOption = "";
+                          }
                         });
                       },
                     );

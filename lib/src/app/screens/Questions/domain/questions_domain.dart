@@ -387,13 +387,7 @@ class QuestionsDomain {
     }
   }
 
-  static setAnswer464(index) {
-    if (index == "0") {
-      myData.question46_4 = "male";
-    } else {
-      myData.question46_4 = "female";
-    }
-  }
+
 
   static setAnswer47(index) {
     myData.question47 = index;

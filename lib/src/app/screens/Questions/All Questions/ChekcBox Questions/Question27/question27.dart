@@ -31,7 +31,7 @@ class _Question27CardState extends State<Question27Card> {
             children: [
               Column(
                 children: [
-                  Text("२७. तपाईको परिवारमा बाल विकास केन्द्र वा पूर्व प्रा.वि. तहमा जाने ३ देखि ४ वर्षसम्मका बालबालिका संख्या कति छ ? ",
+                  Text("२७. तपाईको परिवारमा बाल विकास केन्द्र वा पूर्व प्रा.वि. तहमा जाने ३ देखि ५ वर्षसम्मका बालबालिका संख्या कति छ ? ",
                       style: AppStyles.text18PxBold),
                   const SizedBox(width: 5),
                   SizedBox(
