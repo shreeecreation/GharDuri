@@ -8,7 +8,7 @@ class Question50 extends QuestionModel {
 
   Question50(
       {String questionName = '५०. विद्यालय जाँदा आउँदा बालबालिकालाई के को जोखिम रहेको छ ?',
-      List<String> questionOption = const ["बाढी", "पहिरो", "वन्यजन्तु", "भिरबाट लढ्ने", "सवारी साधनको जोखिम" "अन्य"]})
+      List<String> questionOption = const ["बाढी", "पहिरो", "वन्यजन्तु", "भिरबाट लढ्ने", "सवारी साधनको जोखिम", "अन्य"]})
       : super(questionName, questionOption);
 }
 
@@ -55,7 +55,7 @@ class _Question50CardState extends State<Question50Card> {
                             selectedOption = option;
                             question.answerIndex = index;
                           } else {
-                          QuestionsDomain.setAnswer50(null);
+                            QuestionsDomain.setAnswer50(null);
                             selectedOption = "";
                           }
                         });

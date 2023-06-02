@@ -72,13 +72,14 @@ class _Question1CardState extends State<Question1Card> {
                           String gender;
                           if (index == 0) {
                             gender = "female";
+                            QuestionsDomain.setGender(gender);
                           } else if (index == 1) {
                             gender = "male";
+                            QuestionsDomain.setGender(gender);
                           } else {
                             gender = "third_Gender";
+                            QuestionsDomain.setGender(gender);
                           }
-                          print(gender);
-                          QuestionsDomain.setGender(gender);
                           selectedOption = option;
                           widget.question.answerIndex = index;
                         } else {

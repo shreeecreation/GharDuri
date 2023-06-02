@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/app/screens/Draft/draft_screen.dart';
 import 'package:ghardhuri/src/app/screens/Profile/profile.dart';
 import 'package:ghardhuri/src/app/screens/Questions/questions.dart';
 import 'package:ghardhuri/src/core/TextController/text_controller.dart';
@@ -13,7 +14,7 @@ class HomeNavigator extends StatefulWidget {
 
 class _HomeNavigatorState extends State<HomeNavigator> {
   int _selectedIndex = 1;
-  static final List<Widget> _widgetOptions = <Widget>[const Questions(), const ProfileScreen()];
+  static final List<Widget> _widgetOptions = <Widget>[const Questions(), const DraftScreen(), const ProfileScreen()];
 
   void _onItemTapped(int index) {
     if (index == _selectedIndex) {
@@ -39,6 +40,7 @@ class _HomeNavigatorState extends State<HomeNavigator> {
           type: BottomNavigationBarType.fixed,
           unselectedItemColor: const Color(0xFF828282),
           items: const <BottomNavigationBarItem>[
+            BottomNavigationBarItem(icon: Icon(Icons.format_align_center, size: 28), label: ""),
             BottomNavigationBarItem(icon: Icon(Icons.format_align_center, size: 28), label: ""),
             BottomNavigationBarItem(icon: Icon(Icons.person, size: 28), label: ""),
           ],

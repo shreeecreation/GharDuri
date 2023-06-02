@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ghardhuri/src/core/Save%20as%20Draft/saveasdraft.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
@@ -9,164 +10,56 @@ class DraftScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-        body: Column(crossAxisAlignment: CrossAxisAlignment.start, children: [
-      const SizedBox(height: 70),
-      Row(children: [
-        const SizedBox(width: 10),
-        Expanded(
-            child: SizedBox(
-                height: 50,
-                child: Container(
-                  decoration: BoxDecoration(
-                    borderRadius: BorderRadius.circular(10.0),
-                    color: Colors.grey[200],
-                    border: Border.all(color: AppColors.primary, width: 1.0),
-                  ),
-                  child: const TextField(
-                      decoration: InputDecoration(
-                          contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-                          hintText: 'खोज गर्नुहोस्',
-                          border: InputBorder.none,
-                          prefixIcon: Icon(Icons.search))),
-                ))),
-        const SizedBox(width: 10),
-        Expanded(
-            child: SizedBox(
-                height: 50,
-                child: ElevatedButton(
-                    onPressed: () {
-                      // requestProduct(context);
-                    },
-                    style: ElevatedButton.styleFrom(
-                        backgroundColor: AppColors.primary, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                    child: Text("ड्राफ्ट सुची", style: AppStyles.text16Px)))),
-        const SizedBox(width: 10)
-      ]),
-      const SizedBox(height: 10),
-      Container(
-          decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), offset: const Offset(0, 2), blurRadius: 2)]),
-          child: const Divider(color: AppColors.primary, thickness: 1.5)),
-      const SizedBox(height: 10),
-      const SizedBox(height: 5),
-      Row(
+      body: Column(
         children: [
-          const SizedBox(width: 2),
-          SizedBox(
-              // width: MediaQuery.of(context).size.width,
-              child: Row(mainAxisAlignment: MainAxisAlignment.start, children: [
-            const SizedBox(width: 1),
-            Column(
-              children: [
-                Text("परिवार क्र.सं", style: AppStyles.text14PxBold.primary),
-                Padding(
-                  padding: const EdgeInsets.only(right: 1.0, left: 5),
-                  child: Container(
-                    width: 80,
-                    height: 50,
-                    color: AppColors.primary,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(width: 5),
-                        Text("#३४५६७८९", style: AppStyles.text14Px.white, textAlign: TextAlign.center),
-                        const SizedBox(width: 5),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
+          const SizedBox(height: 60),
+          searchFilter(),
+          Container(
+              decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), offset: const Offset(0, 2), blurRadius: 2)]),
+              child: const Divider(color: AppColors.primary, thickness: 1.5)),
+          Row(children: [
+            Text("परिवार क्र.सं", style: AppStyles.text14PxBold.primary),
+            const SizedBox(width: 5),
+            Text("वार्ड  नं.", style: AppStyles.text14PxBold.primary),
+            const SizedBox(height: 5),
+            Text("घरमुलिको नाम", style: AppStyles.text14PxBold.primary),
+            const SizedBox(height: 5),
+          ]),
+          Center(
+            child: FutureBuilder<Map<String, dynamic>>(
+              future: getJsonPrefs(),
+              builder: (context, snapshot) {
+                List<dynamic> prefKeys = [];
+                if (snapshot.hasData) {
+                  final jsonPrefs = snapshot.data!;
+
+                  prefKeys = jsonPrefs.keys.toList();
+
+                  if (jsonPrefs.isNotEmpty) {
+                    return ListView.builder(
+                      shrinkWrap: true,
+                      itemCount: jsonPrefs.length,
+                      itemBuilder: (context, index) {
+                        final familyNo = prefKeys[index];
+                        final wardNo = jsonPrefs[prefKeys[index]]['wardNo'];
+                        final question1_1 = jsonPrefs[prefKeys[index]]['question1_1'];
+
+                        return component(context, familyNo, question1_1, wardNo);
+                      },
+                    );
+                  } else {
+                    return const Text('No JSON preferences found.');
+                  }
+                } else if (snapshot.hasError) {
+                  return Text('Error: ${snapshot.error}');
+                }
+                return const CircularProgressIndicator();
+              },
             ),
-            Column(
-              children: [
-                Text("वार्ड  नं.", style: AppStyles.text14PxBold.primary),
-                Padding(
-                  padding: const EdgeInsets.only(right: 1.0, left: 1),
-                  child: Container(
-                    width: 80,
-                    height: 50,
-                    color: AppColors.primary,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(width: 5),
-                        Text("१", style: AppStyles.text18Px.white, textAlign: TextAlign.center),
-                        const SizedBox(width: 5),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Text("घरमुलिको नाम", style: AppStyles.text14PxBold.primary),
-                Padding(
-                  padding: const EdgeInsets.only(right: 1.0, left: 1),
-                  child: Container(
-                    width: 90,
-                    height: 50,
-                    color: AppColors.primary,
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const SizedBox(width: 5),
-                        Text("सुनिल घिमिरे  ", style: AppStyles.text14Px.white, textAlign: TextAlign.center),
-                        const SizedBox(width: 5),
-                      ],
-                    ),
-                  ),
-                ),
-              ],
-            ),
-            Column(
-              children: [
-                Text("", style: AppStyles.text14PxBold.primary),
-                const SizedBox(height: 2),
-                Container(
-                  height: 50,
-                  color: AppColors.primary,
-                  child: Row(
-                    mainAxisAlignment: MainAxisAlignment.start,
-                    children: [
-                      const SizedBox(width: 5),
-                      SizedBox(
-                        width: 50,
-                        height: 30,
-                        child: ElevatedButton(
-                          onPressed: () {
-                            // addProduct(context);
-                          },
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF34A853),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
-                          ),
-                          child: const Icon(Icons.done),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                      SizedBox(
-                        width: 50,
-                        height: 30,
-                        child: ElevatedButton(
-                          onPressed: () {},
-                          style: ElevatedButton.styleFrom(
-                            backgroundColor: const Color(0xFF34A853),
-                            shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(1)),
-                          ),
-                          child: Text("मेटाउन", style: AppStyles.text9Px),
-                        ),
-                      ),
-                      const SizedBox(width: 10),
-                    ],
-                  ),
-                ),
-              ],
-            ),
-          ])),
-          const SizedBox(height: 5),
+          ),
         ],
       ),
-    ]));
+    );
   }
 
   Widget dateAndFilter() {
@@ -221,4 +114,170 @@ class DraftScreen extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget component(context, family, name, ward) {
+  return Column(
+    children: [
+      Row(
+        children: [
+          const SizedBox(width: 2),
+          Expanded(
+            // Add Expanded widget to make the row expand horizontally
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.start,
+              children: [
+                const SizedBox(width: 1),
+                Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.only(right: 1.0, left: 1),
+                      child: Container(
+                        width: MediaQuery.of(context).size.width / 5.5,
+                        height: 50,
+                        color: AppColors.primary,
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
+                          children: [
+                            const SizedBox(width: 5),
+                            Text(
+                              family,
+                              style: AppStyles.text14Px.white,
+                              textAlign: TextAlign.center,
+                            ),
+                            const SizedBox(width: 5),
+                          ],
+                        ),
+                      ),
+                    ),
+                  ],
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 1.0, left: 1),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 6,
+                    height: 50,
+                    color: AppColors.primary,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(width: 5),
+                        Text(
+                          ward,
+                          style: AppStyles.text14Px.white,
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(width: 5),
+                      ],
+                    ),
+                  ),
+                ),
+                Padding(
+                  padding: const EdgeInsets.only(right: 1.0, left: 1),
+                  child: Container(
+                    width: MediaQuery.of(context).size.width / 3.5,
+                    height: 50,
+                    color: AppColors.primary,
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const SizedBox(width: 5),
+                        Text(
+                          name,
+                          style: AppStyles.text14Px.white,
+                          textAlign: TextAlign.center,
+                        ),
+                        const SizedBox(width: 5),
+                      ],
+                    ),
+                  ),
+                ),
+                Expanded(
+                  child: Padding(
+                    padding: const EdgeInsets.only(right: 1.0),
+                    child: Container(
+                      height: 50,
+                      color: AppColors.primary,
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.center, // Align buttons to the right
+                        children: [
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: IconButton(
+                              onPressed: () {
+                                // addProduct(context);
+                              },
+                              icon: const Icon(Icons.done),
+                              color: const Color(0xFF34A853),
+                              padding: const EdgeInsets.all(2),
+                              constraints: const BoxConstraints(),
+                            ),
+                          ),
+                          const SizedBox(width: 10),
+                          Container(
+                            decoration: const BoxDecoration(
+                              color: Colors.white,
+                              shape: BoxShape.circle,
+                            ),
+                            child: IconButton(
+                              onPressed: () {},
+                              icon: const Icon(Icons.delete),
+                              color: Colors.red,
+                              padding: const EdgeInsets.all(2),
+                              constraints: const BoxConstraints(),
+                              tooltip: "मेटाउन",
+                            ),
+                          ),
+                        ],
+                      ),
+                    ),
+                  ),
+                ),
+                const SizedBox(width: 3),
+              ],
+            ),
+          ),
+        ],
+      ),
+      const SizedBox(height: 5),
+    ],
+  );
+}
+
+Widget searchFilter() {
+  return Row(children: [
+    const SizedBox(width: 10),
+    Expanded(
+        child: SizedBox(
+            height: 50,
+            child: Container(
+              decoration: BoxDecoration(
+                borderRadius: BorderRadius.circular(10.0),
+                color: Colors.grey[200],
+                border: Border.all(color: AppColors.primary, width: 1.0),
+              ),
+              child: const TextField(
+                  decoration: InputDecoration(
+                      contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                      hintText: 'खोज गर्नुहोस्',
+                      border: InputBorder.none,
+                      prefixIcon: Icon(Icons.search))),
+            ))),
+    const SizedBox(width: 10),
+    Expanded(
+        child: SizedBox(
+            height: 50,
+            child: ElevatedButton(
+                onPressed: () {
+                  // requestProduct(context);
+                },
+                style: ElevatedButton.styleFrom(
+                    backgroundColor: AppColors.primary, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
+                child: Text("ड्राफ्ट सुची", style: AppStyles.text16Px)))),
+    const SizedBox(width: 10)
+  ]);
+  // const SizedBox(height: 10),
 }

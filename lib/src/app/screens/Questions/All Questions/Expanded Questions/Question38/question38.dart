@@ -85,7 +85,7 @@ class ExpQuestion38CardState extends State<ExpQuestion38Card> {
                   ),
                 ],
               ),
-              if (selectedOption == "अन्य स्थानमा") Text("अन्य स्थानमा हो भने", style: AppStyles.text18PxBold),
+              if (selectedOption == "अन्य स्थानमा") Text("यदि अन्यत्र स्थानबाट आएको भए यहाँ किन आउनु भएको ?", style: AppStyles.text18PxBold),
               if (selectedOption == "अन्य स्थानमा")
                 Column(
                   children: (widget.question.questionOption)

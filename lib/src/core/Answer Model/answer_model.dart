@@ -1,5 +1,7 @@
 class AnswerModel {
   String? bastiName;
+  String? wardNo;
+  String? familyNo;
   String? question1_1;
   String? question1_2;
   int? question2_1;
@@ -30,7 +32,7 @@ class AnswerModel {
   List<int>? question19;
   int? question20;
   int? question21;
-  int? question22;
+  String? question22;
   int? question23;
   int? question24_1;
   int? question24_2;
@@ -90,9 +92,12 @@ class AnswerModel {
   int? question49;
   int? question50;
   String? suchiKarta;
+  String? userId;
 
   AnswerModel(
       {this.bastiName,
+      this.wardNo,
+      this.familyNo,
       this.question1_1,
       this.question1_2,
       this.question2_1,
@@ -174,11 +179,14 @@ class AnswerModel {
       this.question48,
       this.question49,
       this.question50,
-      this.suchiKarta});
+      this.suchiKarta,
+      this.userId});
 
   factory AnswerModel.fromJson(Map<String, dynamic> json) {
     return AnswerModel(
       bastiName: json['bastiName'],
+      wardNo: json['wardNo'],
+      familyNo: json['familyNo'],
       question1_1: json['question1_1'],
       question1_2: json['question1_2'],
       question2_1: json['question2_1'],
@@ -261,12 +269,15 @@ class AnswerModel {
       question49: json['question49'],
       question50: json['question50'],
       suchiKarta: json['suchiKarta'],
+      userId: json['userId'],
     );
   }
 
   Map<String, dynamic> toJson() {
     return {
       'bastiName': bastiName,
+      'wardNo': wardNo,
+      'familyNo': familyNo,
       'question1_1': question1_1,
       'question1_2': question1_2,
       'question2_1': question2_1,
@@ -348,7 +359,8 @@ class AnswerModel {
       'question48': question48,
       'question49': question49,
       'question50': question50,
-      'suchiKarta': suchiKarta
+      'suchiKarta': suchiKarta,
+      "userId": userId
     };
   }
 }

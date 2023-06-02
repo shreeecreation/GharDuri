@@ -1,29 +1,38 @@
 import 'dart:convert';
-import 'dart:io';
-import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/familyNo.dart';
-import 'package:path_provider/path_provider.dart';
-import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 
-void saveAsDraft() async {
-  print(FamilyNumber.familyNumber);
-  String fileName = '${FamilyNumber.familyNumber}.json';
+import 'package:shared_preferences/shared_preferences.dart';
 
-  // Get the documents directory path
-  Directory documentsDir = await getApplicationDocumentsDirectory();
-  String documentsPath = documentsDir.path;
-
-  // Create the file path
-  String filePath = '$documentsPath/$fileName';
-
-  // Convert AnswerModel to JSON string
-  String jsonStr = jsonEncode(QuestionsDomain.myData.toJson());
-
-  try {
-    // Write JSON string to file
-    File file = File(filePath);
-    await file.writeAsString(jsonStr);
-    print('Draft saved successfully to $filePath');
-  } catch (error) {
-    print('Error saving draft: $error');
+Future<Map<String, dynamic>> getJsonPrefs() async {
+  final prefs = await SharedPreferences.getInstance();
+  final jsonString = prefs.getString('json_prefs');
+  if (jsonString != null) {
+    return json.decode(jsonString);
   }
+  return {};
+}
+
+Future<void> saveJsonPrefs(Map<String, dynamic> jsonPrefs) async {
+  final prefs = await SharedPreferences.getInstance();
+  final jsonString = json.encode(jsonPrefs);
+  await prefs.setString('json_prefs', jsonString);
+}
+
+Future<void> saveJsonFile(String prefKey, Map<String, dynamic> jsonFile) async {
+  final jsonPrefs = await getJsonPrefs();
+  jsonPrefs[prefKey] = jsonFile;
+  await saveJsonPrefs(jsonPrefs);
+}
+
+Future<void> clearJsonPrefs() async {
+  final prefs = await SharedPreferences.getInstance();
+  await prefs.remove('json_prefs');
+}
+Future<List> getJsonPrefsKeys() async {
+  final prefs = await SharedPreferences.getInstance();
+  final jsonString = prefs.getString('json_prefs');
+  if (jsonString != null) {
+    final jsonArray = json.decode(jsonString) as List<dynamic>;
+    return jsonArray.map((jsonObject) => jsonObject.keys.first).toList();
+  }
+  return [];
 }

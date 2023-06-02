@@ -1,5 +1,6 @@
 import 'package:ghardhuri/src/core/API/AllAPIEndpoints/all_endpoints.dart';
 import 'package:ghardhuri/src/core/API/ManageCookie/managecookie.dart';
+import 'package:ghardhuri/src/core/utils/toast.dart';
 import 'package:http/http.dart' as http;
 
 class FormAPI {
@@ -15,6 +16,8 @@ class FormAPI {
       var code = response.statusCode;
       print(code);
       if (code >= 200 && code < 300) {
+        Toasts.uploadDraftToast();
+
         // WidgetsBinding.instance.addPostFrameCallback((_) {
         //   QuestionRoute.navigatorRoute();
 

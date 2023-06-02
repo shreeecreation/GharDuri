@@ -53,24 +53,24 @@ class ExpQuestion14CardState extends State<ExpQuestion14Card> {
                   Row(
                     children: [
                       OptionCheckBox(
-                        title: "छ",
-                        isChecked: selectedOption == "छ",
+                        title: "गराएको",
+                        isChecked: selectedOption == "गराएको",
                         onChanged: (isChecked) {
                           setState(() {
                             QuestionsDomain.setAnswer14(1);
 
-                            selectedOption = "छ";
+                            selectedOption = "गराएको";
                             widget.question.answerIndex = 0;
                           });
                         },
                       ),
                       const SizedBox(width: 30),
                       OptionCheckBox(
-                        title: "छैन",
-                        isChecked: selectedOption == "छैन",
+                        title: "नगराएको",
+                        isChecked: selectedOption == "नगराएको",
                         onChanged: (isChecked) {
                           setState(() {
-                            selectedOption = "छैन";
+                            selectedOption = "नगराएको";
                             QuestionsDomain.setAnswer14(null);
 
                             widget.question.answerIndex = 1;

@@ -264,9 +264,10 @@ class QuestionsState extends State<Questions> {
                                     );
                                   }).toList(),
                                   onChanged: (String? newValue) {
+                                    QuestionsDomain.bastikoname(newValue);
                                     setState(() {
-                                      QuestionsDomain.bastikoname(selectedItem);
                                       selectedItem = newValue;
+                                      print(newValue);
                                     });
                                   },
                                 ),
@@ -349,12 +350,27 @@ class QuestionsState extends State<Questions> {
                         decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),
                   const SizedBox(height: 30),
-                  ElevatedButton(
-                    style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
-                    onPressed: () {
-                      LoginDialog.saveForm(context);
-                    },
-                    child: const Text('Save'),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: [
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
+                        onPressed: () {
+                          LoginDialog.saveForm(context);
+                        },
+                        child: const Text('Save'),
+                      ),
+                      const SizedBox(width: 20),
+                      ElevatedButton(
+                        style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
+                        onPressed: () {
+                          print(FamilyNumber.familyNumber.toString());
+                          print(WardNo.wardno);
+                          LoginDialog.saveDraft(context, FamilyNumber.familyNumber.toString(), );
+                        },
+                        child: const Text('Save as Draft'),
+                      ),
+                    ],
                   ),
                 ],
               ),

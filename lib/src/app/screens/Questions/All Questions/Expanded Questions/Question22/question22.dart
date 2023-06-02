@@ -48,7 +48,7 @@ class ExpQuestion22CardState extends State<ExpQuestion22Card> {
                     widget.question.questionName,
                     style: const TextStyle(
                       fontSize: 19,
-                      fontWeight: FontWeight.bold,
+                      fontWeight: FontWeight.bold
                     ),
                   ),
                   const SizedBox(height: 15),
