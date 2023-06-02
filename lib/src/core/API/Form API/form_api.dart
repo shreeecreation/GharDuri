@@ -14,15 +14,31 @@ class FormAPI {
         headers: {'Content-Type': 'application/json', 'Cookie': cookie}, // Replace with your headers if needed
       );
       var code = response.statusCode;
-      print(code);
       if (code >= 200 && code < 300) {
         Toasts.uploadDraftToast();
+        return response;
+      } else if (code == 400) {
+      } else if (code == 500) {}
+      return null;
+    } catch (e) {
+      print(e);
+    }
+    return null;
+  }
 
-        // WidgetsBinding.instance.addPostFrameCallback((_) {
-        //   QuestionRoute.navigatorRoute();
-
-        //   // LoginDialogs().showIncorrectPassword(context);
-        // });
+  static Future<http.Response?> formDraftAPI(formData) async {
+    final url = Uri.parse(AllAPIEndpoint.sendForm);
+    var cookie = await ManageCookie.getCookie();
+    try {
+      final response = await http.post(
+        url,
+        body: formData,
+        headers: {'Content-Type': 'application/json', 'Cookie': cookie}, // Replace with your headers if needed
+      );
+      var code = response.statusCode;
+      if (code >= 200 && code < 300) {
+        Toasts.uploadDraftToast();
+        //TOTO delete the json file
         return response;
       } else if (code == 400) {
       } else if (code == 500) {}
