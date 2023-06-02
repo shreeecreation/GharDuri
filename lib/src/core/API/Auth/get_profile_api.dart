@@ -1,11 +1,12 @@
 import 'dart:convert';
 
-import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/core/API/AllAPIEndpoints/all_endpoints.dart';
 import 'package:ghardhuri/src/core/API/Auth/setward.dart';
 import 'package:ghardhuri/src/core/API/ManageCookie/managecookie.dart';
 import 'package:ghardhuri/src/core/ProfileModel/profile_model.dart';
 import 'package:http/http.dart' as http;
+
+import 'Login/saveward.dart';
 
 class GetProfile {
   static Future<ProfileModel?> getProfile() async {
@@ -29,7 +30,6 @@ class GetProfile {
         String phoneNumber = jsonData['data']['number'];
         int documentCount = jsonData['data']['documentCount'];
         String picture = jsonData['data']['profile']['image'];
-        print(response.body);
         await Future.delayed(Duration.zero); // Add a delay before continuing execution
 
         model.fullName = fullName;
@@ -38,12 +38,9 @@ class GetProfile {
         model.documentCount = documentCount.toString();
         model.picture = picture;
         model.ward = ward.toString();
+        WardManager.setCookie(model.ward);
+        model.ward = await WardManager.getCookie();
         WardNo.wardno = model.ward;
-
-        WidgetsBinding.instance.addPostFrameCallback((_) {
-          print(picture);
-          // QuestionRoute.navigatorRoute();
-        });
 
         return model;
       } else if (code == 400) {

@@ -26,8 +26,6 @@ class LoginAPI {
           ManageLoginCookie.setCookie(response);
           CheckLogin.setLoginInValue(true);
           QuestionRoute.navigatorRoute();
-
-          // LoginDialogs().showIncorrectPassword(context);
         });
         return response;
       } else if (code == 400) {
