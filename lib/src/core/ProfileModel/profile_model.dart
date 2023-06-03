@@ -18,6 +18,5 @@ class ProfileModel {
     myVariable = WardManager.getCookie();
     ward = await myVariable;
     WardNo.wardno = ward;
-    print(WardNo.wardno);
   }
 }

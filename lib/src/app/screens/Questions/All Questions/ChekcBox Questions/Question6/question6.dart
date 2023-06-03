@@ -47,7 +47,7 @@ class _Question6CardState extends State<Question6Card> {
                   mainAxisAlignment: MainAxisAlignment.spaceBetween,
                   children: [
                     const Text(
-                      "जन्मेको जीवित शिशुको जम्मा संख्या:",
+                      "६ क) जन्मेको जीवित शिशुको जम्मा संख्या:",
                     ),
                     SizedBox(
                       width: 50,

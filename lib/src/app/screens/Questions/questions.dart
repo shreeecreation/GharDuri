@@ -364,8 +364,6 @@ class QuestionsState extends State<Questions> {
                       ElevatedButton(
                         style: ElevatedButton.styleFrom(backgroundColor: AppColors.primary),
                         onPressed: () {
-                          print(FamilyNumber.familyNumber.toString());
-                          print(WardNo.wardno);
                           LoginDialog.saveDraft(context, FamilyNumber.familyNumber.toString(), );
                         },
                         child: const Text('Save as Draft'),

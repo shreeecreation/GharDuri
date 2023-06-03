@@ -20,6 +20,8 @@ class GetProfile {
       );
 
       var code = response.statusCode;
+      print(code);
+      print(code);
       if (code >= 200 && code < 300) {
         Map<String, dynamic> jsonData = jsonDecode(response.body);
         ProfileModel model = ProfileModel();
@@ -38,6 +40,7 @@ class GetProfile {
         model.documentCount = documentCount.toString();
         model.picture = picture;
         model.ward = ward.toString();
+        // if(model.ward)
         WardManager.setCookie(model.ward);
         model.ward = await WardManager.getCookie();
         WardNo.wardno = model.ward;

@@ -1,9 +1,16 @@
+import 'dart:convert';
+
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ghardhuri/src/core/API/Auth/setward.dart';
+import 'package:ghardhuri/src/core/API/Form%20API/form_api.dart';
+import 'package:ghardhuri/src/core/Dialog%20Boxes/auth/logindialog.dart';
 import 'package:ghardhuri/src/core/Save%20as%20Draft/saveasdraft.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
 import 'package:ghardhuri/src/core/themes/appstyles.dart';
+
+import 'bloc/deletedraft_bloc.dart';
 
 class DraftScreen extends StatelessWidget {
   const DraftScreen({super.key});
@@ -15,7 +22,7 @@ class DraftScreen extends StatelessWidget {
         // mainAxisAlignment: MainAxisAlignment.start,
         children: [
           const SizedBox(height: 60),
-          searchFilter(),
+          // searchFilter(context),
           const SizedBox(height: 15),
           Container(
               decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), offset: const Offset(0, 2), blurRadius: 2)]),
@@ -36,41 +43,56 @@ class DraftScreen extends StatelessWidget {
             ]),
           ),
           const SizedBox(height: 15),
-          FutureBuilder<Map<String, dynamic>>(
-            future: getJsonPrefs(),
-            builder: (context, snapshot) {
-              List<dynamic> prefKeys = [];
-              if (snapshot.hasData) {
-                final jsonPrefs = snapshot.data!;
-
-                prefKeys = jsonPrefs.keys.toList();
-
-                if (jsonPrefs.isNotEmpty) {
-                  return Container(
-                    child: ListView.builder(
-                      padding: const EdgeInsets.only(top: 0), // ,
-                      shrinkWrap: true,
-                      itemCount: jsonPrefs.length,
-                      itemBuilder: (context, index) {
-                        final familyNo = prefKeys[index];
-                        final wardNo = WardNo.wardno;
-                        final question1_1 = jsonPrefs[prefKeys[index]]['question1_1'];
-
-                        return component(context, familyNo, question1_1, wardNo);
-                      },
-                    ),
-                  );
-                } else {
-                  return const Text('No JSON preferences found.');
-                }
-              } else if (snapshot.hasError) {
-                return Text('Error: ${snapshot.error}');
+          BlocBuilder<DeletedraftBloc, DeletedraftState>(
+            builder: (context, state) {
+              if (state is DraftDeleteState) {
+                return builder();
               }
-              return const CircularProgressIndicator();
+              return builder();
             },
           ),
         ],
       ),
+    );
+  }
+
+  FutureBuilder<Map<String, dynamic>> builder() {
+    return FutureBuilder<Map<String, dynamic>>(
+      future: getJsonPrefs(),
+      builder: (context, snapshot) {
+        List<dynamic> prefKeys = [];
+        if (snapshot.hasData) {
+          final jsonPrefs = snapshot.data!;
+          prefKeys = jsonPrefs.keys.toList();
+
+          if (jsonPrefs.isNotEmpty) {
+            return ListView.builder(
+              padding: const EdgeInsets.only(top: 0), // ,
+              shrinkWrap: true,
+              itemCount: jsonPrefs.length,
+              itemBuilder: (context, index) {
+                final familyNo = prefKeys[index];
+                final wardNo = WardNo.wardno;
+                final question1_1 = jsonPrefs[prefKeys[index]]['question1_1'];
+                final cookie = jsonPrefs[prefKeys[index]]['userId'];
+
+                return component(context, familyNo, question1_1, wardNo, cookie);
+              },
+            );
+          } else {
+            return const Center(
+                child: Column(
+              children: [
+                SizedBox(height: 20),
+                Text('No Draft found here'),
+              ],
+            ));
+          }
+        } else if (snapshot.hasError) {
+          return Text('Error: ${snapshot.error}');
+        }
+        return const CircularProgressIndicator();
+      },
     );
   }
 
@@ -128,7 +150,7 @@ class DraftScreen extends StatelessWidget {
   }
 }
 
-Widget component(context, family, name, ward) {
+Widget component(context, family, name, ward, cookie) {
   return Column(
     mainAxisAlignment: MainAxisAlignment.start,
     children: [
@@ -216,8 +238,14 @@ Widget component(context, family, name, ward) {
                               shape: BoxShape.circle,
                             ),
                             child: IconButton(
-                              onPressed: () {
-                                // addProduct(context);
+                              onPressed: () async {
+                                final allJsonPrefs = await getAllJsonPrefs();
+                                final prefs = allJsonPrefs[family];
+                                final jsonBody = json.encode(prefs);
+
+                                LoginDialog.askDraftSave(allJsonPrefs, cookie, family, context, jsonBody);
+                                // final response = await FormAPI.formDraftAPI(jsonBody, cookie, family, context);
+                           
                               },
                               icon: const Icon(Icons.done),
                               color: const Color(0xFF34A853),
@@ -232,7 +260,9 @@ Widget component(context, family, name, ward) {
                               shape: BoxShape.circle,
                             ),
                             child: IconButton(
-                              onPressed: () {},
+                              onPressed: () async {
+                                LoginDialog.askDeleteDraft(context, family);
+                              },
                               icon: const Icon(Icons.delete),
                               color: Colors.red,
                               padding: const EdgeInsets.all(2),
@@ -256,37 +286,24 @@ Widget component(context, family, name, ward) {
   );
 }
 
-Widget searchFilter() {
-  return Row(children: [
-    const SizedBox(width: 10),
-    Expanded(
-        child: SizedBox(
-            height: 50,
-            child: Container(
-              decoration: BoxDecoration(
-                borderRadius: BorderRadius.circular(10.0),
-                color: Colors.grey[200],
-                border: Border.all(color: AppColors.primary, width: 1.0),
-              ),
-              child: const TextField(
-                  decoration: InputDecoration(
-                      contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
-                      hintText: 'खोज गर्नुहोस्',
-                      border: InputBorder.none,
-                      prefixIcon: Icon(Icons.search))),
-            ))),
-    const SizedBox(width: 10),
-    Expanded(
-        child: SizedBox(
-            height: 50,
-            child: ElevatedButton(
-                onPressed: () {
-                  // requestProduct(context);
-                },
-                style: ElevatedButton.styleFrom(
-                    backgroundColor: AppColors.primary, shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(10)))),
-                child: Text("ड्राफ्ट सुची", style: AppStyles.text16Px)))),
-    const SizedBox(width: 10)
+Widget searchFilter(context) {
+  return Row(mainAxisAlignment: MainAxisAlignment.center, children: [
+    SizedBox(
+        height: 50,
+        width: MediaQuery.of(context).size.width / 1.1,
+        child: Container(
+          decoration: BoxDecoration(
+            borderRadius: BorderRadius.circular(10.0),
+            color: Colors.grey[200],
+            border: Border.all(color: AppColors.primary, width: 1.0),
+          ),
+          child: const TextField(
+              decoration: InputDecoration(
+                  contentPadding: EdgeInsets.symmetric(horizontal: 16.0, vertical: 12.0),
+                  hintText: 'खोज गर्नुहोस्',
+                  border: InputBorder.none,
+                  prefixIcon: Icon(Icons.search))),
+        )),
   ]);
-  // const SizedBox(height: 10),
+// const SizedBox(height: 10),
 }

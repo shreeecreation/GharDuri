@@ -1,7 +1,9 @@
 import 'dart:convert';
 
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question3/question3.dart';
+import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question33/question33.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/Question15/question15.dart';
+import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/familyNo.dart';
 import 'package:ghardhuri/src/core/API/Auth/setward.dart';
 import 'package:ghardhuri/src/core/API/Form%20API/form_api.dart';
 import 'package:ghardhuri/src/core/API/ManageCookie/managecookie.dart';
@@ -15,6 +17,7 @@ class QuestionsDomain {
   static List<int> qusetion3_1List = [];
   static List<int> qusetion3_2List = [];
   static List<int> qusetion15Lists = [];
+  static List<String> qusetion33List = [];
 
   static List<int> qusetion18List = [];
   static List<int> qusetion19List = [];
@@ -47,9 +50,11 @@ class QuestionsDomain {
     setAnswer31();
     setAnswer33();
     setAnswer41();
+    setUserid();
 
     setAnswer42();
     parseTextFields();
+    parseTextFields33();
     Map<String, dynamic> jsonMap = myData.toJson();
     String jsonData = json.encode(jsonMap);
     FormAPI.formAPI(jsonData);
@@ -57,6 +62,8 @@ class QuestionsDomain {
 
   static void questionsSubmitDraft(family) {
     //7
+    setUserid();
+
     setAnswer1();
     //10
     setAnswer10();
@@ -80,15 +87,13 @@ class QuestionsDomain {
     setAnswer41();
     setAnswer42();
     parseTextFields();
-    Map<String, dynamic> jsonMap = myData.toJson();
-    print(jsonMap);
     // String jsonData = json.encode(jsonMap);
-    saveJsonFile(family, jsonMap);
-    setUserid();
-    print(WardNo.wardno);
     setWardNo(WardNo.wardno);
-    setfamilyNo(family);
+    setfamilyNo();
     Toasts.createDraftToast();
+    Map<String, dynamic> jsonMap = myData.toJson();
+    saveJsonFile(jsonMap);
+    // print(jsonMap);
   }
 
 //--------------------------------------------------//--------------------------------------------------//--------------------------------------------------//--------------------------------------------------
@@ -101,16 +106,16 @@ class QuestionsDomain {
   }
 
   static void setUserid() async {
-    Future<String> myVariable = ManageCookie.getCookie();
-    myData.userId = await myVariable;
+    // Future<String> myVariable = ManageCookie.getCookie();
+    myData.userId = ManageCookie.loginCookie;
   }
 
   static void setWardNo(ward) {
     myData.wardNo = ward;
   }
 
-  static void setfamilyNo(family) {
-    myData.familyNo = family;
+  static void setfamilyNo() {
+    myData.familyNo = FamilyNumber.familyNumber.toString();
   }
 
   static void parseTextFields() {
@@ -133,6 +138,21 @@ class QuestionsDomain {
     }
     setAnswer3_1();
     setAnswer3_2();
+  }
+
+  static void parseTextFields33() {
+    qusetion33List.clear();
+
+    for (final controller in Question33Card.controllers) {
+      final text = controller.text;
+
+      if (text.isNotEmpty) {
+        qusetion33List.add(text);
+      }
+    }
+
+    setAnswer33();
+    // setAnswer3_2();
   }
 
   static void parseTextFields15() {
@@ -189,6 +209,11 @@ class QuestionsDomain {
 //question18
   static setAnswer3_2() {
     myData.question3_2 = qusetion3_2List;
+  }
+
+  //question22
+  static setAnswer33() {
+    myData.question33 = qusetion33List;
   }
 
 //question6
@@ -359,11 +384,6 @@ class QuestionsDomain {
     myData.question32 = index;
   }
 
-//question22
-  static setAnswer33() {
-    myData.question33 = int.parse(TextControllers.q33.text == "" ? "0" : TextControllers.q33.text);
-  }
-
   static setAnswer34(index) {
     myData.question34 = index;
   }
@@ -457,6 +477,6 @@ class QuestionsDomain {
   }
 
   static void addSuchiKarta() {
-    myData.suchiKarta = TextControllers.suchiKarta.text;
+    myData.suchanakarta = TextControllers.suchiKarta.text;
   }
 }

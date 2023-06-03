@@ -8,7 +8,7 @@ class Question4 extends QuestionModel {
 
   Question4(
       {String questionName = '४. परिवारको कुनै सदस्य विरामी भएमा उपचारका लागि सबैभन्दा पहिला कहाँ जानुहुन्छ ?',
-      List<String> questionOption = const ["लामा, धामी, झाँक्री", "स्वास्थ चौकी ", "स्वास्थ चौकी", "अस्पताल"]})
+      List<String> questionOption = const ["लामा, धामी, झाँक्री", "स्वास्थ चौकी ", "औषधि पसल", "अस्पताल"]})
       : super(questionName, questionOption);
 }
 

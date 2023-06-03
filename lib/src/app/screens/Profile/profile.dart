@@ -114,7 +114,7 @@ class ProfileScreen extends StatelessWidget {
                     ],
                   );
                 }
-                return const Text("");
+                return const Center(child: Text("No data of user "));
               }),
         ));
   }

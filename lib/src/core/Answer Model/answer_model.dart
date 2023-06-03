@@ -65,7 +65,7 @@ class AnswerModel {
   String? question31_4;
 
   int? question32;
-  int? question33;
+  List<String>? question33;
   int? question34;
 
   List<int>? question35;
@@ -91,7 +91,7 @@ class AnswerModel {
   int? question48;
   int? question49;
   int? question50;
-  String? suchiKarta;
+  String? suchanakarta;
   String? userId;
 
   AnswerModel(
@@ -179,7 +179,7 @@ class AnswerModel {
       this.question48,
       this.question49,
       this.question50,
-      this.suchiKarta,
+      this.suchanakarta,
       this.userId});
 
   factory AnswerModel.fromJson(Map<String, dynamic> json) {
@@ -268,7 +268,7 @@ class AnswerModel {
       question48: json['question48'],
       question49: json['question49'],
       question50: json['question50'],
-      suchiKarta: json['suchiKarta'],
+      suchanakarta: json['suchanakarta'],
       userId: json['userId'],
     );
   }
@@ -359,7 +359,7 @@ class AnswerModel {
       'question48': question48,
       'question49': question49,
       'question50': question50,
-      'suchiKarta': suchiKarta,
+      'suchanakarta': suchanakarta,
       "userId": userId
     };
   }

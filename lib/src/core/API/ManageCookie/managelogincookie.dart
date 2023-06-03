@@ -9,7 +9,8 @@ class ManageLoginCookie {
   }
 
   static void deleteCookie() async {
-    var prefs = await SharedPreferences.getInstance();
-    await prefs.clear();
+    final prefs = await SharedPreferences.getInstance();
+    prefs.remove("ward");
+    prefs.remove("cookie");
   }
 }

@@ -43,11 +43,9 @@ class _Question3CardState extends State<Question3Card> {
 
   void printTextFields() {
     for (final controller in Question3Card.controllers) {
-      print(controller.text);
     }
 
     for (final controller in Question3Card.controllers1) {
-      print(controller.text);
     }
   }
 

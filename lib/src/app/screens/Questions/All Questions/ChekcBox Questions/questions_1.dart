@@ -77,7 +77,7 @@ class _Question1CardState extends State<Question1Card> {
                             gender = "male";
                             QuestionsDomain.setGender(gender);
                           } else {
-                            gender = "third_Gender";
+                            gender = "third_gender";
                             QuestionsDomain.setGender(gender);
                           }
                           selectedOption = option;

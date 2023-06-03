@@ -8,6 +8,9 @@ class ManageCookie {
 
   static Future<String> getCookie() async {
     var prefs = await SharedPreferences.getInstance();
+    loginCookie = prefs.getString('cookie') ?? "";
     return prefs.getString('cookie') ?? "";
   }
+
+  static String loginCookie = "";
 }

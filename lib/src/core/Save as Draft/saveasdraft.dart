@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/familyNo.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 
 Future<Map<String, dynamic>> getJsonPrefs() async {
@@ -17,9 +18,9 @@ Future<void> saveJsonPrefs(Map<String, dynamic> jsonPrefs) async {
   await prefs.setString('json_prefs', jsonString);
 }
 
-Future<void> saveJsonFile(String prefKey, Map<String, dynamic> jsonFile) async {
+Future<void> saveJsonFile(Map<String, dynamic> jsonFile) async {
   final jsonPrefs = await getJsonPrefs();
-  jsonPrefs[prefKey] = jsonFile;
+  jsonPrefs[FamilyNumber.familyNumber] = jsonFile;
   await saveJsonPrefs(jsonPrefs);
 }
 
@@ -27,6 +28,7 @@ Future<void> clearJsonPrefs() async {
   final prefs = await SharedPreferences.getInstance();
   await prefs.remove('json_prefs');
 }
+
 Future<List> getJsonPrefsKeys() async {
   final prefs = await SharedPreferences.getInstance();
   final jsonString = prefs.getString('json_prefs');
@@ -37,7 +39,19 @@ Future<List> getJsonPrefsKeys() async {
   return [];
 }
 
-void deleteSpecificId(){
+Future<void> deleteSpecificElement(String key) async {
+  final jsonPrefs = await getJsonPrefs();
 
+  jsonPrefs.remove(key);
+
+  await saveJsonPrefs(jsonPrefs);
 }
 
+Future<void> printJsonPrefs() async {
+  final jsonPrefs = await getJsonPrefs();
+  jsonPrefs.forEach((key, value) {});
+}
+
+Future<Map<String, dynamic>> getAllJsonPrefs() async {
+  return await getJsonPrefs();
+}

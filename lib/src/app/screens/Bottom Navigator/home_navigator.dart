@@ -13,7 +13,7 @@ class HomeNavigator extends StatefulWidget {
 }
 
 class _HomeNavigatorState extends State<HomeNavigator> {
-  int _selectedIndex = 1;
+  int _selectedIndex = 2;
   static final List<Widget> _widgetOptions = <Widget>[const Questions(), const DraftScreen(), const ProfileScreen()];
 
   void _onItemTapped(int index) {
