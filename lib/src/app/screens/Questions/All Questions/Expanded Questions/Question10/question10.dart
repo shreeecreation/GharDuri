@@ -91,16 +91,18 @@ class ExpQuestion10CardState extends State<ExpQuestion10Card> {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  if (selectedOption == "छ") Text("यदि छ भने ?", style: AppStyles.text16Px),
+                  if (selectedOption == "छ") Text("यदि छ भने ?", style: AppStyles.text16PxMedium),
                   if (selectedOption == "छ")
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(" संख्या", style: AppStyles.text16Px),
+                        Text(" संख्या", style: AppStyles.text16PxMedium),
                         SizedBox(
                           width: 40,
                           height: 20,
                           child: TextField(
+                        keyboardType: TextInputType.number,
+
                               controller: TextControllers.q101,
                               decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),
@@ -148,16 +150,18 @@ class ExpQuestion10CardState extends State<ExpQuestion10Card> {
                     ],
                   ),
                   const SizedBox(height: 10),
-                  if (selectedOption1 == "छ") Text("यदि छ भने ?", style: AppStyles.text16Px),
+                  if (selectedOption1 == "छ") Text("यदि छ भने ?", style: AppStyles.text16PxMedium),
                   if (selectedOption1 == "छ")
                     Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(" संख्या", style: AppStyles.text16Px),
+                        Text(" संख्या", style: AppStyles.text16PxMedium),
                         SizedBox(
                           width: 40,
                           height: 20,
                           child: TextField(
+                        keyboardType: TextInputType.number,
+
                               controller: TextControllers.q102,
                               decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),

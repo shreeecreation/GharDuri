@@ -68,6 +68,8 @@ class _Question1CardState extends State<Question1Card> {
                     isChecked: selectedOption == option,
                     onChanged: (isChecked) {
                       setState(() {
+                        QuestionsDomain.canSave = true;
+
                         if (!isChecked) {
                           String gender;
                           if (index == 0) {
@@ -84,6 +86,8 @@ class _Question1CardState extends State<Question1Card> {
                           widget.question.answerIndex = index;
                         } else {
                           QuestionsDomain.setGender("");
+                          QuestionsDomain.canSave = false;
+
                           selectedOption = "";
                           widget.question.answerIndex = -1;
                         }

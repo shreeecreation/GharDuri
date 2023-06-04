@@ -38,6 +38,7 @@ class _Question27CardState extends State<Question27Card> {
                     width: 120,
                     height: 35,
                     child: TextField(
+                        keyboardType: TextInputType.number,
                         controller: TextControllers.q271,
                         decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                   ),

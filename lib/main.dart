@@ -31,9 +31,9 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MultiBlocProvider(
- providers: [
-              BlocProvider<DeletedraftBloc>(create: (context) => DeletedraftBloc()),
-            ],
+      providers: [
+        BlocProvider<DeletedraftBloc>(create: (context) => DeletedraftBloc()),
+      ],
       child: GestureDetector(
         onTap: () {
           unFocusNode(context);

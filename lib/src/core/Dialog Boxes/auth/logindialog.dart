@@ -147,9 +147,7 @@ class LoginDialog {
                       width: MediaQuery.of(context).size.width / 1.5,
                       child: ElevatedButton(
                           onPressed: () async {
-                            QuestionsDomain.questionsSubmit();
-                            TextControllers.clearAll();
-                            Get.offAll(const HomeNavigator());
+                            QuestionsDomain.questionsSubmit(context);
                           },
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
@@ -348,6 +346,66 @@ class LoginDialog {
                               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15)))),
                           child: Text("Save", style: AppStyles.text16Px))),
                 ),
+                const SizedBox(height: 10),
+                SizedBox(
+                  height: 40,
+                  width: MediaQuery.of(context).size.width / 1.5,
+                  child: ElevatedButton(
+                      onPressed: () {
+                        Navigator.pop(context);
+                      },
+                      style: ElevatedButton.styleFrom(
+                          elevation: 0,
+                          shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(10), side: const BorderSide(color: AppColors.primary, width: 1.5)),
+                          backgroundColor: Colors.white,
+                          foregroundColor: AppColors.primary),
+                      child: const Text('Cancel')),
+                )
+              ],
+            ),
+          ),
+        );
+      },
+    );
+  }
+
+  static void cantSaveForm(context) {
+    // Create the AlertDialog
+    showDialog(
+      context: context,
+      barrierDismissible: false,
+      builder: (BuildContext context) {
+        return AlertDialog(
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
+          content: SizedBox(
+            height: 250.0,
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: <Widget>[
+                const Icon(Icons.info_outline, color: AppColors.statusRed, size: 40),
+                const SizedBox(height: 15),
+                SizedBox(
+                    width: 220,
+                    child: Center(
+                        child: Text('Invalid Input \n परिवार मूलीको नाम ,  परिवार मूलीको लिङ्  खाली हुन सक्दैन',
+                            textAlign: TextAlign.center, style: AppStyles.text16PxSemiBold))),
+                const SizedBox(height: 10),
+                // Center(
+                //   child: SizedBox(
+                //       height: 45,
+                //       width: MediaQuery.of(context).size.width / 1.5,
+                //       child: ElevatedButton(
+                //           onPressed: () async {},
+                //           style: ElevatedButton.styleFrom(
+                //               elevation: 0,
+                //               backgroundColor: AppColors.primary,
+                //               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15)))),
+                //           child: Text("Save", style: AppStyles.text16Px))),
+                // ),
                 const SizedBox(height: 10),
                 SizedBox(
                   height: 40,

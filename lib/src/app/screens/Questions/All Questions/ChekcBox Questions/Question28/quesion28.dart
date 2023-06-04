@@ -50,9 +50,11 @@ class _Question28CardState extends State<Question28Card> {
                       "क. आधारभुत तह पढ्नेको संख्या:",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
                       child: TextField(
+                        keyboardType: TextInputType.number,
+                        
                           controller: TextControllers.q281,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
@@ -66,9 +68,11 @@ class _Question28CardState extends State<Question28Card> {
                       "ख. कक्षा दशसम्म पढ्नेको संख्या:",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
                       child: TextField(
+                        keyboardType: TextInputType.number,
+
                           controller: TextControllers.q282,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
@@ -82,9 +86,11 @@ class _Question28CardState extends State<Question28Card> {
                       "ग. ‌कक्षा १२ सम्म पढ्नेको संख्या:",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
                       child: TextField(
+                        keyboardType: TextInputType.number,
+
                           controller: TextControllers.q283,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
@@ -98,9 +104,11 @@ class _Question28CardState extends State<Question28Card> {
                       "घ. कक्षा १२ भन्दामाथीको संख्या:",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
                       child: TextField(
+                        keyboardType: TextInputType.number,
+
                           controller: TextControllers.q284,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),

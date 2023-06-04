@@ -117,9 +117,10 @@ class _Question29CardState extends State<Question29Card> {
                           "१. प्रारम्भिक बालबिकास संख्या:",
                         ),
                         SizedBox(
-                          width: 30,
+                          width: 50,
                           height: 20,
                           child: TextField(
+                              keyboardType: TextInputType.number,
                               controller: TextControllers.q2911,
                               decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),
@@ -131,9 +132,10 @@ class _Question29CardState extends State<Question29Card> {
                       children: [
                         const Text("२. आधारभुत तह संख्या:"),
                         SizedBox(
-                          width: 30,
+                          width: 50,
                           height: 20,
                           child: TextField(
+                              keyboardType: TextInputType.number,
                               controller: TextControllers.q2921,
                               decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),
@@ -145,9 +147,10 @@ class _Question29CardState extends State<Question29Card> {
                       children: [
                         const Text("३. कक्षा दशसम्म संख्या:"),
                         SizedBox(
-                          width: 30,
+                          width: 50,
                           height: 20,
                           child: TextField(
+                              keyboardType: TextInputType.number,
                               controller: TextControllers.q2931,
                               decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),
@@ -159,9 +162,10 @@ class _Question29CardState extends State<Question29Card> {
                       children: [
                         const Text("४. कक्षा १२ सम्म संख्या:"),
                         SizedBox(
-                          width: 30,
+                          width: 50,
                           height: 20,
                           child: TextField(
+                              keyboardType: TextInputType.number,
                               controller: TextControllers.q2941,
                               decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),

@@ -53,6 +53,7 @@ class _Question6CardState extends State<Question6Card> {
                       width: 50,
                       height: 20,
                       child: TextField(
+                        keyboardType: TextInputType.number,
                           controller: TextControllers.q61,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
@@ -69,6 +70,8 @@ class _Question6CardState extends State<Question6Card> {
                       width: 50,
                       height: 20,
                       child: TextField(
+                        keyboardType: TextInputType.number,
+
                           controller: TextControllers.q62,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
@@ -85,6 +88,8 @@ class _Question6CardState extends State<Question6Card> {
                       width: 50,
                       height: 20,
                       child: TextField(
+                        keyboardType: TextInputType.number,
+
                           controller: TextControllers.q63,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
@@ -101,6 +106,8 @@ class _Question6CardState extends State<Question6Card> {
                       width: 50,
                       height: 20,
                       child: TextField(
+                        keyboardType: TextInputType.number,
+
                           controller: TextControllers.q64,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),

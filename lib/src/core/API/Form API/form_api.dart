@@ -1,9 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:get/get.dart';
+import 'package:ghardhuri/src/app/screens/Bottom%20Navigator/home_navigator.dart';
 import 'package:ghardhuri/src/app/screens/Draft/bloc/deletedraft_bloc.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 import 'package:ghardhuri/src/core/API/AllAPIEndpoints/all_endpoints.dart';
 import 'package:ghardhuri/src/core/API/ManageCookie/managecookie.dart';
 import 'package:ghardhuri/src/core/Save%20as%20Draft/saveasdraft.dart';
+import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/utils/toast.dart';
 import 'package:http/http.dart' as http;
 
@@ -22,6 +26,9 @@ class FormAPI {
       print(code);
       if (code >= 200 && code < 300) {
         Toasts.uploadDraftToast();
+        QuestionsDomain.canSave = false;
+                            TextControllers.clearAll();
+                            Get.offAll(const HomeNavigator());
         return response;
       } else if (code == 400) {
       } else if (code == 500) {}

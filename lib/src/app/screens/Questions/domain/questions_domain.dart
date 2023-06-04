@@ -1,5 +1,6 @@
 import 'dart:convert';
 
+import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question3/question3.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question33/question33.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/Question15/question15.dart';
@@ -8,6 +9,7 @@ import 'package:ghardhuri/src/core/API/Auth/setward.dart';
 import 'package:ghardhuri/src/core/API/Form%20API/form_api.dart';
 import 'package:ghardhuri/src/core/API/ManageCookie/managecookie.dart';
 import 'package:ghardhuri/src/core/Answer%20Model/answer_model.dart';
+import 'package:ghardhuri/src/core/Dialog%20Boxes/auth/logindialog.dart';
 import 'package:ghardhuri/src/core/Save%20as%20Draft/saveasdraft.dart';
 import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/utils/toast.dart';
@@ -26,38 +28,46 @@ class QuestionsDomain {
   static List<int> qusetion35List = [];
 
   static List<int> qusetion45List = [];
-  static void questionsSubmit() {
-    setAnswer();
-    //7
-    setAnswer1();
-    //10
-    setAnswer10();
-    //15
-    //18
-    setAnswer18();
-    setAnswer19();
-    addSuchiKarta();
+  static bool canSave = false;
+  static void questionsSubmit(context) {
+    print(canSave);
+    if (canSave) {
+      print("dasdasd");
+      setAnswer();
+      //7
+      setAnswer1();
+      //10
+      setAnswer10();
+      //15
+      //18
+      setAnswer18();
+      setAnswer19();
+      addSuchiKarta();
 
-    //22
-    setAnswer22();
-    //24
-    setAnswer24();
-    //27
-    setAnswer27();
-    //28
-    setAnswer28();
-    setAnswer29();
-    setAnswer31();
-    setAnswer33();
-    setAnswer41();
-    setUserid();
+      //22
+      setAnswer22();
+      //24
+      setAnswer24();
+      //27
+      setAnswer27();
+      //28
+      setAnswer28();
+      setAnswer29();
+      setAnswer31();
+      setAnswer33();
+      setAnswer41();
+      setUserid();
 
-    setAnswer42();
-    parseTextFields();
-    parseTextFields33();
-    Map<String, dynamic> jsonMap = myData.toJson();
-    String jsonData = json.encode(jsonMap);
-    FormAPI.formAPI(jsonData);
+      setAnswer42();
+      parseTextFields();
+      parseTextFields33();
+      Map<String, dynamic> jsonMap = myData.toJson();
+      String jsonData = json.encode(jsonMap);
+      FormAPI.formAPI(jsonData);
+    } else {
+      Navigator.pop(context);
+      LoginDialog.cantSaveForm(context);
+    }
   }
 
   static void questionsSubmitDraft(family) {

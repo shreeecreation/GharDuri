@@ -49,9 +49,10 @@ class _Question7CardState extends State<Question7Card> {
                       "क)  कति पटक गर्भवती परिक्षण गरेको ",
                     ),
                     SizedBox(
-                      width: 30,
+                      width: 50,
                       height: 20,
                       child: TextField(
+                          keyboardType: TextInputType.number,
                           controller: TextControllers.q71,
                           decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                     ),
