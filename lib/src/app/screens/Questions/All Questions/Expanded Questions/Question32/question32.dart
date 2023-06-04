@@ -58,7 +58,7 @@ class ExpQuestion32CardState extends State<ExpQuestion32Card> {
                         isChecked: selectedOption == "गराउने गरेको छ",
                         onChanged: (isChecked) {
                           setState(() {
-                            QuestionsDomain.setAnswer32(1);
+                            QuestionsDomain.setAnswer32(0);
                             selectedOption = "गराउने गरेको छ";
                             widget.question.answerIndex = 0;
                           });

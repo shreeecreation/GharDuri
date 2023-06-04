@@ -31,7 +31,7 @@ class ExpQuestion15CardState extends State<ExpQuestion15Card> {
   @override
   Widget build(BuildContext context) {
     void addTextFieldpurush() {
-      final controller = TextEditingController();
+      final controller = TextEditingController(text: "0");
       ExpQuestion15Card.controllers.add(controller);
       final textField = SizedBox(
         width: 120,
@@ -82,6 +82,7 @@ class ExpQuestion15CardState extends State<ExpQuestion15Card> {
                         onChanged: (isChecked) {
                           setState(() {
                             selectedOption = "छ";
+                            
                             widget.question.answerIndex = 0;
                           });
                         },

@@ -12,17 +12,17 @@ class TextControllers {
   static TextEditingController q31 = TextEditingController();
   static TextEditingController q32 = TextEditingController();
   //question6
-  static TextEditingController q61 = TextEditingController();
-  static TextEditingController q62 = TextEditingController();
-  static TextEditingController q63 = TextEditingController();
-  static TextEditingController q64 = TextEditingController();
+  static TextEditingController q61 = TextEditingController(text:"0");
+  static TextEditingController q62 = TextEditingController(text:"0");
+  static TextEditingController q63 = TextEditingController(text:"0");
+  static TextEditingController q64 = TextEditingController(text:"0");
 
   //question7
-  static TextEditingController q71 = TextEditingController();
+  static TextEditingController q71 = TextEditingController(text:"0");
 
   //question10
-  static TextEditingController q101 = TextEditingController();
-  static TextEditingController q102 = TextEditingController();
+  static TextEditingController q101 = TextEditingController(text:"0");
+  static TextEditingController q102 = TextEditingController(text:"0");
   //question15
   static TextEditingController q151 = TextEditingController();
 
@@ -30,24 +30,24 @@ class TextControllers {
   static TextEditingController q221 = TextEditingController();
 
   //question24
-  static TextEditingController q241 = TextEditingController();
-  static TextEditingController q242 = TextEditingController();
-  static TextEditingController q243 = TextEditingController();
+  static TextEditingController q241 = TextEditingController(text:"0");
+  static TextEditingController q242 = TextEditingController(text:"0");
+  static TextEditingController q243 = TextEditingController(text:"0");
 
 //questions27
-  static TextEditingController q271 = TextEditingController();
+  static TextEditingController q271 = TextEditingController(text:"0");
 
   //question24
-  static TextEditingController q281 = TextEditingController();
-  static TextEditingController q282 = TextEditingController();
-  static TextEditingController q283 = TextEditingController();
-  static TextEditingController q284 = TextEditingController();
+  static TextEditingController q281 = TextEditingController(text:"0");
+  static TextEditingController q282 = TextEditingController(text:"0");
+  static TextEditingController q283 = TextEditingController(text:"0");
+  static TextEditingController q284 = TextEditingController(text:"0");
 
   //question29
-  static TextEditingController q291 = TextEditingController();
-  static TextEditingController q292 = TextEditingController();
-  static TextEditingController q293 = TextEditingController();
-  static TextEditingController q294 = TextEditingController();
+  static TextEditingController q291 = TextEditingController(text:"0");
+  static TextEditingController q292 = TextEditingController(text:"0");
+  static TextEditingController q293 = TextEditingController(text:"0");
+  static TextEditingController q294 = TextEditingController(text:"0");
 
   //question29
   static TextEditingController q2911 = TextEditingController();
@@ -56,9 +56,9 @@ class TextControllers {
   static TextEditingController q2941 = TextEditingController();
 
   //question30
-  static TextEditingController q301 = TextEditingController();
+  static TextEditingController q301 = TextEditingController(text:"0");
   static TextEditingController q302 = TextEditingController();
-  static TextEditingController q303 = TextEditingController();
+  static TextEditingController q303 = TextEditingController(text:"0");
   static TextEditingController q304 = TextEditingController();
 
   static TextEditingController q33 = TextEditingController();

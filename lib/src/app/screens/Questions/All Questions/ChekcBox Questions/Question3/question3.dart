@@ -42,15 +42,13 @@ class _Question3CardState extends State<Question3Card> {
   }
 
   void printTextFields() {
-    for (final controller in Question3Card.controllers) {
-    }
+    for (final controller in Question3Card.controllers) {}
 
-    for (final controller in Question3Card.controllers1) {
-    }
+    for (final controller in Question3Card.controllers1) {}
   }
 
   void addTextFieldpurush() {
-    final controller = TextEditingController();
+    final controller = TextEditingController(text: "0");
     Question3Card.controllers.add(controller);
     final textField = SizedBox(
       width: 50,
@@ -70,7 +68,7 @@ class _Question3CardState extends State<Question3Card> {
   }
 
   void addTextFieldmahila() {
-    final controller = TextEditingController();
+    final controller = TextEditingController(text: "0");
     Question3Card.controllers1.add(controller);
     final textField = SizedBox(
       width: 50,

@@ -59,7 +59,7 @@ class ExpQuestion13CardState extends State<ExpQuestion13Card> {
                         isChecked: selectedOption == "छ",
                         onChanged: (isChecked) {
                           setState(() {
-                            QuestionsDomain.setAnswer13(1);
+                            QuestionsDomain.setAnswer13(0);
                             selectedOption = "छ";
                             widget.question.answerIndex = 0;
                           });

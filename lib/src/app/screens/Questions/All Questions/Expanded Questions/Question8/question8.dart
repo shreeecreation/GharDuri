@@ -57,6 +57,8 @@ class ExpQuestion8CardState extends State<ExpQuestion8Card> {
                     onChanged: (isChecked) {
                       setState(() {
                         selectedOption = "छ";
+                        QuestionsDomain.setAnswer8(1);
+
                         widget.question.answerIndex = 0;
                       });
                     },
@@ -83,7 +85,7 @@ class ExpQuestion8CardState extends State<ExpQuestion8Card> {
                             isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
                             onChanged: (isChecked) {
                               setState(() {
-                                QuestionsDomain.setAnswer8((widget.question).questionOption.indexOf(option));
+                                QuestionsDomain.setAnswer8((widget.question).questionOption.indexOf(option) + 1);
                                 (widget.question).answerIndex = (widget.question).questionOption.indexOf(option);
                               });
                             },

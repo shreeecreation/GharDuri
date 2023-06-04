@@ -67,6 +67,8 @@ class ExpQuestion38CardState extends State<ExpQuestion38Card> {
                     onChanged: (isChecked) {
                       setState(() {
                         selectedOption = "अन्य स्थानमा";
+                        QuestionsDomain.setAnswer38(1);
+
                         widget.question.answerIndex = 0;
                       });
                     },
@@ -94,7 +96,7 @@ class ExpQuestion38CardState extends State<ExpQuestion38Card> {
                             isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
                             onChanged: (isChecked) {
                               setState(() {
-                                QuestionsDomain.setAnswer38((widget.question).questionOption.indexOf(option));
+                                QuestionsDomain.setAnswer38((widget.question).questionOption.indexOf(option)+1);
                                 (widget.question).answerIndex = (widget.question).questionOption.indexOf(option);
                               });
                             },
