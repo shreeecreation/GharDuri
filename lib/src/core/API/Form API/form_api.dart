@@ -27,8 +27,12 @@ class FormAPI {
       if (code >= 200 && code < 300) {
         Toasts.uploadDraftToast();
         QuestionsDomain.canSave = false;
-                            TextControllers.clearAll();
-                            Get.offAll(const HomeNavigator());
+        QuestionsDomain.qusetion3_1List.clear();
+        QuestionsDomain.qusetion3_2List.clear();
+        QuestionsDomain.qusetion15Lists.clear();
+        QuestionsDomain.qusetion33List.clear();
+        TextControllers.clearAll();
+        Get.offAll(const HomeNavigator());
         return response;
       } else if (code == 400) {
       } else if (code == 500) {}

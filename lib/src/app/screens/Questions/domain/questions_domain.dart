@@ -1,6 +1,8 @@
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
+import 'package:ghardhuri/src/app/screens/Bottom%20Navigator/home_navigator.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question3/question3.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/ChekcBox%20Questions/Question33/question33.dart';
 import 'package:ghardhuri/src/app/screens/Questions/All%20Questions/Expanded%20Questions/Question15/question15.dart';
@@ -70,40 +72,48 @@ class QuestionsDomain {
     }
   }
 
-  static void questionsSubmitDraft(family) {
-    //7
-    setUserid();
+  static void questionsSubmitDraft(family, context) async {
+    if (canSave) {
+      //7
+      setUserid();
 
-    setAnswer1();
-    //10
-    setAnswer10();
-    //15
-    //18
-    setAnswer18();
-    setAnswer19();
-    addSuchiKarta();
+      setAnswer1();
+      //10
+      setAnswer10();
+      //15
+      //18
+      setAnswer18();
+      setAnswer19();
+      addSuchiKarta();
 
-    //22
-    setAnswer22();
-    //24
-    setAnswer24();
-    //27
-    setAnswer27();
-    //28
-    setAnswer28();
-    setAnswer29();
-    setAnswer31();
-    setAnswer33();
-    setAnswer41();
-    setAnswer42();
-    parseTextFields();
-    // String jsonData = json.encode(jsonMap);
-    setWardNo(WardNo.wardno);
-    setfamilyNo();
-    Toasts.createDraftToast();
-    Map<String, dynamic> jsonMap = myData.toJson();
-    saveJsonFile(jsonMap);
-    // print(jsonMap);
+      //22
+      setAnswer22();
+      //24
+      setAnswer24();
+      //27
+      setAnswer27();
+      //28
+      setAnswer28();
+      setAnswer29();
+      setAnswer31();
+      setAnswer33();
+      setAnswer41();
+      setAnswer42();
+      parseTextFields();
+      // String jsonData = json.encode(jsonMap);
+      setWardNo(WardNo.wardno);
+      setfamilyNo();
+      Toasts.createDraftToast();
+      Map<String, dynamic> jsonMap = myData.toJson();
+      saveJsonFile(jsonMap);
+      TextControllers.clearAll();
+      await Future.delayed(const Duration(milliseconds: 1000));
+      Get.offAll(const HomeNavigator());
+      // print(jsonMap);
+    } else {
+      Navigator.pop(context);
+      LoginDialog.cantSaveForm(context);
+    }
   }
 
 //--------------------------------------------------//--------------------------------------------------//--------------------------------------------------//--------------------------------------------------

@@ -88,6 +88,7 @@ class ExpQuestion22CardState extends State<ExpQuestion22Card> {
                           width: 120,
                           height: 15,
                           child: TextField(
+                            // keyboardType: TextInputType.number,
                               controller: TextControllers.q221,
                               decoration: const InputDecoration(focusedBorder: UnderlineInputBorder(), border: UnderlineInputBorder())),
                         ),

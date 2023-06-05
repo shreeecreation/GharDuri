@@ -207,10 +207,8 @@ class LoginDialog {
                       width: MediaQuery.of(context).size.width / 1.5,
                       child: ElevatedButton(
                           onPressed: () async {
-                            QuestionsDomain.questionsSubmitDraft(key);
-                            TextControllers.clearAll();
-                            await Future.delayed(const Duration(milliseconds: 1000));
-                            Get.offAll(const HomeNavigator());
+                            QuestionsDomain.questionsSubmitDraft(key,context);
+                       
                           },
                           style: ElevatedButton.styleFrom(
                               elevation: 0,
@@ -225,7 +223,7 @@ class LoginDialog {
                   child: ElevatedButton(
                       onPressed: () {
                         Navigator.pop(context);
-                        clearJsonPrefs();
+                        // clearJsonPrefs();
                       },
                       style: ElevatedButton.styleFrom(
                           elevation: 0,
@@ -338,6 +336,10 @@ class LoginDialog {
                       child: ElevatedButton(
                           onPressed: () async {
                             final response = await FormAPI.formDraftAPI(jsonBody, cookie, family, context);
+                             QuestionsDomain.qusetion3_1List.clear();
+        QuestionsDomain.qusetion3_2List.clear();
+        QuestionsDomain.qusetion15Lists.clear();
+        QuestionsDomain.qusetion33List.clear();
                             Navigator.pop(context);
                           },
                           style: ElevatedButton.styleFrom(
@@ -394,18 +396,7 @@ class LoginDialog {
                         child: Text('Invalid Input \n परिवार मूलीको नाम ,  परिवार मूलीको लिङ्  खाली हुन सक्दैन',
                             textAlign: TextAlign.center, style: AppStyles.text16PxSemiBold))),
                 const SizedBox(height: 10),
-                // Center(
-                //   child: SizedBox(
-                //       height: 45,
-                //       width: MediaQuery.of(context).size.width / 1.5,
-                //       child: ElevatedButton(
-                //           onPressed: () async {},
-                //           style: ElevatedButton.styleFrom(
-                //               elevation: 0,
-                //               backgroundColor: AppColors.primary,
-                //               shape: const RoundedRectangleBorder(borderRadius: BorderRadius.all(Radius.circular(15)))),
-                //           child: Text("Save", style: AppStyles.text16Px))),
-                // ),
+       
                 const SizedBox(height: 10),
                 SizedBox(
                   height: 40,
