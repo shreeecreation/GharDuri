@@ -96,7 +96,7 @@ class ExpQuestion38CardState extends State<ExpQuestion38Card> {
                             isChecked: option == (widget.question).questionOption[(widget.question).answerIndex],
                             onChanged: (isChecked) {
                               setState(() {
-                                QuestionsDomain.setAnswer38((widget.question).questionOption.indexOf(option)+1);
+                                QuestionsDomain.setAnswer38((widget.question).questionOption.indexOf(option));
                                 (widget.question).answerIndex = (widget.question).questionOption.indexOf(option);
                               });
                             },

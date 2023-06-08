@@ -371,26 +371,26 @@ class QuestionsDomain {
     myData.question29_3 = int.parse(TextControllers.q293.text == "" ? "0" : TextControllers.q293.text);
     myData.question29_4 = int.parse(TextControllers.q293.text == "" ? "0" : TextControllers.q294.text);
 
-    myData.qustion29_1_1 = int.parse(TextControllers.q2911.text == "" ? "0" : TextControllers.q2911.text);
-    myData.qustion29_1_2 = int.parse(TextControllers.q2921.text == "" ? "0" : TextControllers.q2921.text);
-    myData.qustion29_1_3 = int.parse(TextControllers.q2931.text == "" ? "0" : TextControllers.q2931.text);
-    myData.qustion29_1_4 = int.parse(TextControllers.q2931.text == "" ? "0" : TextControllers.q2941.text);
+    myData.question29_1_1 = int.parse(TextControllers.q2911.text == "" ? "0" : TextControllers.q2911.text);
+    myData.question29_1_2 = int.parse(TextControllers.q2921.text == "" ? "0" : TextControllers.q2921.text);
+    myData.question29_1_3 = int.parse(TextControllers.q2931.text == "" ? "0" : TextControllers.q2931.text);
+    myData.question29_1_4 = int.parse(TextControllers.q2931.text == "" ? "0" : TextControllers.q2941.text);
   }
 
   static setAnswer30_1(index) {
-    myData.question31_1 = index;
+    myData.question30_1 = index;
   }
 
   static setAnswer30_2(index) {
-    myData.question31_2 = index;
+    myData.question30_2 = index;
   }
 
   static setAnswer30_3(index) {
-    myData.question31_3 = index;
+    myData.question30_3 = index;
   }
 
   static setAnswer30_4(index) {
-    myData.question31_4 = index;
+    myData.question30_4 = index;
   }
 
   static setAnswer31() {
@@ -457,27 +457,15 @@ class QuestionsDomain {
   }
 
   static setAnswer461(index) {
-    if (index == "0") {
-      myData.question46_1 = "male";
-    } else {
-      myData.question46_1 = "female";
-    }
+      myData.question46_1 = index;
   }
 
   static setAnswer462(index) {
-    if (index == "0") {
-      myData.question46_2 = "male";
-    } else {
-      myData.question46_2 = "female";
-    }
+      myData.question46_2 = index;
   }
 
   static setAnswer463(index) {
-    if (index == "0") {
-      myData.question46_3 = "male";
-    } else {
-      myData.question46_3 = "female";
-    }
+      myData.question46_3 = index;
   }
 
   static setAnswer47(index) {
@@ -498,5 +486,94 @@ class QuestionsDomain {
 
   static void addSuchiKarta() {
     myData.suchanakarta = TextControllers.suchiKarta.text;
+  }
+
+  static void clearAllValue() {
+    myData.bastiName = null;
+    myData.wardNo = null;
+    myData.familyNo = null;
+    myData.question1_1 = null;
+    myData.question1_2 = null;
+    myData.question2_1 = null;
+    myData.question2_2 = null;
+    myData.question3_1 = null;
+    myData.question3_2 = null;
+    myData.question4 = null;
+    myData.question5_1 = null;
+    myData.question5_2 = null;
+    myData.question6_1 = null;
+    myData.question6_2 = null;
+    myData.question6_3 = null;
+    myData.question6_4 = null;
+    myData.question7_1 = null;
+    myData.question7_2 = null;
+    myData.question8 = null;
+    myData.question9 = null;
+    myData.question10_1 = null;
+    myData.question10_2 = null;
+    myData.question11 = null;
+    myData.question12 = null;
+    myData.question13 = null;
+    myData.question14 = null;
+    myData.question15 = null;
+    myData.question16 = null;
+    myData.question17 = null;
+    myData.question18 = null;
+    myData.question19 = null;
+    myData.question20 = null;
+    myData.question21 = null;
+    myData.question22 = null;
+    myData.question23 = null;
+    myData.question24_1 = null;
+    myData.question24_2 = null;
+    myData.question24_3 = null;
+    myData.question25 = null;
+    myData.question26 = null;
+    myData.question27 = null;
+    myData.question28_1 = null;
+    myData.question28_2 = null;
+    myData.question28_3 = null;
+    myData.question28_4 = null;
+    myData.question29_1 = null;
+    myData.question29_2 = null;
+    myData.question29_3 = null;
+    myData.question29_4 = null;
+    myData.question29_1_1 = null;
+    myData.question29_1_2 = null;
+    myData.question29_1_3 = null;
+    myData.question29_1_4 = null;
+    myData.question30_1 = null;
+    myData.question30_2 = null;
+    myData.question30_3 = null;
+    myData.question30_4 = null;
+    myData.question31_1 = null;
+    myData.question31_2 = null;
+    myData.question31_3 = null;
+    myData.question31_4 = null;
+    myData.question32 = null;
+    myData.question33 = null;
+    myData.question34 = null;
+    myData.question35 = null;
+    myData.question36 = null;
+    myData.question37 = null;
+    myData.question38_1 = null;
+    myData.question39 = null;
+    myData.question40 = null;
+    myData.question41 = null;
+    myData.question42 = null;
+    myData.question43_1 = null;
+    myData.question43_2 = null;
+    myData.question44 = null;
+    myData.question45 = null;
+    myData.question46_1 = null;
+    myData.question46_2 = null;
+    myData.question46_3 = null;
+    myData.question46_4 = null;
+    myData.question47 = null;
+    myData.question48 = null;
+    myData.question49 = null;
+    myData.question50 = null;
+    myData.suchanakarta = null;
+    myData.userId = null;
   }
 }

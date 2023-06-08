@@ -49,10 +49,10 @@ class AnswerModel {
   int? question29_3;
   int? question29_4;
 
-  int? qustion29_1_1;
-  int? qustion29_1_2;
-  int? qustion29_1_3;
-  int? qustion29_1_4;
+  int? question29_1_1;
+  int? question29_1_2;
+  int? question29_1_3;
+  int? question29_1_4;
 
   int? question30_1;
   int? question30_2;
@@ -83,9 +83,9 @@ class AnswerModel {
   int? question43_2;
   int? question44;
   List<int>? question45;
-  String? question46_1;
-  String? question46_2;
-  String? question46_3;
+  int? question46_1;
+  int? question46_2;
+  int? question46_3;
   String? question46_4;
   int? question47;
   int? question48;
@@ -144,10 +144,10 @@ class AnswerModel {
       this.question29_2,
       this.question29_3,
       this.question29_4,
-      this.qustion29_1_1,
-      this.qustion29_1_2,
-      this.qustion29_1_3,
-      this.qustion29_1_4,
+      this.question29_1_1,
+      this.question29_1_2,
+      this.question29_1_3,
+      this.question29_1_4,
       this.question30_1,
       this.question30_2,
       this.question30_3,
@@ -233,10 +233,10 @@ class AnswerModel {
       question29_2: json['question29_2'],
       question29_3: json['question29_3'],
       question29_4: json['question29_4'],
-      qustion29_1_1: json['qustion29_1_1'],
-      qustion29_1_2: json['qustion29_1_2'],
-      qustion29_1_3: json['qustion29_1_3'],
-      qustion29_1_4: json['qustion29_1_4'],
+      question29_1_1: json['question29_1_1'],
+      question29_1_2: json['question29_1_2'],
+      question29_1_3: json['question29_1_3'],
+      question29_1_4: json['question29_1_4'],
       question30_1: json['question30_1'],
       question30_2: json['question30_2'],
       question30_3: json['question30_3'],
@@ -324,10 +324,10 @@ class AnswerModel {
       'question29_2': question29_2,
       'question29_3': question29_3,
       'question29_4': question29_4,
-      'qustion29_1_1': qustion29_1_1,
-      'qustion29_1_2': qustion29_1_2,
-      'qustion29_1_3': qustion29_1_3,
-      'qustion29_1_4': qustion29_1_4,
+      'question29_1_1': question29_1_1,
+      'question29_1_2': question29_1_2,
+      'question29_1_3': question29_1_3,
+      'question29_1_4': question29_1_4,
       'question30_1': question30_1,
       'question30_2': question30_2,
       'question30_3': question30_3,

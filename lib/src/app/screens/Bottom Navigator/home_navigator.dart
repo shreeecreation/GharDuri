@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ghardhuri/src/app/screens/Draft/draft_screen.dart';
 import 'package:ghardhuri/src/app/screens/Profile/profile.dart';
+import 'package:ghardhuri/src/app/screens/Questions/domain/questions_domain.dart';
 import 'package:ghardhuri/src/app/screens/Questions/questions.dart';
 import 'package:ghardhuri/src/core/TextController/text_controller.dart';
 import 'package:ghardhuri/src/core/themes/appcolors.dart';
@@ -23,6 +24,13 @@ class _HomeNavigatorState extends State<HomeNavigator> {
     setState(() {
       if (index == 1) {
         TextControllers.clearAll();
+        QuestionsDomain.clearAllValue();
+
+      }
+        if (index == 2) {
+        TextControllers.clearAll();
+        QuestionsDomain.clearAllValue();
+
       }
       _selectedIndex = index;
     });

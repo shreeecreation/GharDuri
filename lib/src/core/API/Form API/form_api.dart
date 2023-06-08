@@ -32,6 +32,7 @@ class FormAPI {
         QuestionsDomain.qusetion15Lists.clear();
         QuestionsDomain.qusetion33List.clear();
         TextControllers.clearAll();
+        QuestionsDomain.clearAllValue();
         Get.offAll(const HomeNavigator());
         return response;
       } else if (code == 400) {

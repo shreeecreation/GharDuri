@@ -7,7 +7,7 @@ import 'package:ghardhuri/src/core/themes/appstyles.dart';
 class Question2 extends QuestionModel {
   int answerIndex = 0;
   int answerIndex1 = 0;
-  List<String> secondquestionOption = const ["हिन्दु धर्म", "बुद्द धर्म", "किराँत धर्म", "इसाई धर्म"];
+  List<String> secondquestionOption = const ["हिन्दु धर्म", "बुद्द धर्म", "किराँत धर्म", "इसाई धर्म", "इस्लाम धर्म", "अन्य"];
   Question2({String questionName = '२.१ जाति', List<String> questionOption = const ["दलित", "जनजाती", "अन्य"]}) : super(questionName, questionOption);
 }
 

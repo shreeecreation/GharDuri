@@ -79,7 +79,7 @@ class _Question30CardState extends State<Question30Card> {
                   onChanged: (isChecked) {
                     setState(() {
                       if (!isChecked) {
-                        QuestionsDomain.setAnswer30_1(index);
+                        QuestionsDomain.setAnswer30_2(index);
 
                         selectedOption1 = option;
                         question.answerIndex = index;
@@ -102,7 +102,7 @@ class _Question30CardState extends State<Question30Card> {
                   onChanged: (isChecked) {
                     setState(() {
                       if (!isChecked) {
-                        QuestionsDomain.setAnswer30_1(index);
+                        QuestionsDomain.setAnswer30_3(index);
                         selectedOption2 = option;
                         question.answerIndex = index;
                       } else {
@@ -124,7 +124,7 @@ class _Question30CardState extends State<Question30Card> {
                   onChanged: (isChecked) {
                     setState(() {
                       if (!isChecked) {
-                        QuestionsDomain.setAnswer30_1(index);
+                        QuestionsDomain.setAnswer30_4(index);
 
                         selectedOption3 = option;
                         question.answerIndex = index;

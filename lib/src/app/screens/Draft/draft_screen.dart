@@ -3,7 +3,6 @@ import 'dart:convert';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:ghardhuri/src/core/API/Auth/setward.dart';
-import 'package:ghardhuri/src/core/API/Form%20API/form_api.dart';
 import 'package:ghardhuri/src/core/Dialog%20Boxes/auth/logindialog.dart';
 import 'package:ghardhuri/src/core/Save%20as%20Draft/saveasdraft.dart';
 import 'package:ghardhuri/src/core/extensions/colors_extension.dart';
@@ -18,40 +17,42 @@ class DraftScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Column(
-        // mainAxisAlignment: MainAxisAlignment.start,
-        children: [
-          const SizedBox(height: 60),
-          // searchFilter(context),
-          const SizedBox(height: 15),
-          Container(
-              decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), offset: const Offset(0, 2), blurRadius: 2)]),
-              child: const Divider(color: AppColors.primary, thickness: 1.5)),
-          const SizedBox(height: 15),
-          Center(
-            child: Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
-              const SizedBox(width: 5),
-              SizedBox(
-                  width: MediaQuery.of(context).size.width / 5.5,
-                  child: Text("परिवार क्र.सं", textAlign: TextAlign.center, style: AppStyles.text14PxBold.primary)),
-              SizedBox(
-                  width: MediaQuery.of(context).size.width / 6,
-                  child: Text("वार्ड  नं", textAlign: TextAlign.center, style: AppStyles.text14PxBold.primary)),
-              SizedBox(
-                  width: MediaQuery.of(context).size.width / 3.5,
-                  child: Text("घरमुलिको नाम", textAlign: TextAlign.center, style: AppStyles.text14PxBold.primary)),
-            ]),
-          ),
-          const SizedBox(height: 15),
-          BlocBuilder<DeletedraftBloc, DeletedraftState>(
-            builder: (context, state) {
-              if (state is DraftDeleteState) {
-                return builder();
-              }
-              return builder();
-            },
-          ),
-        ],
+      body: SingleChildScrollView(
+        child: Column(
+          // mainAxisAlignment: MainAxisAlignment.start,
+          children: [
+            const SizedBox(height: 60),
+            // searchFilter(context),
+            const SizedBox(height: 15),
+            Container(
+                decoration: BoxDecoration(boxShadow: [BoxShadow(color: Colors.grey.withOpacity(0.2), offset: const Offset(0, 2), blurRadius: 2)]),
+                child: const Divider(color: AppColors.primary, thickness: 1.5)),
+            const SizedBox(height: 15),
+            Center(
+              child: Row(mainAxisAlignment: MainAxisAlignment.start, crossAxisAlignment: CrossAxisAlignment.center, children: [
+                const SizedBox(width: 5),
+                SizedBox(
+                    width: MediaQuery.of(context).size.width / 5.5,
+                    child: Text("परिवार क्र.सं", textAlign: TextAlign.center, style: AppStyles.text14PxBold.primary)),
+                SizedBox(
+                    width: MediaQuery.of(context).size.width / 6,
+                    child: Text("वार्ड  नं", textAlign: TextAlign.center, style: AppStyles.text14PxBold.primary)),
+                SizedBox(
+                    width: MediaQuery.of(context).size.width / 3.5,
+                    child: Text("घरमुलिको नाम", textAlign: TextAlign.center, style: AppStyles.text14PxBold.primary)),
+              ]),
+            ),
+            const SizedBox(height: 15),
+            BlocBuilder<DeletedraftBloc, DeletedraftState>(
+              builder: (context, state) {
+                if (state is DraftDeleteState) {
+                  return SingleChildScrollView(child: builder());
+                }
+                return SingleChildScrollView(child: builder());
+              },
+            ),
+          ],
+        ),
       ),
     );
   }
@@ -67,6 +68,7 @@ class DraftScreen extends StatelessWidget {
 
           if (jsonPrefs.isNotEmpty) {
             return ListView.builder(
+              physics: const NeverScrollableScrollPhysics(),
               padding: const EdgeInsets.only(top: 0), // ,
               shrinkWrap: true,
               itemCount: jsonPrefs.length,
@@ -245,7 +247,6 @@ Widget component(context, family, name, ward, cookie) {
 
                                 LoginDialog.askDraftSave(allJsonPrefs, cookie, family, context, jsonBody);
                                 // final response = await FormAPI.formDraftAPI(jsonBody, cookie, family, context);
-                           
                               },
                               icon: const Icon(Icons.done),
                               color: const Color(0xFF34A853),
